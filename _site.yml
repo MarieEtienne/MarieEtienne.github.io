@@ -1,0 +1,33 @@
+name: "Statistique pour l'halieutique"
+output_dir: "docs"
+navbar:
+  logo:
+  title: 'Marie-Pierre Etienne'
+  left:
+  - text: "Bio "
+    icon: fa-child
+    menu:
+      - text: "Biography"
+        href: index.html
+  - text: "dépôt github"
+    icon: fa-github
+    href: https://github.com/MarieEtienne
+  right:
+  - text: "Teaching"
+    href: teaching.html
+    icon: fa-adjust
+    menu:
+      - text: "Astredhor"
+        href: astredhor.html
+  - text: "Publications"
+    href: publications.html
+    icon: fa-adjust
+
+     
+      
+output:
+  html_document:
+    theme: lumen
+    highlight: haddock
+
+    

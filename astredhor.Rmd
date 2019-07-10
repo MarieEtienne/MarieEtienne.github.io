@@ -1,0 +1,31 @@
+---
+title: "Teaching materials"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+## Formations
+
+* Astredhor Avril 2019
+      - [Astredhor Part1](formation/astredhor_part1.pdf)
+      - [Astredhor Part2](formation/astredhor_part2.pdf)
+      - [Astredhor script_R complet](formation/astredhor_script.R)
+
+## Datasets
+
+* [Intima Media](datasets/Intima_Media.txt)
+* [Biomass diversity](datasets/Biomass_diversity.csv)
+* [SamaresEq](datasets/SamaresEq.txt)
+* [SamaresEq_disp](datasets/SamaresEq_disp.csv)
+* [Pollen](datasets/ss700.csv)

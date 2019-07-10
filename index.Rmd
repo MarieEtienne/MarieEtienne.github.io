@@ -1,0 +1,33 @@
+---
+title: "Marie-Pierre Etienne"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+
+This website is a first minimal version of my personal website. Everything is expected to go through major changes in the coming months. 
+
+## Current position 
+
+Marie-Pierre Etienne is assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology.
+
+On this website, you will find teaching materials and some information on my research. 
+
+## Previous Positions
+
+* Assistant Professor in [Agroparistech](http://agroparistech.fr)
+* Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)
+* Teaching assistant in Unversité d'Evry Val d'Essonne
+* PhD student in [Unversité de Lorraine, IECL](www.iecl.univ-lorraine.fr/)
