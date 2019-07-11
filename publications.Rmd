@@ -14,5 +14,64 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-You can find my publications on my [Google Scholar Profil](https://scholar.google.fr/citations?user=oGxlGTwAAAAJ&hl=en)
 
+
+
+You can find the extensive list of my publications on my [Google Scholar Profil](https://scholar.google.fr/citations?user=oGxlGTwAAAAJ&hl=en)
+
+## 2018  
+
+- Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne,  Stéphane Robin, Grégory Genta-Jouve  [A variable selection approach in the multivariate
+linear model: an application to LC-MS
+metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistical Applications in Genetics and Molecular Biology*.
+
+- Rocio Joo, Marie-Pierre Etienne, Nicolas Bez,  Stéphanie Mahévas  
+[Metrics for describing dyadic movement: a review](MesPapiers/2018_Joo+MovemenetEcology.pdf) *Movement Ecology*
+
+- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURA]SIP.pdf).*EURASIP Journal on Advances in Signal Processing*
+
+## 2017
+
+- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Stochastic differential equation based on a multimodal potential to model movement data in ecology](MesPapiers/2017_Gloaguen+JRSSC.pdf). *JRSSC*
+
+- Thomas Denis, Cécile Richard-Hansen, Olivier Brunaux, Marie-Pierre Etienne, , Stéphane Guitet, Bruno Herault [Biological traits, rather than environment, shape detection curves of large vertebrates in neotropical rainforests]()*Ecological Applications*
+
+## 2016
+
+- Mia Wege, Marie-Pierre Etienne,  W. Chris Oosthuizen, Ryan R. Reisinger, Marthán N. Bester, P. J. Nico De Bruyn [Trend changes in sympatric Subantarctic and Antarctic fur seal pup populations at Marion Island, Southern Ocean](MesPapiers/2016_Wege+MarineMammalScience.pdf).*Marine Mammal science*
+
+- Nicolas C. Friggens, Christine Duvaux-Ponter, Marie-Pierre Etienne, Tristan Mary-Huard, Philippe Schmidely.  [Characterizing individual differences in animal responses to a nutritional challenge: Toward improved robustness measures](MesPapiers/2016_Friggens+JDS.pdf)*journal of Diary Science*.
+
+## 2015
+
+- Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf ). *Geoderma.*
+
+## 2014
+
+- Pierre Gloaguen, Stéphanie Mahévas, Etienne Rivot, Mathieu Woillez, Jérôme Guitton, Youen Vermard, Marie-Pierre Etienne. [An autoregressive model to describe fishing vessel movement and activity](MesPapiers/2014_Gloaguen+Environmetrics.pdf). *Environmetrics*.
+
+- Olivier Gimenez, Stephen T. Buckland, Byron J. T. Morga, Nicolas Bez, Sophie Bertrand, Rémi Choquet, Stéphane Dray, Marie-Pierre Etienne, Rachel Fewster, Frédéric Gosselin, Bastien Mérigot, Pascal Monestiez,  Juan M. Morales, Frédéric Mortier, François Munoz, Otso Ovaskainen,
+Sandrine Pavoine, Roger Pradel, Frank M. Schurr, Len Thomas, Wilfried Thuiller, Verena Trenkel,Perry de Valpine , Eric Rexstad. [Statistical ecology comes of age](MesPapiers/2014_Gimenez+BiologyLetters.pdf). *Biology Letters*
+
+
+
+## Before 2013
+
+- 2013. Jean-Baptiste Lecomte, Hugues P. Benoît, Sophie Ancele,  Marie-Pierre Etienne, Liliane Bel, Eric Parent.[Compound Poisson-gamma vs. delta-gamma to handle zero-inflated continuous data under a variable sampling volume](2013_Lecomte+Methods_in_Ecology_and_Evolution.pdf). *Methods in Ecology and Evolution*
+
+- 2013. Jean-Baptiste Lecomte, Hugues P. Benoît, Marie-Pierre Etienne, Liliane  Bel, Eric Parent.[Modeling the habitat associations and spatial distribution of benthic
+macroinvertebrates: A hierarchical Bayesian model for zero-inflated
+biomass data](MesPapiers/2013_Lecomte+EcologicalModelling.pdf). *Ecological Modelling*
+
+- 2012. Maximilien Simon, Jean-Marc Fromentin, Sylvain Bonhommeau, Daniel Gaertner, Jon Brodziak, Marie-Pierre Etienne [Effects of Stochasticity in Early Life History on Steepness and Population Growth Rate Estimates: An Illustration on Atlantic Bluefin Tuna](MesPapiers/2012_Simon+PlosOne.pdf). *Plos One*
+
+- 2011. J. Matias Braccini, Marie-Pierre Etienne,  Steve . J. D. Martell. [Subjective judgement in data subsetting: implications for CPUE standardisation and stock assessment of non-target chondrichthyans](MesPapiers/2011_Braccini+Marine_and_Freshwater_Research.pdf). *Marine and Freshwater Research*
+
+
+- 2010. Sophie Ancelet, Marie-Pierre Etienne, Hugues Benoît, Eric Parent. [Modelling spatial zero-inflated continuous data with an exponentially compound Poisson process](MesPapiers/2010_Ancelet+ESS.pdf).*Environmental and Ecological Statistics*
+
+- 2009. Sarah Groc, Jérôme Orivel, Alain Dejean, Jean-Michel Martin, Marie-Pierre Etienne, Bruno Corbara, Jacques H. C. Delabie.[Baseline study of the leaf-litter ant fauna in a French Guianese forest](MesPapiers/2009_Groc+icad.pdf). *Insect Conservation and Diversity*
+
+- 2004. Marie-Pierre Etienne, Pierre Vallois [Approximation of the Distribution of the Supremum of a Centered Random Walk. Application to the Local Score](MesPapiers/2004_Etienne+MCAP.pdf). *Methodology and Computing in Applied Probability*
+
+- 2003. Jean-Jacques Daudin, Marie-Pierre Etienne, Pierre Vallois. [Asymptotic behavior of the local score of independent and identically distributed random sequences](MesPapiers/2003_Daudin+SPA.pdf). *Stochastic Processes and their Applications*
