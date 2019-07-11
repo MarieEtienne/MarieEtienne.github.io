@@ -44,7 +44,7 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 
 ## 2015
 
-- Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf ). *Geoderma.*
+- Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf). *Geoderma.*
 
 ## 2014
 
