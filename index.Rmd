@@ -17,17 +17,54 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
+<img src="img/mpe.gif" alt="mpe" align="right"> </img>
+  
+  
 This website is a first minimal version of my personal website. Everything is expected to go through major changes in the coming months. 
 
-## Current position 
+  
 
-Marie-Pierre Etienne is assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology.
+  
+I'm  assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology.
+  
+
+
+
 
 On this website, you will find teaching materials and some information on my research. 
 
+## Research Interests
+
+I am mainly interested in the use of stochastic processes to model and infer biological processes, particularly ecological processes. 
+
+Recently I focused mainly on movement ecology application and the development of statistical methods to extract knowledge from the study of animals, but also fishing vessels movement. 
+
+### Statistical methods
+
+-  **Segmentation**. Developping model to infer underlying activities based on the observation of the movement. This research relies on Hidden Marko Model for movement and change point detection method.
+
+
+- **Stochastic differential equations**. SDE is an appealing probabilistic object to represent movement because of the continuous time and continuous space formuation of the model and a nice, but probably questionable, MArkov property. 
+
+- Spatial Zero inflated data
+
+
+### Statistical methods
+  
+
+### Applications
+
+
+
+## Overview of teaching
+
+
 ## Previous Positions
 
-* Assistant Professor in [Agroparistech](http://agroparistech.fr)
-* Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)
-* Teaching assistant in Unversité d'Evry Val d'Essonne
-* PhD student in [Unversité de Lorraine, IECL](www.iecl.univ-lorraine.fr/)
+- Assistant Professor in [Agroparistech](http://agroparistech.fr) 2004 -2017
+
+- Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)2009-2010.
+
+- Teaching assistant in Unversité d'Evry Val d'Essonne 2002-2004.
+
+- PhD student in [Unversité de Lorraine, IECL](www.iecl.univ-lorraine.fr/) 1999 - 2002

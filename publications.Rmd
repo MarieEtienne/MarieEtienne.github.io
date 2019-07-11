@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-You can find the extensive list of my publications on my [Google Scholar Profil](https://scholar.google.fr/citations?user=oGxlGTwAAAAJ&hl=en)
+You can find the extensive list of my publications on my [Google Scholar Profil](https://scholar.google.fr/citations?user=oGxlGTwAAAAJ&hl=en). The pdf of most of them are available below.
 
 ## 2018  
 
@@ -40,22 +40,17 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 
 - Mia Wege, Marie-Pierre Etienne,  W. Chris Oosthuizen, Ryan R. Reisinger, Marthán N. Bester, P. J. Nico De Bruyn [Trend changes in sympatric Subantarctic and Antarctic fur seal pup populations at Marion Island, Southern Ocean](MesPapiers/2016_Wege+MarineMammalScience.pdf).*Marine Mammal science*
 
-- Nicolas C. Friggens, Christine Duvaux-Ponter, Marie-Pierre Etienne, Tristan Mary-Huard, Philippe Schmidely.  [Characterizing individual differences in animal responses to a nutritional challenge: Toward improved robustness measures](MesPapiers/2016_Friggens+JDS.pdf)*journal of Diary Science*.
+- Nicolas C. Friggens, Christine Duvaux-Ponter, Marie-Pierre Etienne, Tristan Mary-Huard, Philippe Schmidely.  [Characterizing individual differences in animal responses to a nutritional challenge: Toward improved robustness measures](MesPapiers/2016_Friggens+JDS.pdf). *Journal of Diary Science*
 
-## 2015
+## Before 2015
 
-- Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf). *Geoderma.*
+- 2015. Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf). *Geoderma*.
 
-## 2014
+- 2014. Pierre Gloaguen, Stéphanie Mahévas, Etienne Rivot, Mathieu Woillez, Jérôme Guitton, Youen Vermard, Marie-Pierre Etienne. [An autoregressive model to describe fishing vessel movement and activity](MesPapiers/2014_Gloaguen+Environmetrics.pdf). *Environmetrics*.
 
-- Pierre Gloaguen, Stéphanie Mahévas, Etienne Rivot, Mathieu Woillez, Jérôme Guitton, Youen Vermard, Marie-Pierre Etienne. [An autoregressive model to describe fishing vessel movement and activity](MesPapiers/2014_Gloaguen+Environmetrics.pdf). *Environmetrics*.
-
-- Olivier Gimenez, Stephen T. Buckland, Byron J. T. Morga, Nicolas Bez, Sophie Bertrand, Rémi Choquet, Stéphane Dray, Marie-Pierre Etienne, Rachel Fewster, Frédéric Gosselin, Bastien Mérigot, Pascal Monestiez,  Juan M. Morales, Frédéric Mortier, François Munoz, Otso Ovaskainen,
+- 2014. Olivier Gimenez, Stephen T. Buckland, Byron J. T. Morga, Nicolas Bez, Sophie Bertrand, Rémi Choquet, Stéphane Dray, Marie-Pierre Etienne, Rachel Fewster, Frédéric Gosselin, Bastien Mérigot, Pascal Monestiez,  Juan M. Morales, Frédéric Mortier, François Munoz, Otso Ovaskainen,
 Sandrine Pavoine, Roger Pradel, Frank M. Schurr, Len Thomas, Wilfried Thuiller, Verena Trenkel,Perry de Valpine , Eric Rexstad. [Statistical ecology comes of age](MesPapiers/2014_Gimenez+BiologyLetters.pdf). *Biology Letters*
 
-
-
-## Before 2013
 
 - 2013. Jean-Baptiste Lecomte, Hugues P. Benoît, Sophie Ancele,  Marie-Pierre Etienne, Liliane Bel, Eric Parent.[Compound Poisson-gamma vs. delta-gamma to handle zero-inflated continuous data under a variable sampling volume](2013_Lecomte+Methods_in_Ecology_and_Evolution.pdf). *Methods in Ecology and Evolution*
 
