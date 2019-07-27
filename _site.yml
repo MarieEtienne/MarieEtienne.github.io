@@ -1,7 +1,7 @@
 name: "Statistique pour l'halieutique"
 output_dir: "."
 navbar:
-  logo:
+  logo: LogoAgrocampusOuest.jpg
   title: 'Marie-Pierre Etienne'
   left:
   - text: "Bio "
@@ -12,16 +12,22 @@ navbar:
   - text: "dépôt github"
     icon: fa-github
     href: https://github.com/MarieEtienne
+  - text: "News"
+    href: news.html
+    icon: fa-commenting  
   right:
   - text: "Teaching"
     href: teaching.html
-    icon: fa-adjust
+    icon: fa-laptop
     menu:
       - text: "Astredhor"
         href: astredhor.html
   - text: "Publications"
     href: publications.html
-    icon: fa-adjust
+    icon: fa-file-text-o
+  - text: "Talks"
+    href: talks.html
+    icon: fa-comment-o 
 
      
       

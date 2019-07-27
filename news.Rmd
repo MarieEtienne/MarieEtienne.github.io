@@ -1,0 +1,19 @@
+---
+title: "News"
+output: 
+  html_document:
+   toc: false
+   toc_float: false
+   number_sections: false
+   highlight: tango
+   css: style.css
+   includes:
+     after_body: extLogo.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- July, 2019 : The next edition will take place in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) in March, 23rd, 24th 2020. This will be followed by the annual meeting of the [GdR Ecostat](https://sites.google.com/site/gdrecostat/) at the same place.
+ 
