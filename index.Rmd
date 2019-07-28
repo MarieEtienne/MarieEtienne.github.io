@@ -75,14 +75,4 @@ I have different teaching activities. I am involved in the basic statistic cours
 
 I am responsible of the course of statistical modelling for the PhD students registered in the EGAAL program.
 
-I also teach R and statistics during continuing education sessions. Please visit the [continuing education website](https://dsr-rennes.github.io/) of  my lab and d'ont hesitate to contact me for special request.
-
-## Previous Positions
-
-- Assistant Professor in [Agroparistech](http://agroparistech.fr) 2004 -2017
-
-- Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)2009-2010.
-
-- Teaching assistant in Unversité d'Evry Val d'Essonne 2002-2004.
-
-- PhD student in [Unversité de Lorraine, IECL](www.iecl.univ-lorraine.fr/) 1999 - 2002
+I also teach R and statistics during continuing education sessions. Please visit the [continuing education website](https://dsr-rennes.github.io/) of  my lab and don't hesitate to contact me for special request.

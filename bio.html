@@ -11,7 +11,7 @@
 
 
 
-<title>Teaching materials</title>
+<title>Biography</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
 <script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
@@ -156,101 +153,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -325,33 +227,31 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Teaching materials</h1>
+<h1 class="title toc-ignore">Biography</h1>
 
 </div>
 
 
-<div id="formations" class="section level2">
-<h2>Formations</h2>
+<p>Since 2017 : Assistant Professor in <a href="http://www.agrocampus-ouest.fr">Agrocampus Ouest</a></p>
+<div id="previous-positions" class="section level2">
+<h2>Previous Positions</h2>
 <ul>
-<li>Astredohr Avril 2019</li>
-<li><a href="formation/astredohr_part1.pdf">Astredohr Part1</a></li>
+<li><p>2004-2017: Assistant Professor in <a href="http://agroparistech.fr">Agroparistech</a></p></li>
+<li><p>2009-2010: Visiting researcher in <a href="http://oceans.ubc.ca/">UBC, Fisheries Center</a></p></li>
+<li><p>2002-2004: Teaching assistant in Unversité d’Evry Val d’Essonne.</p></li>
 </ul>
 </div>
-<div id="datasets" class="section level2">
-<h2>Datasets</h2>
+<div id="education" class="section level2">
+<h2>Education</h2>
 <ul>
-<li><a href="datasets/Intima_Media.txt">Intima Media</a></li>
-<li><a href="datsets/Biomass_diversity.csv">Biomass diversity</a></li>
-<li><a href="datasets/SamaresEq.txt">SamaresEq</a></li>
-<li><a href="datasets/SamaresEq_disp.csv">SamaresEq_disp</a></li>
-<li><a href="ss700.csv">Pollen</a></li>
+<li><p>2002: PhD at Université de Nancy Lorraine. <a href="MesPapiers/2002_Etienne.these.pdf"><em>Le score local un outil pour l’analyse de séquence biologique</em></a></p></li>
+<li><p>1999: Master Degree in Mathematics at Université de Nancy Lorraine Previous Positions</p></li>
 </ul>
 </div>
 
+<div class="logos"><img src="LogoAgrocampusOuest.jpg" width="180px" align="right"></div>
 
 
-</div>
-</div>
 
 </div>
 
