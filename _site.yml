@@ -6,10 +6,8 @@ navbar:
   left:
   - text: "Bio "
     icon: fa-child
-    menu:
-      - text: "Biography"
-        href: index.html
-  - text: "dépôt github"
+    href: bio.html
+  - text: "Github"
     icon: fa-github
     href: https://github.com/MarieEtienne
   - text: "News"

@@ -1,0 +1,32 @@
+---
+title: "Biography"
+output: 
+  html_document:
+   toc: false
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+   includes:
+     after_body: extLogo.html
+---
+
+
+Since 2017 :  Assistant Professor in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) 
+
+  
+## Previous Positions
+
+- 2004-2017: Assistant Professor in [Agroparistech](http://agroparistech.fr) 
+
+- 2009-2010: Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)
+
+- 2002-2004: Teaching assistant in Unversité d'Evry Val d'Essonne.
+
+
+## Education
+
+- 2002: PhD at Université de Nancy Lorraine. [*Le score local un outil pour l'analyse de séquence biologique* ](MesPapiers/2002_Etienne.these.pdf)
+
+- 1999: Master Degree in Mathematics at Université de Nancy Lorraine
+Previous Positions
