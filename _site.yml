@@ -20,6 +20,8 @@ navbar:
     menu:
       - text: "Astredhor"
         href: astredhor.html
+      - text: "Statistique pour l'Halieutique"
+        href: https://marieetienne.github.io/CoursHalieut/
   - text: "Publications"
     href: publications.html
     icon: fa-file-text-o
