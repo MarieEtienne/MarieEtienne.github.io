@@ -11,12 +11,11 @@ output:
 
 
 
-Since 2017 :  Assistant Professor in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) 
-
+Since 2017 :  Assistant Professor in <a href='http://www.agrocampus-ouest.fr'> <img "hspace="5" src="LogoAgrocampusOuest.jpg" alt='logoACO' width="80" ></img></a>
   
 ## Previous Positions
 
-- 2004-2017: Assistant Professor in [Agroparistech](http://agroparistech.fr) <a href='http://www.agroparistech.fr'> <img src="img/AgroParisTech-logo.PNG" alt='logoAPT' align='right' width="100" ></img></a>
+- 2004-2017: Assistant Professor in  <a href='http://www.agroparistech.fr'> <img  "hspace="5" src="img/AgroParisTech-logo.PNG" alt='logoAPT' width="100" ></img></a>
 
 
 - 2009-2010: Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)

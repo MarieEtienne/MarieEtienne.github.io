@@ -29,6 +29,7 @@ A nice IDE is always useful, please consider using   <a href='https://www.rstudi
 
 
 Why is R so great ?
+
 - Because it's reasonnably easy
 - Because most new statistical methods are available on R
 - Because of active R communnity: many open-source online help and many exmaples
@@ -37,7 +38,7 @@ Here are some of my last discories or my favorite ones
 
 ## About R and RStudio:
 - [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
-- [getting started with R](https://www.middleprofessor.com/files/lab/getting_started_with_r)
+- [Getting started with R](https://www.middleprofessor.com/files/lab/getting_started_with_r)
 
 Some are even in French
 - [Prise en main de R et RStudio](http://beginr.u-bordeaux.fr/part1-prise_en_main_R.html)
