@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -19,13 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -59,9 +56,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -86,6 +81,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -100,7 +98,6 @@ body {
   padding-top: 59px;
   margin-top: -59px;
 }
-
 .section h2 {
   padding-top: 59px;
   margin-top: -59px;
@@ -120,6 +117,43 @@ body {
 .section h6 {
   padding-top: 59px;
   margin-top: -59px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -141,114 +175,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
 
 
-<script>
-$(document).ready(function ()  {
+</head>
 
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
+<body>
 
 
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+<div class="container-fluid main-container">
 
 
 
@@ -270,6 +263,27 @@ div.tocify {
     <span class="fa fa-child"></span>
      
     Bio 
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="fa fa-chart-area"></span>
+     
+    Research 
+  </a>
+</li>
+<li>
+  <a href="publications.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Publications
+  </a>
+</li>
+<li>
+  <a href="talks.html">
+    <span class="fa fa-comment-o"></span>
+     
+    Talks
   </a>
 </li>
 <li>
@@ -298,26 +312,15 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="students.html">Useful for students</a>
+    </li>
+    <li>
       <a href="astredhor.html">Astredhor</a>
     </li>
     <li>
       <a href="https://marieetienne.github.io/CoursHalieut/">Statistique pour l'Halieutique</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="publications.html">
-    <span class="fa fa-file-text-o"></span>
-     
-    Publications
-  </a>
-</li>
-<li>
-  <a href="talks.html">
-    <span class="fa fa-comment-o"></span>
-     
-    Talks
-  </a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -333,49 +336,21 @@ div.tocify {
 </div>
 
 
-<p><img src="img/mpe.gif" alt="mpe" align="right"> </img></p>
-<p>I’m assistant Professor in <a href="https://www.agrocampus-ouest.fr/">Agrocampus Ouest</a> and specialized in the development of statistical methods for ecology.</p>
-<p>On this website, you will find teaching materials and some information on my research.</p>
-<div id="research-interests" class="section level2">
-<h2>Research Interests</h2>
-<p>I am mainly interested in the use of stochastic processes to model and infer biological processes, particularly ecological processes.</p>
-<p>Recently I focused mainly on movement ecology application and the development of statistical methods to extract knowledge from the study of animals, but also fishing vessels movement.</p>
-<div id="statistical-methods" class="section level3">
-<h3>Statistical methods</h3>
+<p><img src="img/mpe.gif" alt="mpe" width = "280px" align="right"> </img></p>
+<p>Assistant Professor in <a href="https://www.agrocampus-ouest.fr/">Agrocampus Ouest</a> and specialized in the development of statistical methods for ecology, I enjoy working with people from different background: statisticians, ecologists, fisheries scientists, … You will find more details on the reseacrh section.</p>
+<p>As assistant professor, I spend some time at teaching to students and professionnals at different levels and I love that! Please visit the teaching section to find teaching materials as well as useful links. I also teach R and statistics during continuing education sessions. Please visit the <a href="https://dsr-rennes.github.io/">continuing education website</a> of my lab and don’t hesitate to contact me for special request.</p>
+<div id="contact-information" class="section level2">
+<h2>Contact information</h2>
 <ul>
-<li><p><strong>Segmentation</strong>. Developping model to infer underlying activities based on the observation of the movement. This research relies on Hidden Marko Model for movement and change point detection method.</p></li>
-<li><p><strong>Stochastic differential equations</strong>. SDE is an appealing probabilistic object to represent movement because of the continuous time and continuous space formuation of the model and a nice, but probably questionable, Markov property.</p></li>
-<li><p><strong>Spatial Zero inflated data</strong>. Abundance indices are derived from capture data where the probability of no capture is higher than expected with classical distribution. Data who present some excess of zeros are named zero inflated data. I’m interested in proposing statistical approaches to handle zero inflated data in a spatial context to build robust abundance indices.</p></li>
+<li><p><i class="fas fa-map-marker"></i> UP Mathématiques Appliquées - UMR IRMAR </br> Agrocampus Ouest, </br> 65 rue de Saint-Brieuc, CS 84215,</br> 35 042 Rennes Cedex, France</br></p></li>
+<li><p><i class="fa fa-phone"></i> +33 (0)2 23 48 58 74 -</p></li>
+<li><p><i class="fa fa-at"></i> <a href="mailto:marie-pierre.etienne@agrocampus-ouest.fr">marie-pierre [dot] etienne [at] agrocampus-ouest [dot] fr</a></p></li>
 </ul>
-</div>
-<div id="applications" class="section level3">
-<h3>Applications</h3>
-<ul>
-<li><p><strong>Fisheries</strong> I’m interested in Fisheries science and I have develop collaborations with colleagues from <a href="https://wwz.ifremer.fr/emh_eng/">Ifremer</a>, <a href="https://www6.rennes.inra.fr/ese_eng/">UMR ESE</a> and <a href="http://www.umr-marbec.fr/en/">UMR Marbec</a> to develop methods to analyze fishing vessel movement and build abundance indices in stock assesment context.</p></li>
-<li><p><strong>Animal movement ecology</strong> Developping methods for movement ecology has been one of my main focus in the last years. I am very interested at developping collaborations with ecologist to improve the existing models.</p></li>
-</ul>
-</div>
-</div>
-<div id="scientific-animation" class="section level2">
-<h2>Scientific animation</h2>
-<p>I am a founding member of the Moving2Gather group. The purpose of this group is to unite the French community around the problems of analysis in movement ecology. Its main activity is a biennial meeting, the next meeting will take place in <a href="http://www.agrocampus-ouest.fr">Agrocampus</a> in March 2020. The programs of the previous editions are avilable.</p>
-<ul>
-<li><a href="https://m2g-2017.sciencesconf.org/">2017</a></li>
-<li><a href="https://moving2gather.sciencesconf.org/">2015</a></li>
-</ul>
-</div>
-<div id="overview-of-teaching" class="section level2">
-<h2>Overview of teaching</h2>
-<p>I have different teaching activities. I am involved in the basic statistic course for the student in Agrocampus and in a Bayesian modeling course at the master level.</p>
-<p>I am responsible of the course of statistical modelling for the PhD students registered in the EGAAL program.</p>
-<p>I also teach R and statistics during continuing education sessions. Please visit the <a href="https://dsr-rennes.github.io/">continuing education website</a> of my lab and don’t hesitate to contact me for special request.</p>
 </div>
 
 <div class="logos"><img src="LogoAgrocampusOuest.jpg" width="180px" align="right"></div>
 
 
-</div>
-</div>
 
 </div>
 
@@ -391,6 +366,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

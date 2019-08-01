@@ -2,8 +2,6 @@
 title: "Marie-Pierre Etienne"
 output: 
   html_document:
-   toc: true
-   toc_float: true
    logo: LogoAgrocampusOuest.jpg
    number_sections: false
    highlight: tango
@@ -19,60 +17,35 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
-<img src="img/mpe.gif" alt="mpe" align="right"> </img>
+<img src="img/mpe.gif" alt="mpe" width = "280px" align="right"> </img>
   
   
 
   
 
   
-I'm  assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology.
+Assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology, I enjoy working with people from different background: statisticians, ecologists, fisheries scientists, ...
+You will find more details on the reseacrh section.
   
+  
+As assistant professor, I spend some time at teaching to students and professionnals at different levels and I love that! Please visit the teaching section to find teaching materials as well as useful links. I also teach R and statistics during continuing education sessions. Please visit the [continuing education website](https://dsr-rennes.github.io/) of  my lab and don't hesitate to contact me for special request.
 
-
-
-
-On this website, you will find teaching materials and some information on my research. 
-
-## Research Interests
-
-I am mainly interested in the use of stochastic processes to model and infer biological processes, particularly ecological processes. 
-
-Recently I focused mainly on movement ecology application and the development of statistical methods to extract knowledge from the study of animals, but also fishing vessels movement. 
-
-### Statistical methods
-
--  **Segmentation**. Developping model to infer underlying activities based on the observation of the movement. This research relies on Hidden Marko Model for movement and change point detection method.
-
-
-- **Stochastic differential equations**. SDE is an appealing probabilistic object to represent movement because of the continuous time and continuous space formuation of the model and a nice, but probably questionable, Markov property. 
-
-- **Spatial Zero inflated data**. Abundance indices are derived from capture data where the probability of no capture is higher than expected with classical distribution. Data who present some excess of zeros are named zero inflated data. I'm interested in proposing statistical approaches to handle zero inflated data in a spatial context to build robust abundance indices. 
-
-
-
-### Applications
-
-- **Fisheries** I'm interested in Fisheries science and I have develop collaborations with colleagues from [Ifremer](https://wwz.ifremer.fr/emh_eng/), [UMR ESE](https://www6.rennes.inra.fr/ese_eng/) and [UMR Marbec](http://www.umr-marbec.fr/en/) to develop methods to analyze fishing vessel movement and build abundance indices in stock assesment context. 
-
-- **Animal movement ecology** Developping methods for movement ecology has been one of my main focus in the last years. I am very interested at developping collaborations with ecologist to improve the existing models. 
-
-
-## Scientific animation
  
- I am a founding member of the Moving2Gather group. The purpose of this group is to unite the French community around the problems of analysis in  movement ecology. Its main activity is a biennial meeting, the next meeting will take place in [Agrocampus](http://www.agrocampus-ouest.fr) in March 2020. The programs of the previous editions are avilable.  
+  
+  
+## Contact information
+- <i class="fas fa-map-marker"></i> UP  Mathématiques Appliquées - UMR IRMAR </br>
+  Agrocampus Ouest, </br>
+  65 rue de Saint-Brieuc, CS 84215,</br>
+  35 042 Rennes Cedex, France</br>
+  
+- <i class="fa fa-phone"></i> +33 (0)2 23 48 58 74 -
 
-- [2017](https://m2g-2017.sciencesconf.org/)
-- [2015](https://moving2gather.sciencesconf.org/)
- 
+- <i class="fa fa-at"></i> <a href="mailto:marie-pierre.etienne@agrocampus-ouest.fr">marie-pierre [dot] etienne [at] agrocampus-ouest [dot] fr</a>
+
+
  
 
  
 
-## Overview of teaching
 
-I have different teaching activities. I am involved in the basic statistic course for the student in Agrocampus and in a Bayesian modeling course at the master level. 
-
-I am responsible of the course of statistical modelling for the PhD students registered in the EGAAL program.
-
-I also teach R and statistics during continuing education sessions. Please visit the [continuing education website](https://dsr-rennes.github.io/) of  my lab and don't hesitate to contact me for special request.

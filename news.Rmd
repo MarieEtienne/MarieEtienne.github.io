@@ -15,5 +15,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- July, 2019 : The next edition will take place in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) in March, 23rd, 24th 2020. This will be followed by the annual meeting of the [GdR Ecostat](https://sites.google.com/site/gdrecostat/) at the same place.
+
+
+- July 2019: The next edition will take place in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) in March, 23rd, 24th 2020. This will be followed by the annual meeting of the [GdR Ecostat](https://sites.google.com/site/gdrecostat/) at the same place.
  
+ - April 2019: The third FinistR bootcamp will take place in August 2019 in Roscoff : [finistR2019](https://stateofther.github.io/finistR2019/)

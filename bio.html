@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -20,9 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -56,9 +56,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -83,6 +81,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -97,7 +98,6 @@ body {
   padding-top: 59px;
   margin-top: -59px;
 }
-
 .section h2 {
   padding-top: 59px;
   margin-top: -59px;
@@ -117,6 +117,43 @@ body {
 .section h6 {
   padding-top: 59px;
   margin-top: -59px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -138,19 +175,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -172,6 +263,27 @@ $(document).ready(function () {
     <span class="fa fa-child"></span>
      
     Bio 
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="fa fa-chart-area"></span>
+     
+    Research 
+  </a>
+</li>
+<li>
+  <a href="publications.html">
+    <span class="fa fa-file-text-o"></span>
+     
+    Publications
+  </a>
+</li>
+<li>
+  <a href="talks.html">
+    <span class="fa fa-comment-o"></span>
+     
+    Talks
   </a>
 </li>
 <li>
@@ -200,23 +312,15 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="students.html">Useful for students</a>
+    </li>
+    <li>
       <a href="astredhor.html">Astredhor</a>
     </li>
+    <li>
+      <a href="https://marieetienne.github.io/CoursHalieut/">Statistique pour l'Halieutique</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="publications.html">
-    <span class="fa fa-file-text-o"></span>
-     
-    Publications
-  </a>
-</li>
-<li>
-  <a href="talks.html">
-    <span class="fa fa-comment-o"></span>
-     
-    Talks
-  </a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -236,7 +340,7 @@ $(document).ready(function () {
 <div id="previous-positions" class="section level2">
 <h2>Previous Positions</h2>
 <ul>
-<li><p>2004-2017: Assistant Professor in <a href="http://agroparistech.fr">Agroparistech</a></p></li>
+<li><p>2004-2017: Assistant Professor in <a href="http://agroparistech.fr">Agroparistech</a> <a href='http://www.agroparistech.fr'> <img src="img/AgroParisTech-logo.PNG" alt='logoAPT' align='right' width="100" ></img></a></p></li>
 <li><p>2009-2010: Visiting researcher in <a href="http://oceans.ubc.ca/">UBC, Fisheries Center</a></p></li>
 <li><p>2002-2004: Teaching assistant in Unversité d’Evry Val d’Essonne.</p></li>
 </ul>
@@ -248,8 +352,24 @@ $(document).ready(function () {
 <li><p>1999: Master Degree in Mathematics at Université de Nancy Lorraine Previous Positions</p></li>
 </ul>
 </div>
+<div id="scientific-animation" class="section level2">
+<h2>Scientific animation</h2>
+<ul>
+<li><p>I am a founding member of the Moving2Gather group. The purpose of this group is to gather the French community involved in the development and the use of statistical methods for movement ecology. Its main activity is a biennial meeting and the next one will take place in <a href="http://www.agrocampus-ouest.fr">Agrocampus</a> in March 2020. The programs of the previous editions are available.</p>
+<ul>
+<li><a href="https://m2g-2017.sciencesconf.org/">2017</a></li>
+<li><a href="https://moving2gather.sciencesconf.org/">2015</a></li>
+</ul></li>
+<li><p>I am also deeply involved in the <a href="https://stateofther.github.io/">StateofTheR</a> group. This nice group is a place to receive and provide, in fact to exchange advices on how we should use R. As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every a one week [R bootcamp ]</p>
+<ul>
+<li><a href="https://stateofther.github.io/finistR2019/">FinistR 2019</a></li>
+<li><a href="https://stateofther.github.io/finistR2018/">FinistR 2018</a><br />
+</li>
+<li><a href="https://stateofther.github.io/finistR2017/">FinistR 2017</a></li>
+</ul></li>
+</ul>
+</div>
 
-<div class="logos"><img src="LogoAgrocampusOuest.jpg" width="180px" align="right"></div>
 
 
 
@@ -267,6 +387,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

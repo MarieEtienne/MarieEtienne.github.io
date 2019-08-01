@@ -1,0 +1,58 @@
+---
+title: "Some help for who may need it"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+
+
+
+
+
+# Resources
+
+Teaching statistics involves teaching statistical software. What is the best statistical software to my opinion (and the opinion of thousands of other), of course <a href='https://cran.r-project.org/'> <img src="img/R.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>. 
+
+A nice IDE is always useful, please consider using   <a href='https://www.rstudio.com/'> <img src="img/Rstudio.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>
+
+
+Why is R so great ?
+- Because it's reasonnably easy
+- Because most new statistical methods are available on R
+- Because of active R communnity: many open-source online help and many exmaples
+
+Here are some of my last discories or my favorite ones
+
+## About R and RStudio:
+- [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
+- [getting started with R](https://www.middleprofessor.com/files/lab/getting_started_with_r)
+
+Some are even in French
+- [Prise en main de R et RStudio](http://beginr.u-bordeaux.fr/part1-prise_en_main_R.html)
+
+
+## About RMarkdown 
+
+- [Introduction to R Markdown](https://m-clark.github.io/Introduction-to-Rmarkdown/)
+- [RMarkdown for Scientists](https://rmd4sci.njtierney.com/)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+
+## R and data science
+- [R for Data Science](https://r4ds.had.co.nz/)
+
+
+## Some inspiring plots 
+- [ggplot graph gallery](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)

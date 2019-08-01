@@ -7,9 +7,8 @@ output:
    number_sections: false
    highlight: tango
    css: style.css
-   includes:
-     after_body: extLogo.html
 ---
+
 
 
 Since 2017 :  Assistant Professor in [Agrocampus Ouest](http://www.agrocampus-ouest.fr) 
@@ -17,7 +16,8 @@ Since 2017 :  Assistant Professor in [Agrocampus Ouest](http://www.agrocampus-ou
   
 ## Previous Positions
 
-- 2004-2017: Assistant Professor in [Agroparistech](http://agroparistech.fr) 
+- 2004-2017: Assistant Professor in [Agroparistech](http://agroparistech.fr) <a href='http://www.agroparistech.fr'> <img src="img/AgroParisTech-logo.PNG" alt='logoAPT' align='right' width="100" ></img></a>
+
 
 - 2009-2010: Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)
 
@@ -30,3 +30,19 @@ Since 2017 :  Assistant Professor in [Agrocampus Ouest](http://www.agrocampus-ou
 
 - 1999: Master Degree in Mathematics at Université de Nancy Lorraine
 Previous Positions
+
+
+
+## Scientific animation
+ 
+- I am a founding member of the Moving2Gather group. The purpose of this group is to gather the French community involved in the development and the use of statistical methods for movement ecology. Its main activity is a biennial meeting and the next one will take place in [Agrocampus](http://www.agrocampus-ouest.fr) in March 2020. The programs of the previous editions are available.  
+
+    - [2017](https://m2g-2017.sciencesconf.org/)
+    - [2015](https://moving2gather.sciencesconf.org/)
+ 
+ 
+- I am also deeply involved in the [StateofTheR](https://stateofther.github.io/) group. This nice group is a place to receive and provide, in fact to exchange  advices on how we should use R.  As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every a one week [R bootcamp ]
+      
+    - [FinistR 2019](https://stateofther.github.io/finistR2019/) 
+    - [FinistR 2018](https://stateofther.github.io/finistR2018/)  
+    - [FinistR 2017](https://stateofther.github.io/finistR2017/)

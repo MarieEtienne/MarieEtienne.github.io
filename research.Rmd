@@ -1,0 +1,35 @@
+---
+title: " Research Interests"
+output: 
+  html_document:
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+I am mainly interested in the use of stochastic processes to model and infer biological processes, particularly ecological processes. 
+
+Recently I focused mainly on movement ecology application and the development of statistical methods to extract knowledge from the study of animals, but also fishing vessels movement. 
+
+### Statistical methods
+
+-  **Segmentation**. Developping model to infer underlying activities based on the observation of the movement. This research relies on Hidden Marko Model for movement and change point detection method.
+
+
+- **Stochastic differential equations**. SDE is an appealing probabilistic object to represent movement because of the continuous time and continuous space formuation of the model and a nice, but probably questionable, Markov property. 
+
+- **Spatial Zero inflated data**. Abundance indices are derived from capture data where the probability of no capture is higher than expected with classical distribution. Data who present some excess of zeros are named zero inflated data. I'm interested in proposing statistical approaches to handle zero inflated data in a spatial context to build robust abundance indices. 
+
+
+
+### Applications
+
+- **Fisheries** I'm interested in Fisheries science and I have develop collaborations with colleagues from [Ifremer](https://wwz.ifremer.fr/emh_eng/), [UMR ESE](https://www6.rennes.inra.fr/ese_eng/) and [UMR Marbec](http://www.umr-marbec.fr/en/) to develop methods to analyze fishing vessel movement and build abundance indices in stock assesment context. 
+
+- **Animal movement ecology** Developping methods for movement ecology has been one of my main focus in the last years. I am very interested at developping collaborations with ecologist to improve the existing models. 
+
