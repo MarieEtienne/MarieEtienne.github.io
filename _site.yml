@@ -9,30 +9,32 @@ navbar:
     href: bio.html
   - text: "Research "
     icon: fa-chart-area
-    href: research.html
-  - text: "Publications"
-    href: publications.html
-    icon: fa-file-text-o
-  - text: "Talks"
-    href: talks.html
-    icon: fa-comment-o 
+    menu:
+      - text: "Research interests"
+        href: research.html
+      - text: "Publications"
+        href: publications.html
+        icon: fa-file-text-o
+      - text: "Talks"
+        href: talks.html
+        icon: fa-comment-o 
+  - text: "Teaching"
+    icon: fa-laptop
+    menu:
+      - text: "Miscellanous"
+        href: misc_teaching.html
+      - text: "Agrocampus Ouest"
+        href: teaching_agrocampus.html
+      - text: "Continuing education"
+        href: astredhor.html
+  right:
   - text: "Github"
     icon: fa-github
     href: https://github.com/MarieEtienne
   - text: "News"
     href: news.html
     icon: fa-commenting  
-  right:
-  - text: "Teaching"
-    icon: fa-laptop
-    menu:
-      - text: "Useful for students"
-        href: students.html
-      - text: "Astredhor"
-        href: astredhor.html
-      - text: "Statistique pour l'Halieutique"
-        href: https://marieetienne.github.io/CoursHalieut/
-
+ 
 
      
       

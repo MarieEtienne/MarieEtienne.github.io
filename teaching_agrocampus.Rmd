@@ -1,0 +1,40 @@
+---
+title: "Teaching materials"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+
+
+## Modelisation statistique 
+
+Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation est destinée à des étudiants en thèse dans le domaine des sciences du vivant et qui souhaiterait recevoir une formation complémentaire en modélisation statistique. La formation est organisée en 2 séquences d'une semaine chacune et il est important de s'engager à participer à l'intégralité de ces deux semaines. 
+
+
+
+## Statistique pour l'halieutique
+
+Cours de statistique pour les étudiants de la spécialisation halieutique d'Agrocampus Ouest. 
+Le matériel de cours est disponible sur le site [Stat4halieutes](https://marieetienne.github.io/CoursHalieut/)
+        
+        
+
+## Datasets
+
+* [Intima Media](datasets/Intima_Media.txt)
+* [Biomass diversity](datsets/Biomass_diversity.csv)
+* [SamaresEq](datasets/SamaresEq.txt)
+* [SamaresEq_disp](datasets/SamaresEq_disp.csv)
+* [Pollen](ss700.csv)
