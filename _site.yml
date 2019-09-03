@@ -21,7 +21,7 @@ navbar:
   - text: "Teaching"
     icon: fa-laptop
     menu:
-      - text: "Miscellanous"
+      - text: "Miscellaneous"
         href: misc_teaching.html
       - text: "Agrocampus Ouest"
         href: teaching_agrocampus.html
