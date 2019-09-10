@@ -12,6 +12,7 @@ output:
 
 
 
+
 ```{r setup_teaching, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
