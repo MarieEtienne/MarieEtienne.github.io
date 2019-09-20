@@ -11,11 +11,12 @@ output:
 
 
 
-Since 2017 :  Assistant Professor in <a href='http://www.agrocampus-ouest.fr'> <img "hspace="5" src="LogoAgrocampusOuest.jpg" alt='logoACO' width="80" ></img></a>
-  
+Since 2017 :  Assistant Professor in 
+[Agrocampus Ouest](http://www.agrocampus-ouest.fr)
+
 ## Previous Positions
 
-- 2004-2017: Assistant Professor in  <a href='http://www.agroparistech.fr'> <img  "hspace="5" src="img/AgroParisTech-logo.PNG" alt='logoAPT' width="100" ></img></a>
+- 2004-2017: Assistant Professor in  [AgroParisTech](http://www.agroparistech.fr)
 
 
 - 2009-2010: Visiting researcher in [UBC, Fisheries Center](http://oceans.ubc.ca/)
@@ -40,8 +41,8 @@ Previous Positions
     - [2015](https://moving2gather.sciencesconf.org/)
  
  
-- I am also deeply involved in the [StateofTheR](https://stateofther.github.io/) group. This nice group is a place to receive and provide, in fact to exchange  advices on how we should use R.  As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every a one week [R bootcamp ]
-      
+- I am also deeply involved in the [StateofTheR](https://stateofther.github.io/) group. This nice group is a place to receive and provide, in fact to exchange  advices on how we should use R.  As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every year, a one week _R bootcamp_ :
+
     - [FinistR 2019](https://stateofther.github.io/finistR2019/) 
     - [FinistR 2018](https://stateofther.github.io/finistR2018/)  
     - [FinistR 2017](https://stateofther.github.io/finistR2017/)

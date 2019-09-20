@@ -32,7 +32,7 @@ Why is R so great ?
 
 - Because it's reasonnably easy
 - Because most new statistical methods are available on R
-- Because of active R communnity: many open-source online help and many exmaples
+- Because of active R communnity: many open-source online help and many examples
 
 Here are some of my last discories or my favorite ones
 
