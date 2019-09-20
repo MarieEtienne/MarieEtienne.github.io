@@ -163,7 +163,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -516,31 +515,32 @@ div.tocify {
 
 <div id="but" class="section level2">
 <h2>But</h2>
-<p>Ce document est un aide-mémoire pour réussir l’importation de ces données. Suivant les différentes étapes et tout devrait bien se passer. L’objectif est ici d’importer le jeu de données <a href="datasets/samares_small.xlsx">samares</a> disponible sur la page des <a href="data.html">données</a></p>
+<p>Ce document est un aide-mémoire pour réussir l’importation des données dans R. En suivant les différentes étapes, tout devrait bien se passer.</p>
+<p>L’objectif sera donc ici d’importer le jeu de données stockés dans le fichier Excel <a href="datasets/samares_small.xlsx">samares</a> disponible sur la page des <a href="data.html">données</a></p>
 </div>
-<div id="etape-1-creer-un-projet" class="section level2">
-<h2>Etape 1 : créer un projet</h2>
+<div id="etape-1.-creer-un-projet" class="section level2">
+<h2>Etape 1. Créer un projet</h2>
 <p>Rstudio proposer d’organiser son travail en projet. Le projet permet de faciliter l’accès aux différents fichiers d’un même projet. Pour créer un projet il suffit d’aller en haut à droite, dans Project comme dans la capture d’écran ci-dessous.</p>
 <p><img src="img/h_creer_nouveau_projet.png" style="width:90.0%" /></p>
-<p>Depuis un nouveau répertoire</p>
+<p>On choisit de créer le projet depuis un nouveau répertoire</p>
 <p><img src="img/h_nouveau_repertoire.png" style="width:90.0%" /></p>
-<p>pour faire un projet standard</p>
+<p>et de faire un projet standard</p>
 <p><img src="img/h_nouveau_projet.png" style="width:90.0%" /></p>
 <p>qui s’appelera Td_Stat_1 et sera placé dans le répertoire désigné</p>
 <p><img src="img/h_nom_projet.png" style="width:90.0%" /></p>
 </div>
-<div id="etape-2-aller-chercher-le-fichier" class="section level2">
-<h2>Etape 2 : Aller chercher le fichier</h2>
+<div id="etape-2.-telecharger-le-fichier" class="section level2">
+<h2>Etape 2. Télécharger le fichier</h2>
 <p>Le fichier est disponible sur la page des <a href="data.html">jeux de données</a></p>
 <p>On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu’on vient de créer précédemment.</p>
 </div>
-<div id="etape-3-dun-format-proprietaire-a-un-format-texte" class="section level2">
-<h2>Etape 3 : D’un format propriétaire à un format texte</h2>
-<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant et le sauver dans le répertoire du projet sous le nom <code>samares_small.csv'. On a donc un fichier</code>samares_small.csv’ dans le répertoire du projet.</p>
+<div id="etape-3.-dun-format-proprietaire-a-un-format-texte" class="section level2">
+<h2>Etape 3. D’un format propriétaire à un format texte</h2>
+<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv'. On a donc un fichier</code>samares_small.csv’ dans le répertoire du projet.</p>
 </div>
-<div id="etape-4-comprendre-le-format-du-fichier-de-donnees" class="section level2">
-<h2>Etape 4 : Comprendre le format du fichier de données</h2>
-<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:</p>
+<div id="etape-4.-comprendre-le-format-du-fichier-de-donnees" class="section level2">
+<h2>Etape 4. Comprendre le format du fichier de données</h2>
+<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">Données partielles,,,,,,,,,,</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</a>
@@ -567,7 +567,7 @@ div.tocify {
 <p>L’importation dans R se fait à l’aide de la commande <code>read.table</code>. On ouvre donc un nouveau script (File -&gt; New File -&gt; Rscript). En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">## le 19 septembre 2019 </span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></a></code></pre></div>
-<p>Les lignes qui commencent par <code>#</code> ne sont pas interpréter par R, elles permettent de faire des commentaires.</p>
+<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></a>
@@ -575,8 +575,8 @@ div.tocify {
 <a class="sourceLine" id="cb3-5" data-line-number="5">                  ) </a></code></pre></div>
 <p>Normalement R n’indique aucune erreur.</p>
 </div>
-<div id="etape-6-verification" class="section level2">
-<h2>Etape 6 : Vérification</h2>
+<div id="etape-6.-verifier-limportation" class="section level2">
+<h2>Etape 6. Vérifier l’importation</h2>
 <p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
 <p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(dta)</a></code></pre></div>
@@ -610,7 +610,7 @@ div.tocify {
 ## 118 0.02366862 -3.743605
 ## 119 0.02796007 -3.576978
 ## 120 0.03018327 -3.500467</code></pre>
-<p>On peut aussi demandé un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
+<p>On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">summary</span>(dta)</a></code></pre></div>
 <pre><code>##       Site         NomSite      Distance       Arbre       Poids      
 ##  Min.   :1.0   Grenou_1:60   Min.   :0.0   Min.   :1   Min.   :13.80  
@@ -633,18 +633,18 @@ div.tocify {
 ##  Mean   :0.03761   Mean   :-3.317  
 ##  3rd Qu.:0.04118   3rd Qu.:-3.190  
 ##  Max.   :0.08671   Max.   :-2.445</code></pre>
-<p>Normalement Les variables quantitatives sont résumés quantitativement par le minimuma, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurence dans chaque niveau du facteur.</p>
+<p>Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurences de chaque niveau du facteur.</p>
 <p>Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.</p>
 </div>
-<div id="etape-7-ce-qui-peut-mal-se-passer" class="section level2">
-<h2>Etape 7 : ce qui peut mal se passer</h2>
+<div id="etape-7.-quand-ca-va-mal" class="section level2">
+<h2>Etape 7. Quand ça va mal</h2>
 <div id="si-il-ny-a-pas-de-noms-de-colonnes" class="section level3">
 <h3>Si il n’y a pas de noms de colonnes</h3>
 <p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
 </div>
 <div id="les-differents-types-de-separateurs" class="section level3">
 <h3>Les différents types de séparateurs</h3>
-<p>Si le séparateur de colonnes alors il faut modifier l’argument <code>sep</code></p>
+<p>Si le séparateur de colonnes n’est pas la <code>,</code>, alors il faut modifier l’argument <code>sep</code></p>
 <table>
 <thead>
 <tr class="header">
@@ -672,9 +672,9 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="probleme-avec-les-varaibles-numeriques" class="section level3">
-<h3>Problème avec les varaibles numériques</h3>
-<p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention interbnationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
+<div id="probleme-possible-avec-les-variables-numeriques" class="section level3">
+<h3>Problème possible avec les variables numériques</h3>
+<p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention internationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></a>

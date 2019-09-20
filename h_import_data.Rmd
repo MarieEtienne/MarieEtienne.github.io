@@ -17,21 +17,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## But
 
-Ce document est un aide-mémoire pour réussir l'importation de ces données. Suivant les différentes étapes et tout devrait bien se passer.
-L'objectif est ici d'importer le jeu de données [samares](datasets/samares_small.xlsx) disponible sur la page des [données](data.html)
+Ce document est un aide-mémoire pour réussir l'importation des données dans R. En suivant les différentes étapes, tout devrait bien se passer.
 
-## Etape 1 : créer un projet 
+L'objectif sera donc ici d'importer le jeu de données stockés dans le fichier Excel  [samares](datasets/samares_small.xlsx) disponible sur la page des [données](data.html)
+
+## Etape 1. Créer un projet 
 
 Rstudio proposer d'organiser son travail en projet. Le projet permet de faciliter l'accès aux différents fichiers d'un même projet. 
 Pour créer un projet il suffit d'aller en haut à droite, dans Project comme dans la capture d'écran ci-dessous.
 
 ![](img/h_creer_nouveau_projet.png){ width=90% }
 
-Depuis un nouveau répertoire
+On choisit de créer le projet depuis un nouveau répertoire
 
 ![](img/h_nouveau_repertoire.png){ width=90% }
 
-pour faire un projet standard 
+et de  faire un projet standard 
 
 ![](img/h_nouveau_projet.png){ width=90% }
 
@@ -40,22 +41,22 @@ qui s'appelera Td_Stat_1 et sera placé dans le répertoire désigné
 ![](img/h_nom_projet.png){ width=90% }
 
 
-## Etape 2 : Aller chercher le fichier
+## Etape 2. Télécharger le fichier
 
 Le fichier est disponible sur la page des [jeux de données ](data.html)
 
 On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant 'Save as' ( ou 'Sauvegarder la cible du lien sous' ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu'on vient de créer précédemment.
 
 
-## Etape 3 : D'un format propriétaire à un format texte
+## Etape 3. D'un format propriétaire à un format texte
 
-Le format Excel est complexe et varie d'une plateforme à l'autre, d'une langue à l'autre .... Pour éviter les surprises, il est préférable d'exporter son fichier au format  `csv`. Dans Excel, il suffit d'aller dans le menu File puis Save as et de choisir l'extension csv dans le menu déroulant et le sauver dans le répertoire du projet  sous le nom `samares_small.csv'. On a donc un fichier `samares_small.csv' dans le répertoire du projet.
+Le format Excel est complexe et varie d'une plateforme à l'autre, d'une langue à l'autre .... Pour éviter les surprises, il est préférable d'exporter son fichier au format  `csv`. Dans Excel, il suffit d'aller dans le menu File puis Save as et de choisir l'extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet  sous le nom `samares_small.csv'. On a donc un fichier `samares_small.csv' dans le répertoire du projet.
 
 
 
-## Etape 4 :  Comprendre le format du fichier de données
+## Etape 4.  Comprendre le format du fichier de données
 
-En ouvrant le fichier `samares_small.csv' avec un éditeur de texte (notepad++ sous Windows, gedit sous Linux,  TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:
+En ouvrant le fichier `samares_small.csv' avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux,  TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:
 
 
 ```{r, eval = FALSE}
@@ -92,7 +93,7 @@ L'importation dans R se fait à l'aide  de la commande `read.table`. On ouvre do
 ```
 
 
-Les lignes qui commencent par `#` ne sont pas interpréter par R, elles permettent de faire des commentaires.
+Les lignes qui commencent par `#` ne sont pas interprétées par R, elles permettent de faire des commentaires.
 
 
 
@@ -112,7 +113,7 @@ dta <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhaio
 
 Normalement R n'indique aucune erreur.
 
-## Etape 6 : Vérification
+## Etape 6. Vérifier l'importation
 
 On doit voir apparaître dans l'onglet environnement un nouveau jeu de données `dta`. Il est indiqué qu'il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).
 
@@ -128,17 +129,17 @@ ou les dernières
 tail(dta)
 ```
 
-On peut aussi demandé un résumé du jeu de données qui va nous aider à vérifier que l'importation s'est bien déroulée.
+On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l'importation s'est bien déroulée.
 
 ```{r}
 summary(dta)
 ```
 
-Normalement Les variables quantitatives sont résumés quantitativement par le minimuma, le premier quartile, la médiane, etc .... Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d'occurence dans chaque niveau du facteur.
+Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc .... Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d'occurences de chaque niveau du facteur.
 
 Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.
 
-## Etape 7 : ce qui peut mal se passer 
+## Etape 7. Quand ça va mal
 
 ### Si il n'y a pas de noms de colonnes
 
@@ -146,7 +147,7 @@ Il suffit d'indiquer `header = FALSE`, dans ce cas les colonnes seront nommées 
 
 ### Les différents types de séparateurs
 
-Si le séparateur de colonnes  alors il faut modifier l'argument `sep`
+Si le séparateur de colonnes  n'est pas la `,`, alors il faut modifier l'argument `sep`
 
 
 |  Séparateur  	|  sep =   	|
@@ -157,9 +158,9 @@ Si le séparateur de colonnes  alors il faut modifier l'argument `sep`
 |  tab	|   sep = '\t'	|
 
 
-### Problème avec les varaibles numériques
+### Problème possible avec les variables numériques
 
-Il est possible avec une version française d'Excel, que le symbole qui code pour la décimale ne soit pas le `.` qui est la convention interbnationale mais le `,` qui est l'habitude Française. Si on ne l'indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l'argument `dec = ',' ` dans la fonction `read.table` (à n'importe quel endroit ). 
+Il est possible avec une version française d'Excel, que le symbole qui code pour la décimale ne soit pas le `.` qui est la convention internationale mais le `,` qui est l'habitude Française. Si on ne l'indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l'argument `dec = ',' ` dans la fonction `read.table` (à n'importe quel endroit ). 
 
 ```{r wrong_dec_show, eval = FALSE}
 dta_wrong <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhaiote lire
