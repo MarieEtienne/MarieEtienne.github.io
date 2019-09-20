@@ -25,19 +25,19 @@ L'objectif est ici d'importer le jeu de données [samares](datasets/samares_smal
 Rstudio proposer d'organiser son travail en projet. Le projet permet de faciliter l'accès aux différents fichiers d'un même projet. 
 Pour créer un projet il suffit d'aller en haut à droite, dans Project comme dans la capture d'écran ci-dessous.
 
-![](img/h_creer_nouveau_projet.png){ width=50% }
+![](img/h_creer_nouveau_projet.png){ width=90% }
 
 Depuis un nouveau répertoire
 
-![](img/h_nouveau_repertoire.png){ width=50% }
+![](img/h_nouveau_repertoire.png){ width=90% }
 
 pour faire un projet standard 
 
-![](img/h_nouveau_projet.png){ width=50% }
+![](img/h_nouveau_projet.png){ width=90% }
 
 qui s'appelera Td_Stat_1 et sera placé dans le répertoire désigné
 
-![](img/h_nom_projet.png){ width=50% }
+![](img/h_nom_projet.png){ width=90% }
 
 
 ## Etape 2 : Aller chercher le fichier
