@@ -32,10 +32,3 @@ Le matériel de cours est disponible sur le site [Stat4halieutes](https://mariee
         
         
 
-## Datasets
-
-* [Intima Media](datasets/Intima_Media.txt)
-* [Biomass diversity](datsets/Biomass_diversity.csv)
-* [SamaresEq](datasets/SamaresEq.txt)
-* [SamaresEq_disp](datasets/SamaresEq_disp.csv)
-* [Pollen](ss700.csv)
