@@ -1,0 +1,19 @@
+---
+title: "Different datasets I use in my teaching"
+output: 
+  html_document:
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+[Samares](datasets/samares_small.xlsx)
+
+[Biomass Diversity](datasets/Biomass_diversity.csv)

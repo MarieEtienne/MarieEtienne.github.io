@@ -27,6 +27,9 @@ navbar:
         href: teaching_agrocampus.html
       - text: "Continuing education"
         href: astredhor.html
+      - text: "Available dataset"
+        href: data.html
+        
   right:
   - text: "Github"
     icon: fa-github

@@ -34,7 +34,7 @@ Why is R so great ?
 - Because most new statistical methods are available on R
 - Because of active R communnity: many open-source online help and many exmaples
 
-Here are some of my last discories or my favorite ones
+Here are some of my last discoveries or my favorite ones
 
 ## About R and RStudio:
 - [YaRrr! The Pirate’s Guide to R](https://bookdown.org/ndphillips/YaRrr/)
@@ -57,3 +57,12 @@ Some are even in French
 
 ## Some inspiring plots 
 - [ggplot graph gallery](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)
+
+
+# For lost students
+
+You can find  tutorials on some basics with R. For the moment it is just 
+
+ - [Import Data](h_import_data.html)
+
+
