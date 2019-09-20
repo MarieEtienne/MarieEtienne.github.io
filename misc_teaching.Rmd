@@ -59,10 +59,6 @@ Some are even in French
 - [ggplot graph gallery](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)
 
 
-# For lost students
 
-You can find  tutorials on some basics with R. For the moment it is just 
-
- - [Import Data](h_import_data.html)
 
 

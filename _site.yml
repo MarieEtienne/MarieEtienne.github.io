@@ -29,6 +29,10 @@ navbar:
         href: astredhor.html
       - text: "Available dataset"
         href: data.html
+      - text: "For lost students"
+        menu:
+        - text: "Import Data"
+          href: h_import_data.html
         
   right:
   - text: "Github"
