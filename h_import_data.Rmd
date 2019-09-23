@@ -41,22 +41,39 @@ qui s'appelera Td_Stat_1 et sera placé dans le répertoire désigné
 ![](img/h_nom_projet.png){ width=90% }
 
 
-## Etape 2. Télécharger le fichier
+## Etape 2. Créer un script
+
+Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l'analyse que vous mettrez en oeuvre. 
+
+On ouvre donc un nouveau script **File -> New File -> Rscript**. 
+En haut du script, on indique la date, et le but de l'analyse en faisant précéder les débuts de lignes par des `#`.
+
+```{r, eval = FALSE}
+## le 19 septembre 2019 
+## Tutoriel pour apprendre à importer un fichier de données dans R
+```
+
+
+Les lignes qui commencent par `#` ne sont pas interprétées par R, elles permettent de faire des commentaires.
+
+
+
+## Etape 3. Télécharger le fichier
 
 Le fichier est disponible sur la page des [jeux de données ](data.html)
 
 On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant 'Save as' ( ou 'Sauvegarder la cible du lien sous' ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu'on vient de créer précédemment.
 
 
-## Etape 3. D'un format propriétaire à un format texte
+## Etape 4. D'un format propriétaire à un format texte
 
 Le format Excel est complexe et varie d'une plateforme à l'autre, d'une langue à l'autre .... Pour éviter les surprises, il est préférable d'exporter son fichier au format  `csv`. Dans Excel, il suffit d'aller dans le menu File puis Save as et de choisir l'extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet  sous le nom `samares_small.csv'. On a donc un fichier `samares_small.csv' dans le répertoire du projet.
 
 
 
-## Etape 4.  Comprendre le format du fichier de données
+## Etape 5.  Comprendre le format du fichier de données
 
-En ouvrant le fichier `samares_small.csv' avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux,  TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:
+En ouvrant le fichier `samares_small.csv' avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux,  TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :
 
 
 ```{r, eval = FALSE}
@@ -83,17 +100,8 @@ Le fichier est construit de la manière suivante
   
 Nous allons donc expliquer ceci à R.
 
-## Etape 5 :  importation dans R
+## Etape 6 :  importation dans R
 
-L'importation dans R se fait à l'aide  de la commande `read.table`. On ouvre donc un nouveau script (File -> New File -> Rscript). En haut du script, on indique la date, et le but de l'analyse en faisant précéder les débuts de lignes par des `#`.
-
-```{r, eval = FALSE}
-## le 19 septembre 2019 
-## Tutoriel pour apprendre à importer un fichier de données dans R
-```
-
-
-Les lignes qui commencent par `#` ne sont pas interprétées par R, elles permettent de faire des commentaires.
 
 
 
@@ -104,16 +112,19 @@ dta <- read.table(file = 'datasets/samares_small.csv', sep = ',', skip = 3, head
 
 
 ```{r, eval = FALSE}
-dta <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhaiote lire
+dta <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhaite lire
                   skip = 3,  ## pour dire à R d'ignorer les 3 premières lignes de commentaires
                   header = TRUE,  ## pour indiquer que les colonnes ont un nom 
-                  sep = ',' ## pour indiquer que le séparateur de collones est une virgule
+                  sep = ',' ## pour indiquer que le séparateur de colonnes est une virgule
                   ) 
 ```
 
 Normalement R n'indique aucune erreur.
 
-## Etape 6. Vérifier l'importation
+
+**On n'oublie pas de souver régulièrement le script.**
+
+## Etape 7. Vérifier l'importation
 
 On doit voir apparaître dans l'onglet environnement un nouveau jeu de données `dta`. Il est indiqué qu'il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).
 
@@ -139,9 +150,9 @@ Normalement Les variables quantitatives sont résumées quantitativement par le 
 
 Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.
 
-## Etape 7. Quand ça va mal
+## Etape 8. Quand ça va mal
 
-### Si il n'y a pas de noms de colonnes
+### S'il n'y a pas de noms de colonnes
 
 Il suffit d'indiquer `header = FALSE`, dans ce cas les colonnes seront nommées `V1`, `V2`, etc 
 
@@ -166,7 +177,7 @@ Il est possible avec une version française d'Excel, que le symbole qui code pou
 dta_wrong <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhaiote lire
                   skip = 3,  ## pour dire à R d'ignorer les 3 premières lignes de commentaires
                   header = TRUE,  ## pour indiquer que les colonnes ont un nom 
-                  sep = ',', ## pour indiquer que le séparateur de collones est une virgule
+                  sep = ',', ## pour indiquer que le séparateur de colonnes est une virgule
                   dec = ','
                   ) 
 ```
@@ -175,7 +186,7 @@ dta_wrong <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on s
 dta_wrong <- read.table(file = 'datasets/samares_small.csv', ## le nom du fichier qu'on souhaiote lire
                   skip = 3,  ## pour dire à R d'ignorer les 3 premières lignes de commentaires
                   header = TRUE,  ## pour indiquer que les colonnes ont un nom 
-                  sep = ',', ## pour indiquer que le séparateur de collones est une virgule
+                  sep = ',', ## pour indiquer que le séparateur de colonnes est une virgule
                   dec = ','
                   ) 
 ```
@@ -186,7 +197,9 @@ Ici, puisque le signe de décimal était un point `.` mais qu'on lui indique le 
 summary(dta_wrong)
 ```
 
+### Une colonne pour indiquer les noms des lignes
 
+Si un identifiant est présent pour chaque ligne, on ajoute dans la commande `read.table` l'argument `row.names=1` pour indiquer que la première colonne sert à nommer les lignes.  
 
 
 

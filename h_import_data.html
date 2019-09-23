@@ -530,31 +530,39 @@ div.tocify {
 <p>qui s’appelera Td_Stat_1 et sera placé dans le répertoire désigné</p>
 <p><img src="img/h_nom_projet.png" style="width:90.0%" /></p>
 </div>
-<div id="etape-2.-telecharger-le-fichier" class="section level2">
-<h2>Etape 2. Télécharger le fichier</h2>
+<div id="etape-2.-creer-un-script" class="section level2">
+<h2>Etape 2. Créer un script</h2>
+<p>Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l’analyse que vous mettrez en oeuvre.</p>
+<p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt; Rscript</strong>. En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">## le 19 septembre 2019 </span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></a></code></pre></div>
+<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
+</div>
+<div id="etape-3.-telecharger-le-fichier" class="section level2">
+<h2>Etape 3. Télécharger le fichier</h2>
 <p>Le fichier est disponible sur la page des <a href="data.html">jeux de données</a></p>
 <p>On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu’on vient de créer précédemment.</p>
 </div>
-<div id="etape-3.-dun-format-proprietaire-a-un-format-texte" class="section level2">
-<h2>Etape 3. D’un format propriétaire à un format texte</h2>
+<div id="etape-4.-dun-format-proprietaire-a-un-format-texte" class="section level2">
+<h2>Etape 4. D’un format propriétaire à un format texte</h2>
 <p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv'. On a donc un fichier</code>samares_small.csv’ dans le répertoire du projet.</p>
 </div>
-<div id="etape-4.-comprendre-le-format-du-fichier-de-donnees" class="section level2">
-<h2>Etape 4. Comprendre le format du fichier de données</h2>
-<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à~:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">Données partielles,,,,,,,,,,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">Site,NomSite,Distance,Arbre,Poids,Surface,Largeur,Longueur,CircArbre,dispersion,log_disp</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">16.8</span>,<span class="fl">0.83907</span>,<span class="fl">0.45758</span>,<span class="fl">2.46212</span>,<span class="dv">57</span>,<span class="fl">0.049944642857143</span>,<span class="op">-</span><span class="fl">2.99684002974653</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">25.4</span>,<span class="fl">0.80864</span>,<span class="fl">0.43251</span>,<span class="fl">2.47986</span>,<span class="dv">57</span>,<span class="fl">0.031836220472441</span>,<span class="op">-</span><span class="fl">3.4471506288068</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.7</span>,<span class="fl">0.77436</span>,<span class="fl">0.44081</span>,<span class="fl">2.35872</span>,<span class="dv">57</span>,<span class="fl">0.035684792626728</span>,<span class="op">-</span><span class="fl">3.3330306577928</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">14.9</span>,<span class="fl">0.86005</span>,<span class="fl">0.45292</span>,<span class="fl">2.63522</span>,<span class="dv">57</span>,<span class="fl">0.057721476510067</span>,<span class="op">-</span><span class="fl">2.85212596484115</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">21</span>,<span class="fl">0.81353</span>,<span class="fl">0.46885</span>,<span class="fl">2.41978</span>,<span class="dv">57</span>,<span class="fl">0.038739523809524</span>,<span class="op">-</span><span class="fl">3.25089491303743</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">20.1</span>,<span class="fl">0.82752</span>,<span class="fl">0.46522</span>,<span class="fl">2.40977</span>,<span class="dv">57</span>,<span class="fl">0.041170149253731</span>,<span class="op">-</span><span class="fl">3.19004181790373</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">26.8</span>,<span class="fl">0.98631</span>,<span class="fl">0.48447</span>,<span class="fl">2.68182</span>,<span class="dv">57</span>,<span class="fl">0.036802611940299</span>,<span class="op">-</span><span class="fl">3.30218645968743</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.4</span>,<span class="fl">0.87054</span>,<span class="fl">0.45428</span>,<span class="fl">2.71523</span>,<span class="dv">57</span>,<span class="fl">0.040679439252337</span>,<span class="op">-</span><span class="fl">3.20203249225429</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">18.9</span>,<span class="fl">0.83487</span>,<span class="fl">0.42868</span>,<span class="fl">2.7107</span>,<span class="dv">57</span>,<span class="fl">0.044173015873016</span>,<span class="op">-</span><span class="fl">3.11964117694036</span></a></code></pre></div>
+<div id="etape-5.-comprendre-le-format-du-fichier-de-donnees" class="section level2">
+<h2>Etape 5. Comprendre le format du fichier de données</h2>
+<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">Données partielles,,,,,,,,,,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">Site,NomSite,Distance,Arbre,Poids,Surface,Largeur,Longueur,CircArbre,dispersion,log_disp</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">16.8</span>,<span class="fl">0.83907</span>,<span class="fl">0.45758</span>,<span class="fl">2.46212</span>,<span class="dv">57</span>,<span class="fl">0.049944642857143</span>,<span class="op">-</span><span class="fl">2.99684002974653</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">25.4</span>,<span class="fl">0.80864</span>,<span class="fl">0.43251</span>,<span class="fl">2.47986</span>,<span class="dv">57</span>,<span class="fl">0.031836220472441</span>,<span class="op">-</span><span class="fl">3.4471506288068</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.7</span>,<span class="fl">0.77436</span>,<span class="fl">0.44081</span>,<span class="fl">2.35872</span>,<span class="dv">57</span>,<span class="fl">0.035684792626728</span>,<span class="op">-</span><span class="fl">3.3330306577928</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">14.9</span>,<span class="fl">0.86005</span>,<span class="fl">0.45292</span>,<span class="fl">2.63522</span>,<span class="dv">57</span>,<span class="fl">0.057721476510067</span>,<span class="op">-</span><span class="fl">2.85212596484115</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">21</span>,<span class="fl">0.81353</span>,<span class="fl">0.46885</span>,<span class="fl">2.41978</span>,<span class="dv">57</span>,<span class="fl">0.038739523809524</span>,<span class="op">-</span><span class="fl">3.25089491303743</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">20.1</span>,<span class="fl">0.82752</span>,<span class="fl">0.46522</span>,<span class="fl">2.40977</span>,<span class="dv">57</span>,<span class="fl">0.041170149253731</span>,<span class="op">-</span><span class="fl">3.19004181790373</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">26.8</span>,<span class="fl">0.98631</span>,<span class="fl">0.48447</span>,<span class="fl">2.68182</span>,<span class="dv">57</span>,<span class="fl">0.036802611940299</span>,<span class="op">-</span><span class="fl">3.30218645968743</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.4</span>,<span class="fl">0.87054</span>,<span class="fl">0.45428</span>,<span class="fl">2.71523</span>,<span class="dv">57</span>,<span class="fl">0.040679439252337</span>,<span class="op">-</span><span class="fl">3.20203249225429</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">18.9</span>,<span class="fl">0.83487</span>,<span class="fl">0.42868</span>,<span class="fl">2.7107</span>,<span class="dv">57</span>,<span class="fl">0.044173015873016</span>,<span class="op">-</span><span class="fl">3.11964117694036</span></a></code></pre></div>
 <p>Le fichier est construit de la manière suivante</p>
 <ul>
 <li>3 lignes de commentaires,</li>
@@ -563,21 +571,18 @@ div.tocify {
 </ul>
 <p>Nous allons donc expliquer ceci à R.</p>
 </div>
-<div id="etape-5-importation-dans-r" class="section level2">
-<h2>Etape 5 : importation dans R</h2>
-<p>L’importation dans R se fait à l’aide de la commande <code>read.table</code>. On ouvre donc un nouveau script (File -&gt; New File -&gt; Rscript). En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">## le 19 septembre 2019 </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></a></code></pre></div>
-<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></a>
+<div id="etape-6-importation-dans-r" class="section level2">
+<h2>Etape 6 : importation dans R</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaite lire</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de collones est une virgule</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">                  ) </a></code></pre></div>
 <p>Normalement R n’indique aucune erreur.</p>
+<p><strong>On n’oublie pas de souver régulièrement le script.</strong></p>
 </div>
-<div id="etape-6.-verifier-limportation" class="section level2">
-<h2>Etape 6. Vérifier l’importation</h2>
+<div id="etape-7.-verifier-limportation" class="section level2">
+<h2>Etape 7. Vérifier l’importation</h2>
 <p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
 <p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">head</span>(dta)</a></code></pre></div>
@@ -637,10 +642,10 @@ div.tocify {
 <p>Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurences de chaque niveau du facteur.</p>
 <p>Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.</p>
 </div>
-<div id="etape-7.-quand-ca-va-mal" class="section level2">
-<h2>Etape 7. Quand ça va mal</h2>
-<div id="si-il-ny-a-pas-de-noms-de-colonnes" class="section level3">
-<h3>Si il n’y a pas de noms de colonnes</h3>
+<div id="etape-8.-quand-ca-va-mal" class="section level2">
+<h2>Etape 8. Quand ça va mal</h2>
+<div id="sil-ny-a-pas-de-noms-de-colonnes" class="section level3">
+<h3>S’il n’y a pas de noms de colonnes</h3>
 <p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
 </div>
 <div id="les-differents-types-de-separateurs" class="section level3">
@@ -679,7 +684,7 @@ div.tocify {
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="co">## pour indiquer que le séparateur de collones est une virgule</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></a>
 <a class="sourceLine" id="cb10-5" data-line-number="5">                  <span class="dt">dec =</span> <span class="st">&#39;,&#39;</span></a>
 <a class="sourceLine" id="cb10-6" data-line-number="6">                  ) </a></code></pre></div>
 <p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
@@ -708,6 +713,10 @@ div.tocify {
 ##  0.025726086956522:  1   -2.75360560276171:  1  
 ##  0.026115835777126:  1   -2.80141851754419:  1  
 ##  (Other)          :114   (Other)          :114</code></pre>
+</div>
+<div id="une-colonne-pour-indiquer-les-noms-des-lignes" class="section level3">
+<h3>Une colonne pour indiquer les noms des lignes</h3>
+<p>Si un identifiant est présent pour chaque ligne, on ajoute dans la commande <code>read.table</code> l’argument <code>row.names=1</code> pour indiquer que la première colonne sert à nommer les lignes.</p>
 </div>
 </div>
 
