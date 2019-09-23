@@ -101,7 +101,7 @@ Le fichier est construit de la manière suivante
   
 Nous allons donc expliquer ceci à R.
 
-## Etape 6 :  importation dans R
+## Etape 6 :  Importation dans R
 
 
 
