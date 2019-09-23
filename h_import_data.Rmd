@@ -26,19 +26,20 @@ L'objectif sera donc ici d'importer le jeu de données stockés dans le fichier 
 Rstudio proposer d'organiser son travail en projet. Le projet permet de faciliter l'accès aux différents fichiers d'un même projet. 
 Pour créer un projet il suffit d'aller en haut à droite, dans Project comme dans la capture d'écran ci-dessous.
 
-![](img/h_creer_nouveau_projet.png){ width=90% }
+![](img/h_creer_nouveau_projet.png){ width=80% }&nbsp;&nbsp;
+
 
 On choisit de créer le projet depuis un nouveau répertoire
 
-![](img/h_nouveau_repertoire.png){ width=90% }
+![](img/h_nouveau_repertoire.png){width=80%}
 
 et de  faire un projet standard 
 
-![](img/h_nouveau_projet.png){ width=90% }
+![](img/h_nouveau_projet.png){ width=80% }&nbsp;&nbsp;
 
 qui s'appelera Td_Stat_1 et sera placé dans le répertoire désigné
 
-![](img/h_nom_projet.png){ width=90% }
+![](img/h_nom_projet.png){ width=80% }&nbsp;&nbsp;
 
 
 ## Etape 2. Créer un script
