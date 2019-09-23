@@ -150,12 +150,12 @@ Il suffit d'indiquer `header = FALSE`, dans ce cas les colonnes seront nommées 
 Si le séparateur de colonnes  n'est pas la `,`, alors il faut modifier l'argument `sep`
 
 
-|  Séparateur  	|  sep =   	|
+|  Séparateur dans le fichier	|  argument à passer   	|
 |:-:	|:-:	|
-|   ,	| sep = ','  	|
-|   ;	| sep = ';'  	|
-|   espace 	| sep = ' '  	|
-|  tab	|   sep = '\t'	|
+|   ,	|  ` sep = ',' ` 	|
+|   ;	| ` sep = ';'  ` 	|
+|   espace 	| ` sep = ' ' ` 	|
+|  tab	|   ` sep = '\t' `	|
 
 
 ### Problème possible avec les variables numériques
