@@ -68,7 +68,7 @@ On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant 
 
 ## Etape 4. D'un format propriétaire à un format texte
 
-Le format Excel est complexe et varie d'une plateforme à l'autre, d'une langue à l'autre .... Pour éviter les surprises, il est préférable d'exporter son fichier au format  `csv`. Dans Excel, il suffit d'aller dans le menu File puis Save as et de choisir l'extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet  sous le nom `samares_small.csv'. On a donc un fichier `samares_small.csv' dans le répertoire du projet.
+Le format Excel est complexe et varie d'une plateforme à l'autre, d'une langue à l'autre .... Pour éviter les surprises, il est préférable d'exporter son fichier au format  `csv`. Dans Excel, il suffit d'aller dans le menu File puis Save as et de choisir l'extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet  sous le nom `samares_small.csv`. On a donc un fichier `samares_small.csv` dans le répertoire du projet.
 
 
 
@@ -123,7 +123,7 @@ dta <- read.table(file = 'samares_small.csv', ## le nom du fichier qu'on souhait
 Normalement R n'indique aucune erreur.
 
 
-**On n'oublie pas de souver régulièrement le script.**
+**On n'oublie pas de sauver régulièrement le script.**
 
 ## Etape 7. Vérifier l'importation
 
@@ -153,7 +153,7 @@ Si toutes les vérifications sont correctes, votre jeu de données est prêt à 
 
 ## Etape 8. Quand ça va mal
 
-### S'il n'y a pas de noms de colonnes
+### S'il n'y a pas de noms de colonnes dans le fichier
 
 Il suffit d'indiquer `header = FALSE`, dans ce cas les colonnes seront nommées `V1`, `V2`, etc 
 

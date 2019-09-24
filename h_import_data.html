@@ -545,7 +545,7 @@ div.tocify {
 </div>
 <div id="etape-4.-dun-format-proprietaire-a-un-format-texte" class="section level2">
 <h2>Etape 4. D’un format propriétaire à un format texte</h2>
-<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv'. On a donc un fichier</code>samares_small.csv’ dans le répertoire du projet.</p>
+<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv</code>. On a donc un fichier <code>samares_small.csv</code> dans le répertoire du projet.</p>
 </div>
 <div id="etape-5.-comprendre-le-format-du-fichier-de-donnees" class="section level2">
 <h2>Etape 5. Comprendre le format du fichier de données</h2>
@@ -572,14 +572,14 @@ div.tocify {
 <p>Nous allons donc expliquer ceci à R.</p>
 </div>
 <div id="etape-6-importation-dans-r" class="section level2">
-<h2>Etape 6 : importation dans R</h2>
+<h2>Etape 6 : Importation dans R</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaite lire</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">                  ) </a></code></pre></div>
 <p>Normalement R n’indique aucune erreur.</p>
-<p><strong>On n’oublie pas de souver régulièrement le script.</strong></p>
+<p><strong>On n’oublie pas de sauver régulièrement le script.</strong></p>
 </div>
 <div id="etape-7.-verifier-limportation" class="section level2">
 <h2>Etape 7. Vérifier l’importation</h2>
@@ -644,8 +644,8 @@ div.tocify {
 </div>
 <div id="etape-8.-quand-ca-va-mal" class="section level2">
 <h2>Etape 8. Quand ça va mal</h2>
-<div id="sil-ny-a-pas-de-noms-de-colonnes" class="section level3">
-<h3>S’il n’y a pas de noms de colonnes</h3>
+<div id="sil-ny-a-pas-de-noms-de-colonnes-dans-le-fichier" class="section level3">
+<h3>S’il n’y a pas de noms de colonnes dans le fichier</h3>
 <p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
 </div>
 <div id="les-differents-types-de-separateurs" class="section level3">
