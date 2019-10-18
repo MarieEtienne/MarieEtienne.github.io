@@ -26,3 +26,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Frequence Cardiaque, plan déséquilibré](datasets/FreqCardiaqueDes1.txt)
 * [Pollution US](datasets/USAIR2.DAT)
 * [Pins](datasets/Pin.txt)
+* [Croissance](datasets/growth_data.txt)
+* [Palangre](datasets/LonglineExample.csv)
+
