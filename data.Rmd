@@ -28,4 +28,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Pins](datasets/Pin.txt)
 * [Croissance](datasets/growth_data.txt)
 * [Palangre](datasets/LonglineExample.csv)
-
+* [Grenouilles de Californie](datasets/Grenouille.don)
+* [Fourmis](datasets/Fourmis.txt)
+* [Flétan](datasets/GroundfishExtraction.csv)
