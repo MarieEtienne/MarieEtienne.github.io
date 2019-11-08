@@ -59,6 +59,8 @@ Some are even in French
 - [ggplot graph gallery](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)
 
 
+## Linear model 
+- [Modèle Linéaire et ses extensions ](MesPapiers/2012_ModeleLineaireEt_Extensions.pdf)
 
 
 

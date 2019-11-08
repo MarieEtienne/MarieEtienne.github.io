@@ -23,6 +23,8 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation est destinée à des étudiants en thèse dans le domaine des sciences du vivant et qui souhaiterait recevoir une formation complémentaire en modélisation statistique. La formation est organisée en 2 séquences d'une semaine chacune et il est important de s'engager à participer à l'intégralité de ces deux semaines. 
 
+Les exemples sont disponibles un site web dédié [Modélisation Statistique](https://marieetienne.github.io/ModStat/)
+
 
 
 ## Statistique pour l'halieutique

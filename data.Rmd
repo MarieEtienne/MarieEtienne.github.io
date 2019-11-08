@@ -1,5 +1,5 @@
 ---
-title: "Different datasets I use in my teaching"
+title: "Miscellanous datasets"
 output: 
   html_document:
    logo: LogoAgrocampusOuest.jpg
@@ -22,3 +22,12 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Samares](datasets/samares_small.xlsx)
 * [SamaresEq](datasets/SamaresEq.txt)
 * [SamaresEq_disp](datasets/SamaresEq_disp.csv)
+* [Frequence Cardiaque, plan équilibré](datasets/FreqCardiaqueEq.txt)
+* [Frequence Cardiaque, plan déséquilibré](datasets/FreqCardiaqueDes1.txt)
+* [Pollution US](datasets/USAIR2.DAT)
+* [Pins](datasets/Pin.txt)
+* [Croissance](datasets/growth_data.txt)
+* [Palangre](datasets/LonglineExample.csv)
+* [Grenouilles de Californie](datasets/Grenouille.don)
+* [Fourmis](datasets/Fourmis.txt)
+* [Flétan](datasets/GroundfishExtraction.csv)
