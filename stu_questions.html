@@ -517,8 +517,8 @@ div.tocify {
 </div>
 
 
-<div id="changer-le-symbole-par-defaut-avec-la-fonction-plot-classique" class="section level2">
-<h2>Changer le symbole par défaut avec la fonction <code>plot</code> classique</h2>
+<div id="changer-le-symbole-par-defaut-dans-les-graphiques" class="section level2">
+<h2>Changer le symbole par défaut dans les graphiques</h2>
 <p>Lors d’un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de <code>R</code>.</p>
 <p>On a travaillé sur le jeu de données abricots.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">abricots &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/107912_abricotsSG.txt&#39;</span>,</a>
@@ -540,8 +540,14 @@ div.tocify {
 <p>Puis j’ai été amenée à discuter de l’argument <code>pch</code> de la fonction plot. On a testé différents symboles classique et la question est arrivée :</p>
 <p><strong>Peut on utiliser le coeur comme symbole ?</strong></p>
 <p><strong>La réponse est oui</strong> : voici une solution qui fonctionne sous Linux et j’espère sur tous les systèmes (il existe une solution plus simple qui ne fonctionne que sous Windows)</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">plot</span>(Glucose  <span class="op">~</span><span class="st"> </span>a, <span class="dt">col =</span> Mat_Fact, <span class="dt">data =</span> abricots, <span class="dt">pch =</span> <span class="op">-</span><span class="st"> </span><span class="kw">as.hexmode</span>(<span class="dv">9829</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">plot</span>(Glucose  <span class="op">~</span><span class="st"> </span>a, <span class="dt">col =</span> Mat_Fact, <span class="dt">data =</span> abricots, <span class="dt">pch =</span> <span class="op">-</span><span class="kw">as.hexmode</span>(<span class="dv">9829</span>))</a></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>On peut faire plus joli avec <code>ggplot2</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> abricots) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span> a, <span class="dt">y =</span> Glucose, <span class="dt">col =</span> Mat_Fact),</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">              <span class="dt">shape =</span> <span class="op">-</span><span class="kw">as.hexmode</span>(<span class="dv">9829</span>), <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<p><img src="stu_questions_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 
 

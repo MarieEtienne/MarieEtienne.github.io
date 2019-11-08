@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Changer le symbole par défaut avec la fonction `plot` classique
+## Changer le symbole par défaut dans les graphiques 
 
 Lors d'un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de `R`.
 
@@ -64,7 +64,18 @@ Puis j'ai été amenée à discuter de l'argument `pch` de la fonction plot. On 
 **La réponse est oui** : voici une solution qui fonctionne sous  Linux et j'espère sur tous les systèmes (il existe une solution plus simple qui ne fonctionne que sous Windows)
 
 ```{r}
-plot(Glucose  ~ a, col = Mat_Fact, data = abricots, pch = - as.hexmode(9829))
+plot(Glucose  ~ a, col = Mat_Fact, data = abricots, pch = -as.hexmode(9829))
+```
+
+
+
+On peut faire plus joli avec `ggplot2`
+
+```{r}
+library(ggplot2)
+ggplot(data = abricots) + 
+   geom_point(aes(x= a, y = Glucose, col = Mat_Fact),
+              shape = -as.hexmode(9829), size = 5)
 ```
 
 
