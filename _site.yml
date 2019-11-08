@@ -33,6 +33,9 @@ navbar:
         menu:
         - text: "Import Data"
           href: h_import_data.html
+        - text: "Student's questions"
+          href: stu_questions.html
+
         
   right:
   - text: "Github"

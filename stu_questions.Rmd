@@ -1,0 +1,72 @@
+---
+title: "Questions d'étudiants"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Changer le symbole par défaut avec la fonction `plot` classique
+
+Lors d'un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de `R`.
+
+On a travaillé sur le jeu de données abricots.
+```{r}
+abricots <- read.table(file = 'http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/107912_abricotsSG.txt',
+                       sep = ' ', header = TRUE)
+```
+
+La variable `Maturite` désigne un stade de maturité et doit donc être traitée comme un facteur (une variable qualitative).
+
+```{r}
+abricots$Mat_Fact <- as.factor(abricots$Maturite)
+```
+
+
+On peut représenter l'indice colorimétrique `a` en fonction du stade de maturité.
+```{r}
+plot(a ~ Mat_Fact, data = abricots)
+```
+
+Puis on a été amené à représenter le taux de glucose (`Glucose`) en fonction de l'indice colorimétrique.
+
+```{r}
+plot(Glucose  ~ a, data = abricots)
+```
+
+En ajoutant une couleur, on peut ajouter l'information sur le stade de maturité.
+
+
+```{r}
+plot(Glucose  ~ a, col = Mat_Fact, data = abricots)
+```
+
+Il est possible de changer le symbole pour rendre les couleurs plusvisibles
+
+```{r}
+plot(Glucose  ~ a, col = Mat_Fact, data = abricots, pch = 19)
+```
+
+
+Puis j'ai été amenée à discuter de l'argument `pch` de la fonction plot. On a testé différents symboles classique et la question est arrivée :
+
+**Peut on utiliser le coeur comme symbole ?**
+
+**La réponse est oui** : voici une solution qui fonctionne sous  Linux et j'espère sur tous les systèmes (il existe une solution plus simple qui ne fonctionne que sous Windows)
+
+```{r}
+plot(Glucose  ~ a, col = Mat_Fact, data = abricots, pch = - as.hexmode(9829))
+```
+
+
+
+
