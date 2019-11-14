@@ -19,6 +19,16 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 
 
+## Modélisation bayésienne pour l'écologie
+
+
+Cours de statistique pour les étudiants de la spécialisation Science des données et MODE.
+
+Les slides sont disponibles [ici](slides/CoursJ2.pdf)
+
+Rappel sur quelques lois de probabilités classiques et utiles dans les approches bayésiennes [ici](slides/LoiProbas.pdf)
+
+
 ## Modelisation statistique 
 
 Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation est destinée à des étudiants en thèse dans le domaine des sciences du vivant et qui souhaiterait recevoir une formation complémentaire en modélisation statistique. La formation est organisée en 2 séquences d'une semaine chacune et il est important de s'engager à participer à l'intégralité de ces deux semaines. 
