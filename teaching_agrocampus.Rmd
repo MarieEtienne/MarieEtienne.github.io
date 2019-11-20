@@ -28,6 +28,7 @@ Les slides sont disponibles [ici](slides/CoursJ2.pdf)
 
 Rappel sur quelques lois de probabilités classiques et utiles dans les approches bayésiennes [ici](slides/LoiProbas.pdf)
 
+Enoncé du TD comptage [ici](slides/Presentation.pdf) 
 
 ## Modelisation statistique 
 
