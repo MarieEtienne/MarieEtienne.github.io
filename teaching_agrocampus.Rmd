@@ -30,7 +30,7 @@ Rappel sur quelques lois de probabilités classiques et utiles dans les approche
 
 Le script du coursJ2 [ici](slides/Metropolis_algo.pdf)
 
-Enoncé du TD comptage [ici](slides/Presentation.pdf) 
+Script du TD comptage [ici](slides/TD_Pup2.pdf) 
 
 ## Modelisation statistique 
 
