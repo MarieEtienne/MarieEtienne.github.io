@@ -28,8 +28,9 @@ Les slides sont disponibles [ici](slides/CoursJ2.pdf)
 
 Rappel sur quelques lois de probabilités classiques et utiles dans les approches bayésiennes [ici](slides/LoiProbas.pdf)
 
-le [script](slides/Metropolis_algo.pdf) de l'algorithme MH 
+Le script du coursJ2 [ici](slides/Metropolis_algo.pdf)
 
+Script du TD comptage [ici](slides/TD_Pup2.pdf) 
 
 ## Modelisation statistique 
 
