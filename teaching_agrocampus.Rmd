@@ -37,6 +37,9 @@ Script du TD comptage [ici](slides/TD_Pup2.pdf)
 Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation est destinée à des étudiants en thèse dans le domaine des sciences du vivant et qui souhaiterait recevoir une formation complémentaire en modélisation statistique. La formation est organisée en 2 séquences d'une semaine chacune et il est important de s'engager à participer à l'intégralité de ces deux semaines. 
 
 - [Le cours d'introduction à R](slides/mod_stat_jour1.pdf) 
+- [Modèle linéaire](slides/mod_stat_jour2.pdf) 
+- Modèle linéaire généralisé
+- Modèle mixte
 
 
 ## Statistique pour l'halieutique
