@@ -38,7 +38,7 @@ Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation 
 
 - [Le cours d'introduction à R](slides/mod_stat_jour1.pdf) 
 - [Modèle linéaire](slides/mod_stat_jour2.pdf) 
-- Modèle linéaire généralisé
+- [Modèle linéaire généralisé](slides/mod_stat_jour4.pdf)
 - Modèle mixte
 - Des [exemples](https://marieetienne.github.io/ModStat/)
 
