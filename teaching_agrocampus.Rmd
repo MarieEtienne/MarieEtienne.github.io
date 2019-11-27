@@ -40,7 +40,7 @@ Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation 
 - [Modèle linéaire](slides/mod_stat_jour2.pdf) 
 - Modèle linéaire généralisé
 - Modèle mixte
-
+- Des [exemples](https://marieetienne.github.io/ModStat/)
 
 ## Statistique pour l'halieutique
 
