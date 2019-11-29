@@ -39,7 +39,7 @@ Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation 
 - [Le cours d'introduction à R](slides/mod_stat_jour1.pdf) 
 - [Modèle linéaire](slides/mod_stat_jour2.pdf) 
 - [Modèle linéaire  généralisé](slides/mod_stat_jour4.pdf)
-- [Modèle mixte](slides/mod_stat_jour5.pdf)
+- [Modèle mixte](https://github.com/MarieEtienne/MarieEtienne.github.io/blob/master/slides/mod_stat_jour5.pdf)
 - Des [exemples](https://marieetienne.github.io/ModStat/)
 
 ## Statistique pour l'halieutique
