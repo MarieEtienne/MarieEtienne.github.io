@@ -483,6 +483,9 @@ div.tocify {
         <li>
           <a href="stu_questions.html">Student's questions</a>
         </li>
+        <li>
+          <a href="random_r_stuff.html">Random R stuff</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -521,7 +524,7 @@ div.tocify {
 <h2>Changer le symbole par défaut dans les graphiques</h2>
 <p>Lors d’un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de <code>R</code>.</p>
 <p>On a travaillé sur le jeu de données abricots.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">abricots &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/107912_abricotsSG.txt&#39;</span>,</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">abricots &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/113759_abricotsSG.txt&#39;</span>,</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">                       <span class="dt">sep =</span> <span class="st">&#39; &#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>La variable <code>Maturite</code> désigne un stade de maturité et doit donc être traitée comme un facteur (une variable qualitative).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">abricots<span class="op">$</span>Mat_Fact &lt;-<span class="st"> </span><span class="kw">as.factor</span>(abricots<span class="op">$</span>Maturite)</a></code></pre></div>

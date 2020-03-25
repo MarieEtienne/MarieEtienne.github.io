@@ -34,7 +34,9 @@ navbar:
         - text: "Import Data"
           href: h_import_data.html
         - text: "Student's questions"
-          href: stu_questions.html
+          href: stu_questions.html       
+        - text: "Random R stuff"
+          href: random_r_stuff.html
 
         
   right:

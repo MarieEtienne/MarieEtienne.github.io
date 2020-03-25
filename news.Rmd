@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+- February 2020: Agrocmapus Ouest will be hosting the [6$^\mbox{th}$ annual GdR ecostats](https://gdrecostat2020.sciencesconf.org/) meeting and the third edition of the [Moving2Gather Workshop](https://gdrecostat2020.sciencesconf.org/). 
+
 - September 2019: The paper for trajectories segmentation is out in Journal of Animal Ecology  [Here](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2656.13105)
 
 - September 2019. I will give a course on Statistical Modelling for biological Data. The course will take place in Agrocampus Ouest from November 25th to November 29th. Deadline for regisration is November, 1st. Please contact me if you need more information. 
