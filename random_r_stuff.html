@@ -559,7 +559,7 @@ div.tocify {
 <p>Data are available from 2020-01-22 to 2020-03-23 for 183 countries.</p>
 <div id="define-the-severity-of-the-pandemy-in-every-country" class="section level3">
 <h3>Define the severity of the pandemy in every country</h3>
-<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 1.000110^{4} confirmed cases</p>
+<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 8001 confirmed cases</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">   </span><span class="kw">summarise</span> ( <span class="dt">m =</span> <span class="kw">max</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">filter</span>( m  <span class="op">&gt;</span><span class="st"> </span>n1) -&gt;<span class="st"> </span>country_list</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
