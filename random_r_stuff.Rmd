@@ -30,12 +30,15 @@ library('tidyverse')
 
 
 url_base <- 
-  "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid"
+  "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_"
 
-type <- c('Confirmed', 'Deaths', 'Recovered')
+type <- c('confirmed', 'deaths', 'recovered')
 dta_list <- lapply( type, function(type_){
- read_csv(url(paste0(url_base, '-', type_, '.csv'))) %>% 
+ dta_prov <- read_csv(url(paste0(url_base,  type_, '_global.csv'))) %>% 
     mutate(type = type_)
+ dta_prov %>% 
+  rename(Province = `Province/State`, Country = `Country/Region`) %>% 
+  pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases') 
 })
 
 dta <- do.call('rbind', dta_list)
@@ -45,13 +48,12 @@ dta <- do.call('rbind', dta_list)
 ### Formatting data
 
 ```{r format_data}
-dta %>% 
-  rename(Province = `Province/State`, Country = `Country/Region`) %>% 
-  pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases') -> dta
+
 
 dta %>%  
    mutate(Date = lubridate::mdy(Date))  %>% 
-   mutate(country_id = tolower(Country)) %>% 
+   mutate(type = factor(type, levels = c('confirmed', 'deaths', 'recovered')))  %>% 
+   mutate(country_id = factor(tolower(Country))) %>% 
    group_by(country_id, type, Date) %>% 
    summarise(Cases = sum(Cases, na.rm = TRUE)) %>% 
    ungroup()-> dta
@@ -64,7 +66,7 @@ dta %>%
 ```{r  echo = FALSE}
 n_tot <- n_distinct(dta$country_id)
 n1 <- 500
-n2 <- 8000
+n2 <- 6000
 ```
 
 Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.
@@ -80,10 +82,10 @@ The visualisation is done with only the most affected countries. The severity of
 
 ```{r}
 
-dta %>%   filter(type == 'Confirmed') %>% group_by(country_id) %>%
+dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>%
    summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n1) -> country_list
 
-dta %>%   filter(type == 'Confirmed') %>% group_by(country_id) %>%
+dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>%
    summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n2) -> country_list_vhigh
 
 dta %>% filter(country_id %in% country_list$country_id) -> dta
@@ -143,13 +145,13 @@ world_map %>% ggplot() + geom_sf(aes(fill = Severity)) +
 
 
 
-### Confirmed cases
+### confirmed cases
 
 
 We can represent the evolution of coronavirus confirmed cases for the countries with high severity. 
 
 ```{r}
-dta %>% filter(type == 'Confirmed',  Severity != 'Low') %>% ggplot() + geom_line(aes(x= Date, y = Cases, col = country_id)) + scale_y_continuous(trans='log2') + theme(legend.title = element_text( size = 10),
+dta %>% filter(type == 'confirmed',  Severity != 'Low') %>% ggplot() + geom_line(aes(x= Date, y = Cases, col = country_id)) + scale_y_continuous(trans='log2') + theme(legend.title = element_text( size = 10),
   legend.text = element_text(size = 6) ) + ggtitle('Evolution of confirmed cases in highly affected countries')
 ```
 
@@ -160,18 +162,19 @@ Too many data on the graph , focus on the countries with High level of severity.
 couleurs <- c('#ff0000', '#ff9900', '#006600', 
               '#2d5986', '#600080', '#b30000',
               '#00cc00', '#ff8c66', '#cc0052', 
-              '#3939ac')
+              '#3939ac', '#a5fc03', '#ff0000',
+              '#ab0a9b')
 ```
 
 
 ```{r, fig.cap='Evolution of the number of confirmed cases'}
 
 p <- dta  %>% 
-   filter(type == 'Confirmed', Severity == 'Very High') %>% 
+   filter(type == 'confirmed', Severity == 'Very High') %>% 
    arrange(country_id, Date) %>% 
    group_by(country_id) %>%  
    ggplot() + 
-   geom_line(aes(x= Date, y = Cases, col = country_id))  + 
+   geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id))  + 
    scale_color_manual(values = couleurs) 
 p
 ```
@@ -186,7 +189,10 @@ p +
 ```
 
 
-**Change time origine** :  Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80$^{th}$ cases were confirmed.
+As the pandemy does not start to spread at the same date on every country, one needs to define some new origine of time for every country, in order to allow the comparison between countries.
+
+
+**Change time origine** :  Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80$^\mbox{th}$ cases were confirmed.
 
 
 
@@ -194,11 +200,11 @@ Presented below is the number of confirmed cases.
 
 ```{r, fig.cap='Evolution of confirmed cases, time elapsed since the 80th reported cases'}
 dta %>% 
-   filter(type == 'Confirmed', Cases >= 80,Severity == 'Very High') %>% 
+   filter(type == 'confirmed', Cases >= 80,Severity == 'Very High') %>% 
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_line(aes(x= Date, y = Cases, col = country_id))  +
+   ggplot() + geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id, ))  +
    scale_color_manual(values = couleurs)  + 
    scale_y_continuous(trans='log2') 
 ```
@@ -212,28 +218,28 @@ Presented below is the number of deaths. Those time series are more reliable, as
 ```{r, fig.cap='Evolution of the number of deaths, time elapsed since the 80th reported cases'}
 dta %>% 
    pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( Confirmed >= 80,Severity == 'Very High') %>% 
+   filter( confirmed >= 80,Severity == 'Very High') %>% 
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
    ggplot() + 
-   geom_line(aes(x= Date, y = Deaths, col = country_id)) +
+   geom_line(aes(x= Date, y = deaths, linetype=country_id, col = country_id)) +
    scale_color_manual(values = couleurs) +
    scale_y_continuous(trans='log2')
 ```
 
 
-As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose, time of the tenth  as time origine.
+As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose,  the time of the tenth  death as the origin of date.
 
 
-```{r, fig.cap='Evolution of the number of deaths, time elapsed since the 10th death'}
+```{r origine_death, fig.cap='Evolution of the number of deaths, time elapsed since the 10th death'}
 dta %>% 
    pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( Deaths >= 10,Severity == 'Very High') %>% 
+   filter( deaths >= 10,Severity == 'Very High') %>% 
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_line(aes(x= Date, y = Deaths, col = country_id))  +
+   ggplot() + geom_line(aes(x= Date, y = deaths, linetype=country_id, col = country_id))  +
    scale_color_manual(values = couleurs)  +
    scale_y_continuous(trans='log2') 
 ```

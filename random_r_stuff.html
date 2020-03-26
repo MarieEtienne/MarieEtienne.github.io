@@ -530,40 +530,40 @@ div.tocify {
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">url_base &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="st">  &quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="st">  &quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_&quot;</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Confirmed&#39;</span>, <span class="st">&#39;Deaths&#39;</span>, <span class="st">&#39;Recovered&#39;</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;confirmed&#39;</span>, <span class="st">&#39;deaths&#39;</span>, <span class="st">&#39;recovered&#39;</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">dta_list &lt;-<span class="st"> </span><span class="kw">lapply</span>( type, <span class="cf">function</span>(type_){</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"> <span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="kw">paste0</span>(url_base, <span class="st">&#39;-&#39;</span>, type_, <span class="st">&#39;.csv&#39;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"> dta_prov &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="kw">paste0</span>(url_base,  type_, <span class="st">&#39;_global.csv&#39;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb1-11" data-line-number="11"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> type_)</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">})</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">dta &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&#39;rbind&#39;</span>, dta_list)</a></code></pre></div>
+<a class="sourceLine" id="cb1-12" data-line-number="12"> dta_prov <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Province =</span> <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span><span class="kw">c</span>(Province, Country, Lat, Long, type),  <span class="dt">names_to =</span> <span class="st">&#39;Date&#39;</span>, <span class="dt">values_to =</span> <span class="st">&#39;Cases&#39;</span>) </a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">})</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">dta &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&#39;rbind&#39;</span>, dta_list)</a></code></pre></div>
 </div>
 <div id="formatting-data" class="section level3">
 <h3>Formatting data</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Province =</span> <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span><span class="kw">c</span>(Province, Country, Lat, Long, type),  <span class="dt">names_to =</span> <span class="st">&#39;Date&#39;</span>, <span class="dt">values_to =</span> <span class="st">&#39;Cases&#39;</span>) -&gt;<span class="st"> </span>dta</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">dta <span class="op">%&gt;%</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(Date))  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">country_id =</span> <span class="kw">tolower</span>(Country)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">   </span><span class="kw">group_by</span>(country_id, type, Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">   </span><span class="kw">summarise</span>(<span class="dt">Cases =</span> <span class="kw">sum</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">   </span><span class="kw">ungroup</span>()-&gt;<span class="st"> </span>dta</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(Date))  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">factor</span>(type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&#39;confirmed&#39;</span>, <span class="st">&#39;deaths&#39;</span>, <span class="st">&#39;recovered&#39;</span>)))  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">country_id =</span> <span class="kw">factor</span>(<span class="kw">tolower</span>(Country))) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">   </span><span class="kw">group_by</span>(country_id, type, Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">   </span><span class="kw">summarise</span>(<span class="dt">Cases =</span> <span class="kw">sum</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">   </span><span class="kw">ungroup</span>()-&gt;<span class="st"> </span>dta</a></code></pre></div>
 </div>
 </div>
 <div id="spatial-spreading-of-the-pandemy" class="section level2">
 <h2>Spatial Spreading of the pandemy</h2>
-<p>Data are available from 2020-01-22 to 2020-03-23 for 183 countries.</p>
+<p>Data are available from 2020-01-22 to 2020-03-25 for 177 countries.</p>
 <div id="define-the-severity-of-the-pandemy-in-every-country" class="section level3">
 <h3>Define the severity of the pandemy in every country</h3>
-<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 8001 confirmed cases</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
+<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 6001 confirmed cases</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">   </span><span class="kw">summarise</span> ( <span class="dt">m =</span> <span class="kw">max</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">filter</span>( m  <span class="op">&gt;</span><span class="st"> </span>n1) -&gt;<span class="st"> </span>country_list</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">   </span><span class="kw">summarise</span> ( <span class="dt">m =</span> <span class="kw">max</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">filter</span>( m  <span class="op">&gt;</span><span class="st"> </span>n2) -&gt;<span class="st"> </span>country_list_vhigh</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">dta <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(country_id <span class="op">%in%</span><span class="st"> </span>country_list<span class="op">$</span>country_id) -&gt;<span class="st"> </span>dta</a>
@@ -595,8 +595,9 @@ div.tocify {
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">country_list <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>( <span class="op">!</span>country_id <span class="op">%in%</span><span class="st"> </span>world_map<span class="op">$</span>country_id) -&gt;<span class="st"> </span>country_issues</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">country_issues<span class="op">$</span>country_id</a></code></pre></div>
-<pre><code>## [1] &quot;cruise ship&quot;  &quot;czechia&quot;      &quot;iran&quot;         &quot;korea, south&quot;
-## [5] &quot;us&quot;</code></pre>
+<pre><code>## [1] czechia          diamond princess iran             korea, south    
+## [5] us              
+## 177 Levels: afghanistan albania algeria andorra ... zimbabwe</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">world_map <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">avail =</span> <span class="kw">ifelse</span>(country_id <span class="op">%in%</span><span class="st"> </span>country_list<span class="op">$</span>country_id, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) -&gt;<span class="st"> </span>world_map</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">world_map <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -615,18 +616,18 @@ div.tocify {
 <div id="time-series-data" class="section level2">
 <h2>Time series data</h2>
 <div id="confirmed-cases" class="section level3">
-<h3>Confirmed cases</h3>
+<h3>confirmed cases</h3>
 <p>We can represent the evolution of coronavirus confirmed cases for the countries with high severity.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>,  Severity <span class="op">!=</span><span class="st"> &#39;Low&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">col =</span> country_id)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>( <span class="dt">size =</span> <span class="dv">10</span>),</a>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>,  Severity <span class="op">!=</span><span class="st"> &#39;Low&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">col =</span> country_id)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>( <span class="dt">size =</span> <span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>) ) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&#39;Evolution of confirmed cases in highly affected countries&#39;</span>)</a></code></pre></div>
 <p><img src="random_r_stuff_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Too many data on the graph , focus on the countries with High level of severity.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">p &lt;-<span class="st"> </span>dta  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>, Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>, Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">   </span><span class="kw">arrange</span>(country_id, Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">   </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span><span class="st">  </span></a>
 <a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">   </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">col =</span> country_id))  <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">   </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">linetype=</span>country_id, <span class="dt">col =</span> country_id))  <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs) </a>
 <a class="sourceLine" id="cb11-8" data-line-number="8">p</a></code></pre></div>
 <div class="figure">
@@ -644,14 +645,15 @@ Evolution of the number of confirmed cases
 Evolution of the number of confirmed cases in log2 scale
 </p>
 </div>
-<p><strong>Change time origine</strong> : Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80<span class="math inline">\(^{th}\)</span> cases were confirmed.</p>
+<p>As the pandemy does not start to spread at the same date on every country, one needs to define some new origine of time for every country, in order to allow the comparison between countries.</p>
+<p><strong>Change time origine</strong> : Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80<span class="math inline">\(^\mbox{th}\)</span> cases were confirmed.</p>
 <p>Presented below is the number of confirmed cases.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;Confirmed&#39;</span>, Cases <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>, Cases <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">   </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">   </span><span class="kw">arrange</span>(Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> Date <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">first</span>(Date)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">col =</span> country_id))  <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">linetype=</span>country_id, <span class="dt">col =</span> country_id, ))  <span class="op">+</span></a>
 <a class="sourceLine" id="cb13-7" data-line-number="7"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs)  <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) </a></code></pre></div>
 <div class="figure">
@@ -666,12 +668,12 @@ Evolution of confirmed cases, time elapsed since the 80th reported cases
 <p>Presented below is the number of deaths. Those time series are more reliable, as they do not depend on the test effort.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">   </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> type, <span class="dt">values_from =</span> Cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">   </span><span class="kw">filter</span>( Confirmed <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">   </span><span class="kw">filter</span>( confirmed <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">   </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">   </span><span class="kw">arrange</span>(Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb14-6" data-line-number="6"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> Date <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">first</span>(Date)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="st">   </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Deaths, <span class="dt">col =</span> country_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="st">   </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> deaths, <span class="dt">linetype=</span>country_id, <span class="dt">col =</span> country_id)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-10" data-line-number="10"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>)</a></code></pre></div>
 <div class="figure">
@@ -680,18 +682,18 @@ Evolution of confirmed cases, time elapsed since the 80th reported cases
 Evolution of the number of deaths, time elapsed since the 80th reported cases
 </p>
 </div>
-<p>As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose, time of the tenth as time origine.</p>
+<p>As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose, the time of the tenth death as the origin of date.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">   </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> type, <span class="dt">values_from =</span> Cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">   </span><span class="kw">filter</span>( Deaths <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">   </span><span class="kw">filter</span>( deaths <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"><span class="st">   </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st">   </span><span class="kw">arrange</span>(Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-6" data-line-number="6"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> Date <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">first</span>(Date)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Deaths, <span class="dt">col =</span> country_id))  <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> deaths, <span class="dt">linetype=</span>country_id, <span class="dt">col =</span> country_id))  <span class="op">+</span></a>
 <a class="sourceLine" id="cb15-8" data-line-number="8"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs)  <span class="op">+</span></a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) </a></code></pre></div>
 <div class="figure">
-<img src="random_r_stuff_files/figure-html/unnamed-chunk-11-1.png" alt="Evolution of the number of deaths, time elapsed since the 10th death" width="672" />
+<img src="random_r_stuff_files/figure-html/origine_death-1.png" alt="Evolution of the number of deaths, time elapsed since the 10th death" width="672" />
 <p class="caption">
 Evolution of the number of deaths, time elapsed since the 10th death
 </p>
