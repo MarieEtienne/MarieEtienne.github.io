@@ -66,7 +66,7 @@ dta %>%
 ```{r  echo = FALSE}
 n_tot <- n_distinct(dta$country_id)
 n1 <- 500
-n2 <- 6000
+n2 <- 10000
 ```
 
 Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.
@@ -243,4 +243,27 @@ dta %>%
    scale_color_manual(values = couleurs)  +
    scale_y_continuous(trans='log2') 
 ```
+
+### Evolution of the number of new deaths
+
+As the pandemy is spreading, the number of deaths is expected to grow bigger every day before slowing down. Therefore the number of new daths, which also the derivative of the number of deaths,  could be a good indicator of the stage of the pandemy.
+
+
+```{r new_death, fig.cap='Evolution of the number of new deaths, time elapsed since the 10th death, log2 scale'}
+dta %>% 
+   pivot_wider(names_from = type, values_from = Cases) %>% 
+   filter( deaths >= 10,Severity == 'Very High') %>% 
+   group_by(country_id) %>% 
+   arrange(Date) %>% 
+   mutate(Date = Date - dplyr::first(Date),
+          new_deaths = deaths -lag(deaths)) %>% 
+   ggplot() + geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  +
+   geom_smooth(aes(x= Date, y = new_deaths, linetype=country_id, col = country_id), se = FALSE)  +
+   scale_color_manual(values = couleurs) +
+   scale_y_continuous(trans='log2') 
+```
+
+
+
+
 

@@ -556,10 +556,10 @@ div.tocify {
 </div>
 <div id="spatial-spreading-of-the-pandemy" class="section level2">
 <h2>Spatial Spreading of the pandemy</h2>
-<p>Data are available from 2020-01-22 to 2020-03-25 for 177 countries.</p>
+<p>Data are available from 2020-01-22 to 2020-03-26 for 175 countries.</p>
 <div id="define-the-severity-of-the-pandemy-in-every-country" class="section level3">
 <h3>Define the severity of the pandemy in every country</h3>
-<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 6001 confirmed cases</p>
+<p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 1.000110^{4} confirmed cases</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">   </span><span class="kw">summarise</span> ( <span class="dt">m =</span> <span class="kw">max</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">filter</span>( m  <span class="op">&gt;</span><span class="st"> </span>n1) -&gt;<span class="st"> </span>country_list</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
@@ -597,7 +597,7 @@ div.tocify {
 <a class="sourceLine" id="cb6-2" data-line-number="2">country_issues<span class="op">$</span>country_id</a></code></pre></div>
 <pre><code>## [1] czechia          diamond princess iran             korea, south    
 ## [5] us              
-## 177 Levels: afghanistan albania algeria andorra ... zimbabwe</code></pre>
+## 175 Levels: afghanistan albania algeria andorra ... zimbabwe</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">world_map <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">avail =</span> <span class="kw">ifelse</span>(country_id <span class="op">%in%</span><span class="st"> </span>country_list<span class="op">$</span>country_id, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) -&gt;<span class="st"> </span>world_map</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">world_map <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -696,6 +696,27 @@ Evolution of the number of deaths, time elapsed since the 80th reported cases
 <img src="random_r_stuff_files/figure-html/origine_death-1.png" alt="Evolution of the number of deaths, time elapsed since the 10th death" width="672" />
 <p class="caption">
 Evolution of the number of deaths, time elapsed since the 10th death
+</p>
+</div>
+</div>
+<div id="evolution-of-the-number-of-new-deaths" class="section level3">
+<h3>Evolution of the number of new deaths</h3>
+<p>As the pandemy is spreading, the number of deaths is expected to grow bigger every day before slowing down. Therefore the number of new daths, which also the derivative of the number of deaths, could be a good indicator of the stage of the pandemy.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">   </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> type, <span class="dt">values_from =</span> Cases) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">   </span><span class="kw">filter</span>( deaths <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>,Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="st">   </span><span class="kw">group_by</span>(country_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="st">   </span><span class="kw">arrange</span>(Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> Date <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">first</span>(Date),</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">          <span class="dt">new_deaths =</span> deaths <span class="op">-</span><span class="kw">lag</span>(deaths)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="st">   </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> new_deaths, <span class="dt">col =</span> country_id), <span class="dt">alpha =</span> <span class="fl">0.3</span>)  <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> new_deaths, <span class="dt">linetype=</span>country_id, <span class="dt">col =</span> country_id), <span class="dt">se =</span> <span class="ot">FALSE</span>)  <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) </a></code></pre></div>
+<div class="figure">
+<img src="random_r_stuff_files/figure-html/new_death-1.png" alt="Evolution of the number of new deaths, time elapsed since the 10th death, log2 scale" width="672" />
+<p class="caption">
+Evolution of the number of new deaths, time elapsed since the 10th death, log2 scale
 </p>
 </div>
 </div>
