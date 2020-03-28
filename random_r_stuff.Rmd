@@ -34,15 +34,24 @@ url_base <-
 
 type <- c('confirmed', 'deaths', 'recovered')
 dta_list <- lapply( type, function(type_){
- dta_prov <- read_csv(url(paste0(url_base,  type_, '_global.csv'))) %>% 
-    mutate(type = type_)
- dta_prov %>% 
-  rename(Province = `Province/State`, Country = `Country/Region`) %>% 
-  pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases') 
+   dta_prov <- read_csv(url(paste0(url_base,  type_, '_global.csv')))  %>% 
+      mutate(type = type_) 
+   dta_prov %>% 
+      rename(Province = `Province/State`, Country = `Country/Region`) %>% 
+      pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases')  %>% 
+      mutate(Date = lubridate::mdy(Date))
 })
 
 dta <- do.call('rbind', dta_list)
 ```
+
+```{r  echo = FALSE}
+n_tot <- n_distinct(dta$Country)
+n1 <- 500
+n2 <- 10000
+```
+
+**Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.**
 
 
 ### Formatting data
@@ -51,7 +60,6 @@ dta <- do.call('rbind', dta_list)
 
 
 dta %>%  
-   mutate(Date = lubridate::mdy(Date))  %>% 
    mutate(type = factor(type, levels = c('confirmed', 'deaths', 'recovered')))  %>% 
    mutate(country_id = factor(tolower(Country))) %>% 
    group_by(country_id, type, Date) %>% 

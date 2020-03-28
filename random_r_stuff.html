@@ -534,24 +534,25 @@ div.tocify {
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;confirmed&#39;</span>, <span class="st">&#39;deaths&#39;</span>, <span class="st">&#39;recovered&#39;</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">dta_list &lt;-<span class="st"> </span><span class="kw">lapply</span>( type, <span class="cf">function</span>(type_){</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"> dta_prov &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="kw">paste0</span>(url_base,  type_, <span class="st">&#39;_global.csv&#39;</span>))) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> type_)</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"> dta_prov <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Province =</span> <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="op">-</span><span class="kw">c</span>(Province, Country, Lat, Long, type),  <span class="dt">names_to =</span> <span class="st">&#39;Date&#39;</span>, <span class="dt">values_to =</span> <span class="st">&#39;Cases&#39;</span>) </a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">})</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">dta &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&#39;rbind&#39;</span>, dta_list)</a></code></pre></div>
+<a class="sourceLine" id="cb1-10" data-line-number="10">   dta_prov &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="kw">paste0</span>(url_base,  type_, <span class="st">&#39;_global.csv&#39;</span>)))  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="st">      </span><span class="kw">mutate</span>(<span class="dt">type =</span> type_) </a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">   dta_prov <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="st">      </span><span class="kw">rename</span>(<span class="dt">Province =</span> <span class="st">`</span><span class="dt">Province/State</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="st">      </span><span class="kw">pivot_longer</span>(<span class="op">-</span><span class="kw">c</span>(Province, Country, Lat, Long, type),  <span class="dt">names_to =</span> <span class="st">&#39;Date&#39;</span>, <span class="dt">values_to =</span> <span class="st">&#39;Cases&#39;</span>)  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="st">      </span><span class="kw">mutate</span>(<span class="dt">Date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(Date))</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">})</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">dta &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&#39;rbind&#39;</span>, dta_list)</a></code></pre></div>
+<p><strong>Data are available from 2020-01-22 to 2020-03-27 for 176 countries.</strong></p>
 </div>
 <div id="formatting-data" class="section level3">
 <h3>Formatting data</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">Date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(Date))  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">factor</span>(type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&#39;confirmed&#39;</span>, <span class="st">&#39;deaths&#39;</span>, <span class="st">&#39;recovered&#39;</span>)))  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">country_id =</span> <span class="kw">factor</span>(<span class="kw">tolower</span>(Country))) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">   </span><span class="kw">group_by</span>(country_id, type, Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">   </span><span class="kw">summarise</span>(<span class="dt">Cases =</span> <span class="kw">sum</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">   </span><span class="kw">ungroup</span>()-&gt;<span class="st"> </span>dta</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">factor</span>(type, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&#39;confirmed&#39;</span>, <span class="st">&#39;deaths&#39;</span>, <span class="st">&#39;recovered&#39;</span>)))  <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">country_id =</span> <span class="kw">factor</span>(<span class="kw">tolower</span>(Country))) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">   </span><span class="kw">group_by</span>(country_id, type, Date) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">   </span><span class="kw">summarise</span>(<span class="dt">Cases =</span> <span class="kw">sum</span>(Cases, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">   </span><span class="kw">ungroup</span>()-&gt;<span class="st"> </span>dta</a></code></pre></div>
 </div>
 </div>
 <div id="spatial-spreading-of-the-pandemy" class="section level2">
@@ -610,7 +611,7 @@ div.tocify {
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3">world_map <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Severity)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()  </a></code></pre></div>
-<p><img src="random_r_stuff_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="random_r_stuff_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
 <div id="time-series-data" class="section level2">
@@ -620,7 +621,7 @@ div.tocify {
 <p>We can represent the evolution of coronavirus confirmed cases for the countries with high severity.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>,  Severity <span class="op">!=</span><span class="st"> &#39;Low&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span> Date, <span class="dt">y =</span> Cases, <span class="dt">col =</span> country_id)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>( <span class="dt">size =</span> <span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>) ) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&#39;Evolution of confirmed cases in highly affected countries&#39;</span>)</a></code></pre></div>
-<p><img src="random_r_stuff_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="random_r_stuff_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Too many data on the graph , focus on the countries with High level of severity.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">p &lt;-<span class="st"> </span>dta  <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">   </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &#39;confirmed&#39;</span>, Severity <span class="op">==</span><span class="st"> &#39;Very High&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -631,7 +632,7 @@ div.tocify {
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs) </a>
 <a class="sourceLine" id="cb11-8" data-line-number="8">p</a></code></pre></div>
 <div class="figure">
-<img src="random_r_stuff_files/figure-html/unnamed-chunk-7-1.png" alt="Evolution of the number of confirmed cases" width="672" />
+<img src="random_r_stuff_files/figure-html/unnamed-chunk-8-1.png" alt="Evolution of the number of confirmed cases" width="672" />
 <p class="caption">
 Evolution of the number of confirmed cases
 </p>
@@ -640,7 +641,7 @@ Evolution of the number of confirmed cases
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">p <span class="op">+</span><span class="st">  </span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>)</a></code></pre></div>
 <div class="figure">
-<img src="random_r_stuff_files/figure-html/unnamed-chunk-8-1.png" alt="Evolution of the number of confirmed cases in log2 scale" width="672" />
+<img src="random_r_stuff_files/figure-html/unnamed-chunk-9-1.png" alt="Evolution of the number of confirmed cases in log2 scale" width="672" />
 <p class="caption">
 Evolution of the number of confirmed cases in log2 scale
 </p>
@@ -657,7 +658,7 @@ Evolution of the number of confirmed cases in log2 scale
 <a class="sourceLine" id="cb13-7" data-line-number="7"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs)  <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>) </a></code></pre></div>
 <div class="figure">
-<img src="random_r_stuff_files/figure-html/unnamed-chunk-9-1.png" alt="Evolution of confirmed cases, time elapsed since the 80th reported cases" width="672" />
+<img src="random_r_stuff_files/figure-html/unnamed-chunk-10-1.png" alt="Evolution of confirmed cases, time elapsed since the 80th reported cases" width="672" />
 <p class="caption">
 Evolution of confirmed cases, time elapsed since the 80th reported cases
 </p>
@@ -677,7 +678,7 @@ Evolution of confirmed cases, time elapsed since the 80th reported cases
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="st">   </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> couleurs) <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-10" data-line-number="10"><span class="st">   </span><span class="kw">scale_y_continuous</span>(<span class="dt">trans=</span><span class="st">&#39;log2&#39;</span>)</a></code></pre></div>
 <div class="figure">
-<img src="random_r_stuff_files/figure-html/unnamed-chunk-10-1.png" alt="Evolution of the number of deaths, time elapsed since the 80th reported cases" width="672" />
+<img src="random_r_stuff_files/figure-html/unnamed-chunk-11-1.png" alt="Evolution of the number of deaths, time elapsed since the 80th reported cases" width="672" />
 <p class="caption">
 Evolution of the number of deaths, time elapsed since the 80th reported cases
 </p>
