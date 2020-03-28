@@ -556,7 +556,7 @@ div.tocify {
 </div>
 <div id="spatial-spreading-of-the-pandemy" class="section level2">
 <h2>Spatial Spreading of the pandemy</h2>
-<p>Data are available from 2020-01-22 to 2020-03-26 for 175 countries.</p>
+<p>Data are available from 2020-01-22 to 2020-03-27 for 176 countries.</p>
 <div id="define-the-severity-of-the-pandemy-in-every-country" class="section level3">
 <h3>Define the severity of the pandemy in every country</h3>
 <p>The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to - Low if there are less than 500 confirmed cases - High if there are at least 501 confirmed cases - Very High low if there are at least 1.000110^{4} confirmed cases</p>
@@ -597,7 +597,7 @@ div.tocify {
 <a class="sourceLine" id="cb6-2" data-line-number="2">country_issues<span class="op">$</span>country_id</a></code></pre></div>
 <pre><code>## [1] czechia          diamond princess iran             korea, south    
 ## [5] us              
-## 175 Levels: afghanistan albania algeria andorra ... zimbabwe</code></pre>
+## 176 Levels: afghanistan albania algeria andorra ... zimbabwe</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">world_map <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">avail =</span> <span class="kw">ifelse</span>(country_id <span class="op">%in%</span><span class="st"> </span>country_list<span class="op">$</span>country_id, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) -&gt;<span class="st"> </span>world_map</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">world_map <span class="op">%&gt;%</span><span class="st"> </span></a>

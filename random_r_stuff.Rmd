@@ -12,7 +12,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, cache = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 The [Johns Hopkins University](https://coronavirus.jhu.edu/) provide data on the coronavirus crisis, reportin the daily number of confirmed cases,  deaths and recovered patients.
