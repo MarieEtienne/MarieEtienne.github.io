@@ -313,7 +313,7 @@ dta_lm %>%
    
 ```
 
-Assuming that the predicted number of cases is more realistic than the reported number of cases, we could match the dynamic of pandemy, using the date of the 200th predicted cases. It is also possible to compare the declared confirmed of cases and the predicted numer of cases (if every county had used the German startegy).
+Assuming that the predicted number of cases is more realistic than the reported number of cases, we could look at the evolution of the pandemy, using predicted number of cases instead of reported confirmed cases. The illustations below represent the reported confirmed cases and the predicted confirmed cases, assuming that every country would use the german testing strategy.
 
 
 
