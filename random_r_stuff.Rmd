@@ -212,8 +212,9 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id, ))  +
-   scale_color_manual(values = couleurs)  + 
+   ggplot()  +   geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  +
+   geom_smooth(aes(x= Date, y = Cases, linetype=country_id, col = country_id), se = FALSE) +
+   scale_color_manual(values = couleurs) + 
    scale_y_continuous(trans='log2') 
 ```
 
@@ -230,8 +231,8 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + 
-   geom_line(aes(x= Date, y = deaths, linetype=country_id, col = country_id)) +
+   ggplot() +   geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
+   geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs) +
    scale_y_continuous(trans='log2')
 ```
@@ -247,7 +248,8 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_line(aes(x= Date, y = deaths, linetype=country_id, col = country_id))  +
+   ggplot() + geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
+   geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs)  +
    scale_y_continuous(trans='log2') 
 ```
@@ -273,5 +275,57 @@ dta %>%
 
 
 
+### Link between Confirmed cases and deaths
 
+
+
+```{r confirmed_death, fig.cap='Number of Confirmed cases  as a function of deaths'}
+dta %>% 
+   pivot_wider(names_from = type, values_from = Cases) %>% 
+   filter( deaths >= 10,Severity == 'Very High') %>% 
+   group_by(country_id) %>% 
+   arrange(Date)  %>% 
+   mutate(Date = Date - dplyr::first(Date)) %>% 
+   ggplot() + geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  +
+   geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE) +
+   scale_color_manual(values = couleurs) 
+```
+
+
+I would like to have a better idea of the actual number of confirmed cases in every country.  The best indicator of the pandemy beeing the number of deaths I would like to predict the number of actual cases given the number of deaths. As illustrated on the graphs, there is a linear relationship between the two quantities, the slope depends on the letality within a given country and more importantly of the testing strategy. As Germany has experienced large testing strategy, we could predict the numer of cases in every country if the same testing had been applied (assumed the same lethality in every country.
+
+
+```{r}
+dta %>% 
+   pivot_wider(names_from = type, values_from = Cases) %>% 
+   filter( deaths >= 10,Severity == 'Very High') %>% 
+   mutate(country_id = relevel(country_id, ref = 'germany')) -> dta_lm
+
+lm1 <- lm( confirmed ~ deaths  + country_id + deaths:country_id, data =dta_lm)
+
+dta_lm %>%    
+   mutate(confirmed_pred = coef(lm1)[1] + coef(lm1)[2] * deaths) -> dta_lm
+
+dta_lm %>%
+   filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>% 
+   ggplot() + geom_point(aes(y  = confirmed_pred, x = confirmed, col = country_id))   + geom_abline(slope = 1, intercept = 0) +
+   scale_color_manual(values = couleurs) 
+   
+```
+
+Assuming that the predicted number of cases is more realistic than the reported number of cases, we could match the dynamic of pandemy, using the date of the 200th predicted cases. It is also possible to compare the declared confirmed of cases and the predicted numer of cases (if every county had used the German startegy).
+
+
+
+```{r}
+dta_lm %>% 
+   filter( confirmed_pred >=  200 , Severity == 'Very High') %>% 
+   group_by(country_id) %>% 
+   arrange(Date)  %>% 
+   mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred'), names_to = 'type', values_to = 'Cases') %>%    ggplot() + facet_wrap(~country_id) +
+   geom_point(aes(y  = Cases, x = Date, col = country_id, linetype = type), size = 0.2, alpha = 0.3) +
+   geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type),  se = FALSE) +
+   scale_color_manual(values = couleurs)
+
+```
 
