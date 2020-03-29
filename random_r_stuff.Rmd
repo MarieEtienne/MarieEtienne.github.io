@@ -106,7 +106,8 @@ severity_class <- function(country){
   return(prov)
 }
 
-dta %>% mutate(Severity = severity_class(country_id)) -> dta
+dta %>% mutate(Severity = severity_class(country_id)) %>% 
+   mutate(country_id = relevel(country_id, ref = 'germany')) -> dta
 ```
 
 
@@ -292,19 +293,22 @@ dta %>%
 ```
 
 
-I would like to have a better idea of the actual number of confirmed cases in every country.  The best indicator of the pandemy beeing the number of deaths I would like to predict the number of actual cases given the number of deaths. As illustrated on the graphs, there is a linear relationship between the two quantities, the slope depends on the letality within a given country and more importantly of the testing strategy. As Germany has experienced large testing strategy, we could predict the numer of cases in every country if the same testing had been applied (assumed the same lethality in every country.
-
+I would like to have a better idea of the actual number of confirmed cases in every countries.  The best indicator of the pandemy beeing the number of deaths I would like to predict the number of actual cases given the number of deaths. As illustrated on the graphs, there is a linear relationship between these two quantities. The slope  of this regression line depends on the letality within a given country and more importantly of the testing strategy. The difference in the strategy for testing people have been invocated to explain the difference in the apparent very high letality in most countries opposed to a very low lethality in Germany. As Germany has experienced a larger testing strategy, we could predict, given the number of observed deaths, what  would could be a more realistic number of cases in every country using the relationship between deaths and confirmed cases observed in Germany.
 
 ```{r}
 dta %>% 
    pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( deaths >= 10,Severity == 'Very High') %>% 
-   mutate(country_id = relevel(country_id, ref = 'germany')) -> dta_lm
+   filter( deaths >= 10,Severity == 'Very High')  -> dta_lm
 
 lm1 <- lm( confirmed ~ deaths  + country_id + deaths:country_id, data =dta_lm)
 
-dta_lm %>%    
-   mutate(confirmed_pred = coef(lm1)[1] + coef(lm1)[2] * deaths) -> dta_lm
+
+prediction <- predict(lm1, newdata = data.frame(deaths= dta_lm$deaths, country_id = 'germany'), interval = 'prediction') 
+
+dta_lm %>%
+   mutate(confirmed_pred = prediction[,1],
+          lower = prediction[,2],
+          upper = prediction[,3]) -> dta_lm
 
 dta_lm %>%
    filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>% 
@@ -317,15 +321,20 @@ Assuming that the predicted number of cases is more realistic than the reported 
 
 
 
-```{r}
+```{r onfirmed_pred, fig.cap='The plain line  is the reported number of cases, the large dashed lines is the expected number of cases if the German testing strategy was used, and the thin dashed lines provide the prediction interval around this expected value.'}
 dta_lm %>% 
    filter( confirmed_pred >=  200 , Severity == 'Very High') %>% 
    group_by(country_id) %>% 
    arrange(Date)  %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred'), names_to = 'type', values_to = 'Cases') %>%    ggplot() + facet_wrap(~country_id) +
-   geom_point(aes(y  = Cases, x = Date, col = country_id, linetype = type), size = 0.2, alpha = 0.3) +
-   geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type),  se = FALSE) +
-   scale_color_manual(values = couleurs)
+   mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred', 'lower', 'upper'), names_to = 'type', values_to = 'Cases') -> dta_plot 
+
+dta_plot %>%    filter( type %in% c('confirmed', 'confirmed_pred') ) %>%   ggplot() + facet_wrap(~country_id) +
+   geom_point(aes(y  = Cases, x = Date, col = country_id), size = 0.2, alpha = 0.3) +
+   geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type) , se = FALSE, size = 0.8) +
+   scale_color_manual(values = couleurs) -> p
+
+dta_plot %>%    filter( ! type %in% c('confirmed', 'confirmed_pred') ) -> interval_dta 
+p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE) 
 
 ```
 
