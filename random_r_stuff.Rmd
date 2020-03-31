@@ -158,14 +158,19 @@ ggplotly(p)
 
 
 
-### confirmed cases
+### Confirmed cases
 
 
 We can represent the evolution of coronavirus confirmed cases for the countries with high severity. 
 
 ```{r}
-dta %>% filter(type == 'confirmed',  Severity != 'Low') %>% ggplot() + geom_line(aes(x= Date, y = Cases, col = country_id)) + scale_y_continuous(trans='log2') + theme(legend.title = element_text( size = 10),
-  legend.text = element_text(size = 6) ) + ggtitle('Evolution of confirmed cases in highly affected countries') -> p
+dta %>% 
+   filter(type == 'confirmed',  Severity != 'Low') %>%
+   ggplot() + 
+   geom_line(aes(x= Date, y = Cases, col = country_id)) + 
+   scale_y_continuous(trans='log2') + 
+   theme(legend.title = element_text( size = 10),legend.text = element_text(size = 6) ) + 
+   ggtitle('Evolution of confirmed cases in highly affected countries') -> p
 ggplotly(p)
 ```
 
@@ -221,8 +226,9 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot()  +   geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  +
+   ggplot()  +
    geom_smooth(aes(x= Date, y = Cases, linetype=country_id, col = country_id), se = FALSE) +
+   geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  +
    scale_color_manual(values = couleurs) + 
    scale_y_continuous(trans='log2')  -> p 
 ggplotly(p)
@@ -241,8 +247,9 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() +   geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
+   ggplot() +   
    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
+   geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
    scale_color_manual(values = couleurs) +
    scale_y_continuous(trans='log2') -> p 
 ggplotly(p)
@@ -259,11 +266,12 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
+   ggplot()  +
    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs)  +
-   scale_y_continuous(trans='log2')  -> p 
-ggplotly(p)
+   scale_y_continuous(trans ='log2')  -> p 
+ ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
+
 ```
 
 ### Evolution of the number of new deaths
@@ -279,11 +287,12 @@ dta %>%
    arrange(Date) %>% 
    mutate(Date = Date - dplyr::first(Date),
           new_deaths = deaths -lag(deaths)) %>% 
-   ggplot() + geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  +
+   ggplot() + 
    geom_smooth(aes(x= Date, y = new_deaths, linetype=country_id, col = country_id), se = FALSE)  +
+   geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  +
    scale_color_manual(values = couleurs) +
-   scale_y_continuous(trans='log2')  -> p 
-ggplotly(p)
+   scale_y_continuous(trans='log2')  ->  p 
+ ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
 ```
 
 
@@ -299,10 +308,11 @@ dta %>%
    group_by(country_id) %>% 
    arrange(Date)  %>% 
    mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() + geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  +
-   geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE) +
+   ggplot() +
+   geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE)  + 
+   geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  +
    scale_color_manual(values = couleurs) -> p 
-ggplotly(p)
+ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
 ```
 
 
@@ -326,9 +336,8 @@ dta_lm %>%
 dta_lm %>%
    filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>% 
    ggplot() + geom_point(aes(y  = confirmed_pred, x = confirmed, col = country_id))   + geom_abline(slope = 1, intercept = 0) +
-   scale_color_manual(values = couleurs)  -> p 
-ggplotly(p)
-   
+   scale_color_manual(values = couleurs)  ->p 
+ ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
 ```
 
 Assuming that the predicted number of cases is more realistic than the reported number of cases, we could look at the evolution of the pandemy, using predicted number of cases instead of reported confirmed cases. The illustations below represent the reported confirmed cases and the predicted confirmed cases, assuming that every country would use the german testing strategy.
@@ -343,13 +352,13 @@ dta_lm %>%
    mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred', 'lower', 'upper'), names_to = 'type', values_to = 'Cases') -> dta_plot 
 
 dta_plot %>%    filter( type %in% c('confirmed', 'confirmed_pred') ) %>%   ggplot() + facet_wrap(~country_id) +
-   geom_point(aes(y  = Cases, x = Date, col = country_id), size = 0.2, alpha = 0.3) +
    geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type) , se = FALSE, size = 0.8) +
+   geom_point(aes(y  = Cases, x = Date, col = country_id), size = 0.2, alpha = 0.3) +
    scale_color_manual(values = couleurs) -> p
 
 dta_plot %>%    filter( ! type %in% c('confirmed', 'confirmed_pred') ) -> interval_dta 
 p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE)  -> p_fin
-ggplotly(p_fin)
-
+ ggplotly(p_fin ,  tooltip = c('country_id', 'x', 'y') )
 ```
+
 
