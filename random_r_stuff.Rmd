@@ -27,6 +27,9 @@ The [Johns Hopkins University](https://coronavirus.jhu.edu/) provide data on the
 ```{r load_data}
 library('readr')
 library('tidyverse')
+library('ggplot2')
+library('plotly')
+
 
 
 url_base <- 
@@ -145,7 +148,8 @@ world_map %>%
 world_map %>%  mutate(Severity = severity_class(country_id)) -> world_map
 
 world_map %>% ggplot() + geom_sf(aes(fill = Severity)) + 
-  scale_fill_viridis_d()  
+  scale_fill_viridis_d()   -> p 
+ggplotly(p)
 ```
 
 
@@ -161,7 +165,8 @@ We can represent the evolution of coronavirus confirmed cases for the countries 
 
 ```{r}
 dta %>% filter(type == 'confirmed',  Severity != 'Low') %>% ggplot() + geom_line(aes(x= Date, y = Cases, col = country_id)) + scale_y_continuous(trans='log2') + theme(legend.title = element_text( size = 10),
-  legend.text = element_text(size = 6) ) + ggtitle('Evolution of confirmed cases in highly affected countries')
+  legend.text = element_text(size = 6) ) + ggtitle('Evolution of confirmed cases in highly affected countries') -> p
+ggplotly(p)
 ```
 
 
@@ -178,14 +183,16 @@ couleurs <- c('#ff0000', '#ff9900', '#006600',
 
 ```{r, fig.cap='Evolution of the number of confirmed cases'}
 
-p <- dta  %>% 
+dta  %>% 
    filter(type == 'confirmed', Severity == 'Very High') %>% 
    arrange(country_id, Date) %>% 
    group_by(country_id) %>%  
    ggplot() + 
    geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id))  + 
-   scale_color_manual(values = couleurs) 
-p
+   scale_color_manual(values = couleurs)  -> p
+
+ggplotly(p)
+
 ```
 
 
@@ -194,7 +201,8 @@ and with a log scale
 
 ```{r, fig.cap='Evolution of the number of confirmed cases in log2 scale'}
 p +  
-   scale_y_continuous(trans='log2')
+   scale_y_continuous(trans='log2') -> p 
+ggplotly(p)
 ```
 
 
@@ -216,7 +224,8 @@ dta %>%
    ggplot()  +   geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  +
    geom_smooth(aes(x= Date, y = Cases, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs) + 
-   scale_y_continuous(trans='log2') 
+   scale_y_continuous(trans='log2')  -> p 
+ggplotly(p)
 ```
 
 ### Evolution of the number of deaths
@@ -235,7 +244,8 @@ dta %>%
    ggplot() +   geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs) +
-   scale_y_continuous(trans='log2')
+   scale_y_continuous(trans='log2') -> p 
+ggplotly(p)
 ```
 
 
@@ -252,7 +262,8 @@ dta %>%
    ggplot() + geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
    scale_color_manual(values = couleurs)  +
-   scale_y_continuous(trans='log2') 
+   scale_y_continuous(trans='log2')  -> p 
+ggplotly(p)
 ```
 
 ### Evolution of the number of new deaths
@@ -271,7 +282,8 @@ dta %>%
    ggplot() + geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  +
    geom_smooth(aes(x= Date, y = new_deaths, linetype=country_id, col = country_id), se = FALSE)  +
    scale_color_manual(values = couleurs) +
-   scale_y_continuous(trans='log2') 
+   scale_y_continuous(trans='log2')  -> p 
+ggplotly(p)
 ```
 
 
@@ -289,7 +301,8 @@ dta %>%
    mutate(Date = Date - dplyr::first(Date)) %>% 
    ggplot() + geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  +
    geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE) +
-   scale_color_manual(values = couleurs) 
+   scale_color_manual(values = couleurs) -> p 
+ggplotly(p)
 ```
 
 
@@ -313,7 +326,8 @@ dta_lm %>%
 dta_lm %>%
    filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>% 
    ggplot() + geom_point(aes(y  = confirmed_pred, x = confirmed, col = country_id))   + geom_abline(slope = 1, intercept = 0) +
-   scale_color_manual(values = couleurs) 
+   scale_color_manual(values = couleurs)  -> p 
+ggplotly(p)
    
 ```
 
@@ -334,7 +348,8 @@ dta_plot %>%    filter( type %in% c('confirmed', 'confirmed_pred') ) %>%   ggplo
    scale_color_manual(values = couleurs) -> p
 
 dta_plot %>%    filter( ! type %in% c('confirmed', 'confirmed_pred') ) -> interval_dta 
-p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE) 
+p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE)  -> p_fin
+ggplotly(p_fin)
 
 ```
 
