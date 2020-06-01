@@ -76,8 +76,8 @@ dta %>%
 
 ```{r  echo = FALSE}
 n_tot <- n_distinct(dta$country_id)
-n1 <- 500
-n2 <- 10000
+n1 <- 50000
+n2 <- 1e5
 ```
 
 Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.

@@ -33,7 +33,7 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 
 - Rocio Joo, Marie-Pierre Etienne, Nicolas Bez,  Stéphanie Mahévas. [Metrics for describing dyadic movement: a review](MesPapiers/2018_Joo+MovemenetEcology.pdf) *Movement Ecology*
 
-- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURA]SIP.pdf).*EURASIP Journal on Advances in Signal Processing*
+- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURASIP.pdf).*EURASIP Journal on Advances in Signal Processing*
 
 ## 2017
 

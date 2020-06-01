@@ -1,0 +1,187 @@
+---
+title: "Tidy aMnipulation tips"
+author: "Marie-Pierre Etienne"
+date: "5/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Split text columns into 2 columns
+
+
+```{r separate}
+
+dta <- tibble(text = c('HHM_AR', 'HMM_ID', 'HSMM_AR', 'HSMM_ID'))
+
+dta
+dta %>%  
+  separate(col = text, into = c('Hidden', 'Obs'), sep = '_' )
+```
+
+
+
+<!-- ## Fig18 autrement -->
+
+
+<!-- ```{r Fig18 ggplot2, echo=FALSE} -->
+<!-- library(wesanderson) -->
+<!-- library(ggplot2) -->
+<!-- library(tidyverse) -->
+<!-- library(tidyr) -->
+
+<!-- load(file = "~/Steph/filtred" ) -->
+<!-- load(file = "~/Steph/statespace" ) -->
+<!-- data1 <- statespace %>%  dplyr::mutate(Model = paste(Method,Ar,sep="-")) %>%   dplyr::mutate(Accuracy=round(Accuracy,2)) %>%  select(Vessel,Degrad,Model,Accuracy) -->
+<!-- data2 <- filtred %>% gather(key=Model,value=Accuracy,Filtred.4.5,Filtred.6)%>% dplyr::mutate(Accuracy=round(Accuracy,2))  -->
+<!-- my.data <- bind_rows(data1,data2) -->
+<!-- my.data$Vessel <- as.character(my.data$Vessel) -->
+<!-- my.data$Vessel[my.data$Vessel=="007"] <- "Vessel2" -->
+<!-- my.data$Vessel[my.data$Vessel=="924675"] <- "Vessel1" -->
+<!-- my.data$Model <- as.character(my.data$Model) -->
+<!-- my.data$Model[my.data$Model=="Filtred.4.5"] <- "M_Filtred4.5" -->
+<!-- my.data$Model[my.data$Model=="Filtred.6"] <- "M_Filtred6" -->
+
+<!-- my.pal <- wes_palette("Zissou1") -->
+
+
+
+<!-- mine.heatmap2 <- ggplot(data = my.data, mapping = aes(x = Degrad, -->
+<!--                                                      y = Vessel, -->
+<!--                                                      fill = Accuracy)) + -->
+<!--   geom_tile() + -->
+<!--   facet_grid(~Model,switch = "x", scales = "free", space = "free") + -->
+<!--   scale_fill_gradientn(name = "Accuracy",colours = my.pal) + -->
+<!--   theme_bw() + -->
+<!--   theme(strip.placement = "outside", -->
+<!--       #  panel.grid.major = element_line(colour = "black"), -->
+<!--         axis.title.y = element_blank(), -->
+<!--         axis.title.x = element_blank() #Remove x-axis title -->
+<!--         ) -->
+
+
+<!-- mine.heatmap2 -->
+
+
+<!-- ``` -->
+
+<!-- <!-- <!-- ## Fig18 en Tableau --> --> -->
+
+<!-- <!-- ```{r table, echo=FALSE} --> -->
+<!-- <!-- library(kableExtra) --> -->
+<!-- <!-- library(formattable) --> -->
+
+<!-- <!-- my.tab <- my.data %>%  tidyr::spread(Vessel,Accuracy) %>% arrange(Model) --> -->
+<!-- <!-- my.tabred <- my.tab %>% select(starts_with("Vessel")) --> -->
+<!-- <!-- my.df <- as.data.frame(my.tabred) --> -->
+<!-- <!-- dimnames(my.df)[[1]] <- paste(my.tab$Model,my.tab$Degrad,sep="-") --> -->
+
+<!-- <!-- my.pal <- wes_palette("Zissou1") --> -->
+
+
+<!-- <!-- <!-- my.df %>% pivot_longer(mutate(  --> --> -->
+<!-- <!-- <!--   Vessel1 = cell_spec(Vessel1,background=my.pal), --> --> -->
+<!-- <!-- <!--   Vessel2 = cell_spec(Vessel2,background=my.pal) --> --> -->
+<!-- <!-- <!--   )  --> --> -->
+
+
+<!-- <!-- <!-- %>% select(starts_with("Vessel")) %>% t()%>% --> --> -->
+<!-- <!-- <!--   kable("html", escape = F)  --> --> -->
+<!-- <!-- <!-- # %>%  kable_styling("hover", full_width = F) --> --> -->
+<!-- <!-- <!--   # %>% kable_styling(c("striped", "bordered")) %>% --> --> -->
+<!-- <!-- <!--  # add_header_above(c(" ", "HMM-AR0" = 4, "HMM-AR1"  = 4, "HSMM-AR0" = 4, "HSMM-AR1" =4,"M_Filtred4.5"=4, "M_Filtred6"=4 ))  --> --> -->
+
+
+<!-- <!-- ``` --> -->
+
+
+<!-- <!-- ## test MPE --> -->
+
+<!-- <!-- ```{r} --> -->
+<!-- <!-- library(knitr) --> -->
+<!-- <!-- library(kableExtra) --> -->
+<!-- <!-- library(formattable) --> -->
+<!-- <!-- library(dplyr) --> -->
+<!-- <!-- library( formattable ) --> -->
+<!-- <!-- library("htmltools") --> -->
+<!-- <!-- library("webshot")     --> -->
+
+<!-- <!-- my.pal <- wes_palette("Zissou1") --> -->
+
+<!-- <!-- export_formattable <- function(f, file, width = "100%", height = NULL,  --> -->
+<!-- <!--                                background = "white", delay = 0.2) --> -->
+<!-- <!-- { --> -->
+<!-- <!--   w <- as.htmlwidget(f, width = width, height = height) --> -->
+<!-- <!--   path <- html_print(w, background = background, viewer = NULL) --> -->
+<!-- <!--   url <- paste0("file:///", gsub("\\\\", "/", normalizePath(path))) --> -->
+<!-- <!--   webshot(url, --> -->
+<!-- <!--           file = file, --> -->
+<!-- <!--           selector = ".formattable_widget", --> -->
+<!-- <!--           delay = delay) --> -->
+<!-- <!-- } --> -->
+
+
+<!-- <!-- value_formatter <- formatter("span",  --> -->
+<!-- <!--                              style = x ~ style(color = ifelse(x > 0.9, "green",  --> -->
+<!-- <!--                                                               ifelse(x < 0, "red", "black")))) --> -->
+<!-- <!-- sign_formatter(c(-1, 0, 1)) --> -->
+
+
+<!-- <!-- custom_color_tile <- function (...)  --> -->
+<!-- <!-- { --> -->
+<!-- <!--   formatter("span", --> -->
+<!-- <!--             style = function(x) style(display = "block", padding = "0 4px", `color` = "white", `border-radius` = "4px",     `background-color` = csscolor(gradient(as.numeric(x),  --> -->
+<!-- <!--                                                                                                                                                                    ...)))) --> -->
+<!-- <!-- } --> -->
+
+
+<!-- <!-- test_dta <- my.data %>% --> -->
+<!-- <!--   separate( Model, c("Hidden_Model", "Obs_Model"), "-" ) %>%  --> -->
+<!-- <!--   arrange(Vessel, Hidden_Model, Obs_Model, Degrad ) %>% pivot_wider(names_from = c( Degrad, Vessel), values_from = Accuracy) --> -->
+
+
+
+<!-- <!-- table18 <- test_dta %>%  --> -->
+<!-- <!--   rename(` d1 ` = d1_Vessel1, --> -->
+<!-- <!--          ` d1` = d1_Vessel2,  --> -->
+<!-- <!--          ` d2 ` = d2_Vessel1, --> -->
+<!-- <!--          ` d2` = d2_Vessel2, --> -->
+<!-- <!--          ` d3 ` = d3_Vessel1, --> -->
+<!-- <!--          ` d3` = d3_Vessel2, --> -->
+<!-- <!--          ` d4 ` = d4_Vessel1, --> -->
+<!-- <!--          ` d4` = d4_Vessel2) %>%  --> -->
+<!-- <!--   mutate_if(is.numeric,  color_tile("#d5eeec", "#3b9ab2"))%>%  --> -->
+<!-- <!--   kable("html", escape = F) %>% --> -->
+<!-- <!--   kable_styling("hover", full_width = T) %>% --> -->
+<!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> -->
+
+<!-- <!-- table18  %>% save_kable("table18.png") --> -->
+
+
+<!-- <!-- format_bold <- function(x){ --> -->
+<!-- <!--   ifelse(x > 0.9,  cell_spec(x, "html",  bold = T),  --> -->
+<!-- <!--          ifelse( x < 0.5 , cell_spec(x, "html", italic = T), --> -->
+<!-- <!--                  cell_spec(x, "html")) ) --> -->
+<!-- <!-- } --> -->
+
+<!-- <!-- table18_tableau <- test_dta %>%  --> -->
+<!-- <!--   rename(` d1 ` = d1_Vessel1, --> -->
+<!-- <!--          ` d1` = d1_Vessel2,  --> -->
+<!-- <!--          ` d2 ` = d2_Vessel1, --> -->
+<!-- <!--          ` d2` = d2_Vessel2, --> -->
+<!-- <!--          ` d3 ` = d3_Vessel1, --> -->
+<!-- <!--          ` d3` = d3_Vessel2, --> -->
+<!-- <!--          ` d4 ` = d4_Vessel1, --> -->
+<!-- <!--          ` d4` = d4_Vessel2) %>%  --> -->
+<!-- <!--   mutate_if(is.numeric,  format_bold)%>%  --> -->
+<!-- <!--   kable("html", escape = F) %>% --> -->
+<!-- <!--   kable_styling("hover", full_width = T) %>% --> -->
+<!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> -->
+
+<!-- <!-- table18_tableau  %>% save_kable("table18_tableau.png") --> -->
+
+<!-- <!-- ``` --> -->
+

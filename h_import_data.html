@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -163,7 +162,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -312,6 +310,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -340,6 +339,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -525,7 +530,7 @@ div.tocify {
 <p>Ce document est un aide-mémoire pour réussir l’importation des données dans R. En suivant les différentes étapes, tout devrait bien se passer.</p>
 <p>L’objectif sera donc ici d’importer le jeu de données stockés dans le fichier Excel <a href="datasets/samares_small.xlsx">samares</a> disponible sur la page des <a href="data.html">données</a></p>
 </div>
-<div id="etape-1.-creer-un-projet" class="section level2">
+<div id="etape-1.-créer-un-projet" class="section level2">
 <h2>Etape 1. Créer un projet</h2>
 <p>Rstudio proposer d’organiser son travail en projet. Le projet permet de faciliter l’accès aux différents fichiers d’un même projet. Pour créer un projet il suffit d’aller en haut à droite, dans Project comme dans la capture d’écran ci-dessous.</p>
 <p><img src="img/h_creer_nouveau_projet.png" style="width:80.0%" />  </p>
@@ -536,7 +541,7 @@ div.tocify {
 <p>qui s’appelera Td_Stat_1 et sera placé dans le répertoire désigné</p>
 <p><img src="img/h_nom_projet.png" style="width:80.0%" />  </p>
 </div>
-<div id="etape-2.-creer-un-script" class="section level2">
+<div id="etape-2.-créer-un-script" class="section level2">
 <h2>Etape 2. Créer un script</h2>
 <p>Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l’analyse que vous mettrez en oeuvre.</p>
 <p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt; Rscript</strong>. En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
@@ -544,16 +549,16 @@ div.tocify {
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></a></code></pre></div>
 <p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
 </div>
-<div id="etape-3.-telecharger-le-fichier" class="section level2">
+<div id="etape-3.-télécharger-le-fichier" class="section level2">
 <h2>Etape 3. Télécharger le fichier</h2>
 <p>Le fichier est disponible sur la page des <a href="data.html">jeux de données</a></p>
 <p>On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu’on vient de créer précédemment.</p>
 </div>
-<div id="etape-4.-dun-format-proprietaire-a-un-format-texte" class="section level2">
+<div id="etape-4.-dun-format-propriétaire-à-un-format-texte" class="section level2">
 <h2>Etape 4. D’un format propriétaire à un format texte</h2>
 <p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv</code>. On a donc un fichier <code>samares_small.csv</code> dans le répertoire du projet.</p>
 </div>
-<div id="etape-5.-comprendre-le-format-du-fichier-de-donnees" class="section level2">
+<div id="etape-5.-comprendre-le-format-du-fichier-de-données" class="section level2">
 <h2>Etape 5. Comprendre le format du fichier de données</h2>
 <p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</a>
@@ -587,7 +592,7 @@ div.tocify {
 <p>Normalement R n’indique aucune erreur.</p>
 <p><strong>On n’oublie pas de sauver régulièrement le script.</strong></p>
 </div>
-<div id="etape-7.-verifier-limportation" class="section level2">
+<div id="etape-7.-vérifier-limportation" class="section level2">
 <h2>Etape 7. Vérifier l’importation</h2>
 <p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
 <p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
@@ -648,13 +653,13 @@ div.tocify {
 <p>Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurences de chaque niveau du facteur.</p>
 <p>Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.</p>
 </div>
-<div id="etape-8.-quand-ca-va-mal" class="section level2">
+<div id="etape-8.-quand-ça-va-mal" class="section level2">
 <h2>Etape 8. Quand ça va mal</h2>
 <div id="sil-ny-a-pas-de-noms-de-colonnes-dans-le-fichier" class="section level3">
 <h3>S’il n’y a pas de noms de colonnes dans le fichier</h3>
 <p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
 </div>
-<div id="les-differents-types-de-separateurs" class="section level3">
+<div id="les-différents-types-de-séparateurs" class="section level3">
 <h3>Les différents types de séparateurs</h3>
 <p>Si le séparateur de colonnes n’est pas la <code>,</code>, alors il faut modifier l’argument <code>sep</code></p>
 <table>
@@ -684,7 +689,7 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="probleme-possible-avec-les-variables-numeriques" class="section level3">
+<div id="problème-possible-avec-les-variables-numériques" class="section level3">
 <h3>Problème possible avec les variables numériques</h3>
 <p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention internationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></a>
@@ -695,30 +700,30 @@ div.tocify {
 <a class="sourceLine" id="cb10-6" data-line-number="6">                  ) </a></code></pre></div>
 <p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">summary</span>(dta_wrong)</a></code></pre></div>
-<pre><code>##       Site         NomSite   Distance     Arbre       Poids    
-##  Min.   :1.0   Grenou_1:60   0  :60   Min.   :1   20.3   :  4  
-##  1st Qu.:1.0   Grenou_2:60   0.2:60   1st Qu.:1   21.4   :  3  
-##  Median :1.5                          Median :2   21.9   :  3  
-##  Mean   :1.5                          Mean   :2   25.4   :  3  
-##  3rd Qu.:2.0                          3rd Qu.:3   27.8   :  3  
-##  Max.   :2.0                          Max.   :3   28.7   :  3  
-##                                                   (Other):101  
-##     Surface       Largeur       Longueur   CircArbre
-##  0.77503:  2   0.36126:  1   1.78232:  1   22  :20  
-##  0.82752:  2   0.36797:  1   2.12661:  1   28  :20  
-##  1.06874:  2   0.37814:  1   2.14403:  1   29  :20  
-##  0.62886:  1   0.37902:  1   2.17079:  1   35  :20  
-##  0.63189:  1   0.3829 :  1   2.17674:  1   57  :20  
-##  0.65605:  1   0.38613:  1   2.21576:  1   67.5:20  
-##  (Other):111   (Other):114   (Other):114            
-##              dispersion               log_disp  
-##  0.022622413793104:  1   -2.44520323809512:  1  
-##  0.023668620689655:  1   -2.5565240804316 :  1  
-##  0.024178978978979:  1   -2.67401115887879:  1  
-##  0.024696892655367:  1   -2.73734711645685:  1  
-##  0.025726086956522:  1   -2.75360560276171:  1  
-##  0.026115835777126:  1   -2.80141851754419:  1  
-##  (Other)          :114   (Other)          :114</code></pre>
+<pre><code>##       Site         NomSite   Distance     Arbre       Poids        Surface   
+##  Min.   :1.0   Grenou_1:60   0  :60   Min.   :1   20.3   :  4   0.77503:  2  
+##  1st Qu.:1.0   Grenou_2:60   0.2:60   1st Qu.:1   21.4   :  3   0.82752:  2  
+##  Median :1.5                          Median :2   21.9   :  3   1.06874:  2  
+##  Mean   :1.5                          Mean   :2   25.4   :  3   0.62886:  1  
+##  3rd Qu.:2.0                          3rd Qu.:3   27.8   :  3   0.63189:  1  
+##  Max.   :2.0                          Max.   :3   28.7   :  3   0.65605:  1  
+##                                                   (Other):101   (Other):111  
+##     Largeur       Longueur   CircArbre             dispersion 
+##  0.36126:  1   1.78232:  1   22  :20   0.022622413793104:  1  
+##  0.36797:  1   2.12661:  1   28  :20   0.023668620689655:  1  
+##  0.37814:  1   2.14403:  1   29  :20   0.024178978978979:  1  
+##  0.37902:  1   2.17079:  1   35  :20   0.024696892655367:  1  
+##  0.3829 :  1   2.17674:  1   57  :20   0.025726086956522:  1  
+##  0.38613:  1   2.21576:  1   67.5:20   0.026115835777126:  1  
+##  (Other):114   (Other):114             (Other)          :114  
+##               log_disp  
+##  -2.44520323809512:  1  
+##  -2.5565240804316 :  1  
+##  -2.67401115887879:  1  
+##  -2.73734711645685:  1  
+##  -2.75360560276171:  1  
+##  -2.80141851754419:  1  
+##  (Other)          :114</code></pre>
 </div>
 <div id="une-colonne-pour-indiquer-les-noms-des-lignes" class="section level3">
 <h3>Une colonne pour indiquer les noms des lignes</h3>
