@@ -11,354 +11,354 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-```
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE) -->
+<!-- ``` -->
 
-The [Johns Hopkins University](https://coronavirus.jhu.edu/) provide data on the coronavirus crisis, reportin the daily number of confirmed cases,  deaths and recovered patients.
+<!-- The [Johns Hopkins University](https://coronavirus.jhu.edu/) provide data on the coronavirus crisis, reportin the daily number of confirmed cases,  deaths and recovered patients. -->
 
 
 
-## Data processing 
+<!-- ## Data processing  -->
 
 
-### Download data 
+<!-- ### Download data  -->
 
-```{r load_data}
-library('readr')
-library('tidyverse')
-library('ggplot2')
-library('plotly')
+<!-- ```{r load_data} -->
+<!-- library('readr') -->
+<!-- library('tidyverse') -->
+<!-- library('ggplot2') -->
+<!-- library('plotly') -->
 
 
 
-url_base <- 
-  "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_"
+<!-- url_base <-  -->
+<!--   "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_" -->
 
-type <- c('confirmed', 'deaths', 'recovered')
-dta_list <- lapply( type, function(type_){
-   dta_prov <- read_csv(url(paste0(url_base,  type_, '_global.csv')))  %>% 
-      mutate(type = type_) 
-   dta_prov %>% 
-      rename(Province = `Province/State`, Country = `Country/Region`) %>% 
-      pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases')  %>% 
-      mutate(Date = lubridate::mdy(Date))
-})
+<!-- type <- c('confirmed', 'deaths', 'recovered') -->
+<!-- dta_list <- lapply( type, function(type_){ -->
+<!--    dta_prov <- read_csv(url(paste0(url_base,  type_, '_global.csv')))  %>%  -->
+<!--       mutate(type = type_)  -->
+<!--    dta_prov %>%  -->
+<!--       rename(Province = `Province/State`, Country = `Country/Region`) %>%  -->
+<!--       pivot_longer(-c(Province, Country, Lat, Long, type),  names_to = 'Date', values_to = 'Cases')  %>%  -->
+<!--       mutate(Date = lubridate::mdy(Date)) -->
+<!-- }) -->
 
-dta <- do.call('rbind', dta_list)
-```
+<!-- dta <- do.call('rbind', dta_list) -->
+<!-- ``` -->
 
-```{r  echo = FALSE}
-n_tot <- n_distinct(dta$Country)
-n1 <- 500
-n2 <- 10000
-```
+<!-- ```{r  echo = FALSE} -->
+<!-- n_tot <- n_distinct(dta$Country) -->
+<!-- n1 <- 500 -->
+<!-- n2 <- 10000 -->
+<!-- ``` -->
 
-**Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.**
+<!-- **Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.** -->
 
 
-### Formatting data
+<!-- ### Formatting data -->
 
-```{r format_data}
+<!-- ```{r format_data} -->
 
 
-dta %>%  
-   mutate(type = factor(type, levels = c('confirmed', 'deaths', 'recovered')))  %>% 
-   mutate(country_id = factor(tolower(Country))) %>% 
-   group_by(country_id, type, Date) %>% 
-   summarise(Cases = sum(Cases, na.rm = TRUE)) %>% 
-   ungroup()-> dta
-```
+<!-- dta %>%   -->
+<!--    mutate(type = factor(type, levels = c('confirmed', 'deaths', 'recovered')))  %>%  -->
+<!--    mutate(country_id = factor(tolower(Country))) %>%  -->
+<!--    group_by(country_id, type, Date) %>%  -->
+<!--    summarise(Cases = sum(Cases, na.rm = TRUE)) %>%  -->
+<!--    ungroup()-> dta -->
+<!-- ``` -->
 
 
 
-## Spatial Spreading of the pandemy 
+<!-- ## Spatial Spreading of the pandemy  -->
 
-```{r  echo = FALSE}
-n_tot <- n_distinct(dta$country_id)
-n1 <- 50000
-n2 <- 1e5
-```
+<!-- ```{r  echo = FALSE} -->
+<!-- n_tot <- n_distinct(dta$country_id) -->
+<!-- n1 <- 50000 -->
+<!-- n2 <- 1e5 -->
+<!-- ``` -->
 
-Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries.
+<!-- Data are available from `r min(dta$Date)` to `r max(dta$Date)` for `r n_tot` countries. -->
 
-### Define the severity of the pandemy in every country
+<!-- ### Define the severity of the pandemy in every country -->
 
-The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to 
-- Low if there are less than `r n1`  confirmed cases
-- High if there are at least  `r n1+1`  confirmed cases
-- Very High low if there are at least `r n2+1`  confirmed cases
+<!-- The visualisation is done with only the most affected countries. The severity of the pandemy in a country is said to  -->
+<!-- - Low if there are less than `r n1`  confirmed cases -->
+<!-- - High if there are at least  `r n1+1`  confirmed cases -->
+<!-- - Very High low if there are at least `r n2+1`  confirmed cases -->
 
 
 
-```{r}
+<!-- ```{r} -->
 
-dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>%
-   summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n1) -> country_list
+<!-- dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>% -->
+<!--    summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n1) -> country_list -->
 
-dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>%
-   summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n2) -> country_list_vhigh
+<!-- dta %>%   filter(type == 'confirmed') %>% group_by(country_id) %>% -->
+<!--    summarise ( m = max(Cases, na.rm = TRUE)) %>%  filter( m  > n2) -> country_list_vhigh -->
 
-dta %>% filter(country_id %in% country_list$country_id) -> dta
+<!-- dta %>% filter(country_id %in% country_list$country_id) -> dta -->
 
 
-severity_class <- function(country){
-  prov <- ifelse(country %in% country_list$country_id, 'High', 'Low')
-  prov <-  ifelse(country %in% country_list_vhigh$country_id, 'Very High', prov)
-  prov <- factor(prov, levels = c('Low', 'High', 'Very High'))
-  return(prov)
-}
+<!-- severity_class <- function(country){ -->
+<!--   prov <- ifelse(country %in% country_list$country_id, 'High', 'Low') -->
+<!--   prov <-  ifelse(country %in% country_list_vhigh$country_id, 'Very High', prov) -->
+<!--   prov <- factor(prov, levels = c('Low', 'High', 'Very High')) -->
+<!--   return(prov) -->
+<!-- } -->
 
-dta %>% mutate(Severity = severity_class(country_id)) %>% 
-   mutate(country_id = relevel(country_id, ref = 'germany')) -> dta
-```
+<!-- dta %>% mutate(Severity = severity_class(country_id)) %>%  -->
+<!--    mutate(country_id = relevel(country_id, ref = 'germany')) -> dta -->
+<!-- ``` -->
 
 
 
 
-### Mapping the data
+<!-- ### Mapping the data -->
 
-The `sf` library, allows to produce map easily. 
+<!-- The `sf` library, allows to produce map easily.  -->
 
-Mapping the  data on a world map requires two merge the world shapefile and the Johns Hoppkins data as proposed in the following code. The matching between the two databases  is done by creating a  `country_id` identification (country name in lower case). The few mismatches in the 2 databases are idenified and corrected. 
+<!-- Mapping the  data on a world map requires two merge the world shapefile and the Johns Hoppkins data as proposed in the following code. The matching between the two databases  is done by creating a  `country_id` identification (country name in lower case). The few mismatches in the 2 databases are idenified and corrected.  -->
 
 
-```{r}
-library(sf)
+<!-- ```{r} -->
+<!-- library(sf) -->
 
-world_map <- st_read(dsn = 'datasets/shape_dir/TM_WORLD_BORDERS-0.3.shp') %>% 
-  st_as_sf() %>% mutate(country_id = tolower(NAME))
+<!-- world_map <- st_read(dsn = 'datasets/shape_dir/TM_WORLD_BORDERS-0.3.shp') %>%  -->
+<!--   st_as_sf() %>% mutate(country_id = tolower(NAME)) -->
 
-country_list %>% filter( !country_id %in% world_map$country_id) -> country_issues
-country_issues$country_id
+<!-- country_list %>% filter( !country_id %in% world_map$country_id) -> country_issues -->
+<!-- country_issues$country_id -->
 
-world_map %>% mutate(avail = ifelse(country_id %in% country_list$country_id, TRUE, FALSE)) -> world_map
+<!-- world_map %>% mutate(avail = ifelse(country_id %in% country_list$country_id, TRUE, FALSE)) -> world_map -->
 
-world_map %>% 
-  mutate( country_id = ifelse(country_id == "united states", 'us' , country_id))%>% 
-  mutate( country_id = ifelse(country_id == "iran (islamic republic of)", 'iran' , country_id)) %>% 
-  mutate( country_id = ifelse(country_id == "korea, republic of", "korea, south" , country_id)) %>% 
-  mutate( country_id = ifelse(country_id == "czech republic", "czechia" , country_id)) -> world_map 
-```
+<!-- world_map %>%  -->
+<!--   mutate( country_id = ifelse(country_id == "united states", 'us' , country_id))%>%  -->
+<!--   mutate( country_id = ifelse(country_id == "iran (islamic republic of)", 'iran' , country_id)) %>%  -->
+<!--   mutate( country_id = ifelse(country_id == "korea, republic of", "korea, south" , country_id)) %>%  -->
+<!--   mutate( country_id = ifelse(country_id == "czech republic", "czechia" , country_id)) -> world_map  -->
+<!-- ``` -->
 
 
- Finally the three levels of severity are  presented in the map below
+<!--  Finally the three levels of severity are  presented in the map below -->
 
-```{r}
-world_map %>%  mutate(Severity = severity_class(country_id)) -> world_map
+<!-- ```{r} -->
+<!-- world_map %>%  mutate(Severity = severity_class(country_id)) -> world_map -->
 
-world_map %>% ggplot() + geom_sf(aes(fill = Severity)) + 
-  scale_fill_viridis_d()   -> p 
-ggplotly(p)
-```
+<!-- world_map %>% ggplot() + geom_sf(aes(fill = Severity)) +  -->
+<!--   scale_fill_viridis_d()   -> p  -->
+<!-- ggplotly(p) -->
+<!-- ``` -->
 
 
 
-## Time series data
+<!-- ## Time series data -->
 
 
 
-### Confirmed cases
+<!-- ### Confirmed cases -->
 
 
-We can represent the evolution of coronavirus confirmed cases for the countries with high severity. 
+<!-- We can represent the evolution of coronavirus confirmed cases for the countries with high severity.  -->
 
-```{r}
-dta %>% 
-   filter(type == 'confirmed',  Severity != 'Low') %>%
-   ggplot() + 
-   geom_line(aes(x= Date, y = Cases, col = country_id)) + 
-   scale_y_continuous(trans='log2') + 
-   theme(legend.title = element_text( size = 10),legend.text = element_text(size = 6) ) + 
-   ggtitle('Evolution of confirmed cases in highly affected countries') -> p
-ggplotly(p)
-```
+<!-- ```{r} -->
+<!-- dta %>%  -->
+<!--    filter(type == 'confirmed',  Severity != 'Low') %>% -->
+<!--    ggplot() +  -->
+<!--    geom_line(aes(x= Date, y = Cases, col = country_id)) +  -->
+<!--    scale_y_continuous(trans='log2') +  -->
+<!--    theme(legend.title = element_text( size = 10),legend.text = element_text(size = 6) ) +  -->
+<!--    ggtitle('Evolution of confirmed cases in highly affected countries') -> p -->
+<!-- ggplotly(p) -->
+<!-- ``` -->
 
 
-Too many data on the graph , focus on the countries with High level of severity.
+<!-- Too many data on the graph , focus on the countries with High level of severity. -->
 
-```{r echo = FALSE}
-couleurs <- c('#ff0000', '#ff9900', '#006600', 
-              '#2d5986', '#600080', '#b30000',
-              '#00cc00', '#ff8c66', '#cc0052', 
-              '#3939ac', '#a5fc03', '#ff0000',
-              '#ab0a9b', '#6b5b95')
-```
+<!-- ```{r echo = FALSE} -->
+<!-- couleurs <- c('#ff0000', '#ff9900', '#006600',  -->
+<!--               '#2d5986', '#600080', '#b30000', -->
+<!--               '#00cc00', '#ff8c66', '#cc0052',  -->
+<!--               '#3939ac', '#a5fc03', '#ff0000', -->
+<!--               '#ab0a9b', '#6b5b95') -->
+<!-- ``` -->
 
 
-```{r, fig.cap='Evolution of the number of confirmed cases'}
+<!-- ```{r, fig.cap='Evolution of the number of confirmed cases'} -->
 
-dta  %>% 
-   filter(type == 'confirmed', Severity == 'Very High') %>% 
-   arrange(country_id, Date) %>% 
-   group_by(country_id) %>%  
-   ggplot() + 
-   geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id))  + 
-   scale_color_manual(values = couleurs)  -> p
+<!-- dta  %>%  -->
+<!--    filter(type == 'confirmed', Severity == 'Very High') %>%  -->
+<!--    arrange(country_id, Date) %>%  -->
+<!--    group_by(country_id) %>%   -->
+<!--    ggplot() +  -->
+<!--    geom_line(aes(x= Date, y = Cases, linetype=country_id, col = country_id))  +  -->
+<!--    scale_color_manual(values = couleurs)  -> p -->
 
-ggplotly(p)
+<!-- ggplotly(p) -->
 
-```
+<!-- ``` -->
 
 
 
-and with a log scale 
+<!-- and with a log scale  -->
 
-```{r, fig.cap='Evolution of the number of confirmed cases in log2 scale'}
-p +  
-   scale_y_continuous(trans='log2') -> p 
-ggplotly(p)
-```
+<!-- ```{r, fig.cap='Evolution of the number of confirmed cases in log2 scale'} -->
+<!-- p +   -->
+<!--    scale_y_continuous(trans='log2') -> p  -->
+<!-- ggplotly(p) -->
+<!-- ``` -->
 
 
-As the pandemy does not start to spread at the same date on every country, one needs to define some new origine of time for every country, in order to allow the comparison between countries.
+<!-- As the pandemy does not start to spread at the same date on every country, one needs to define some new origine of time for every country, in order to allow the comparison between countries. -->
 
 
-**Change time origine** :  Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80$^\mbox{th}$ cases were confirmed.
+<!-- **Change time origine** :  Accounting for the delay in the spread of the pandemy, we could decide to represent time since the first instant where the 80$^\mbox{th}$ cases were confirmed. -->
 
 
 
-Presented below is the number of confirmed cases. 
+<!-- Presented below is the number of confirmed cases.  -->
 
-```{r, fig.cap='Evolution of confirmed cases, time elapsed since the 80th reported cases'}
-dta %>% 
-   filter(type == 'confirmed', Cases >= 80,Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date) %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot()  +
-   geom_smooth(aes(x= Date, y = Cases, linetype=country_id, col = country_id), se = FALSE) +
-   geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  +
-   scale_color_manual(values = couleurs) + 
-   scale_y_continuous(trans='log2')  -> p 
-ggplotly(p)
-```
+<!-- ```{r, fig.cap='Evolution of confirmed cases, time elapsed since the 80th reported cases'} -->
+<!-- dta %>%  -->
+<!--    filter(type == 'confirmed', Cases >= 80,Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date) %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date)) %>%  -->
+<!--    ggplot()  + -->
+<!--    geom_smooth(aes(x= Date, y = Cases, linetype=country_id, col = country_id), se = FALSE) + -->
+<!--    geom_point(aes(x= Date, y = Cases, col = country_id), alpha = 0.3)  + -->
+<!--    scale_color_manual(values = couleurs) +  -->
+<!--    scale_y_continuous(trans='log2')  -> p  -->
+<!-- ggplotly(p) -->
+<!-- ``` -->
 
-### Evolution of the number of deaths
+<!-- ### Evolution of the number of deaths -->
 
 
 
-Presented below is the number of deaths. Those time series are more reliable, as they do not depend on the test effort.
+<!-- Presented below is the number of deaths. Those time series are more reliable, as they do not depend on the test effort. -->
 
-```{r, fig.cap='Evolution of the number of deaths, time elapsed since the 80th reported cases'}
-dta %>% 
-   pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( confirmed >= 80,Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date) %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() +   
-   geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
-   geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  +
-   scale_color_manual(values = couleurs) +
-   scale_y_continuous(trans='log2') -> p 
-ggplotly(p)
-```
+<!-- ```{r, fig.cap='Evolution of the number of deaths, time elapsed since the 80th reported cases'} -->
+<!-- dta %>%  -->
+<!--    pivot_wider(names_from = type, values_from = Cases) %>%  -->
+<!--    filter( confirmed >= 80,Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date) %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date)) %>%  -->
+<!--    ggplot() +    -->
+<!--    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) + -->
+<!--    geom_point(aes(x= Date, y = deaths, col = country_id), alpha = 0.3)  + -->
+<!--    scale_color_manual(values = couleurs) + -->
+<!--    scale_y_continuous(trans='log2') -> p  -->
+<!-- ggplotly(p) -->
+<!-- ``` -->
 
 
-As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose,  the time of the tenth  death as the origin of date.
+<!-- As the number of confirmed cases might not be the best indicator of the spread of the pandemy, we choose,  the time of the tenth  death as the origin of date. -->
 
 
-```{r origine_death, fig.cap='Evolution of the number of deaths, time elapsed since the 10th death'}
-dta %>% 
-   pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( deaths >= 10,Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date) %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot()  +
-   geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) +
-   scale_color_manual(values = couleurs)  +
-   scale_y_continuous(trans ='log2')  -> p 
- ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
+<!-- ```{r origine_death, fig.cap='Evolution of the number of deaths, time elapsed since the 10th death'} -->
+<!-- dta %>%  -->
+<!--    pivot_wider(names_from = type, values_from = Cases) %>%  -->
+<!--    filter( deaths >= 10,Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date) %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date)) %>%  -->
+<!--    ggplot()  + -->
+<!--    geom_smooth(aes(x= Date, y = deaths, linetype=country_id, col = country_id), se = FALSE) + -->
+<!--    scale_color_manual(values = couleurs)  + -->
+<!--    scale_y_continuous(trans ='log2')  -> p  -->
+<!--  ggplotly(p ,  tooltip = c('country_id', 'x', 'y') ) -->
 
-```
+<!-- ``` -->
 
-### Evolution of the number of new deaths
+<!-- ### Evolution of the number of new deaths -->
 
-As the pandemy is spreading, the number of deaths is expected to grow bigger every day before slowing down. Therefore the number of new daths, which also the derivative of the number of deaths,  could be a good indicator of the stage of the pandemy.
+<!-- As the pandemy is spreading, the number of deaths is expected to grow bigger every day before slowing down. Therefore the number of new daths, which also the derivative of the number of deaths,  could be a good indicator of the stage of the pandemy. -->
 
 
-```{r new_death, fig.cap='Evolution of the number of new deaths, time elapsed since the 10th death, log2 scale'}
-dta %>% 
-   pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( deaths >= 10,Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date) %>% 
-   mutate(Date = Date - dplyr::first(Date),
-          new_deaths = deaths -lag(deaths)) %>% 
-   ggplot() + 
-   geom_smooth(aes(x= Date, y = new_deaths, linetype=country_id, col = country_id), se = FALSE)  +
-   geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  +
-   scale_color_manual(values = couleurs) +
-   scale_y_continuous(trans='log2')  ->  p 
- ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
-```
+<!-- ```{r new_death, fig.cap='Evolution of the number of new deaths, time elapsed since the 10th death, log2 scale'} -->
+<!-- dta %>%  -->
+<!--    pivot_wider(names_from = type, values_from = Cases) %>%  -->
+<!--    filter( deaths >= 10,Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date) %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date), -->
+<!--           new_deaths = deaths -lag(deaths)) %>%  -->
+<!--    ggplot() +  -->
+<!--    geom_smooth(aes(x= Date, y = new_deaths, linetype=country_id, col = country_id), se = FALSE)  + -->
+<!--    geom_point(aes(x= Date, y = new_deaths, col = country_id), alpha = 0.3)  + -->
+<!--    scale_color_manual(values = couleurs) + -->
+<!--    scale_y_continuous(trans='log2')  ->  p  -->
+<!--  ggplotly(p ,  tooltip = c('country_id', 'x', 'y') ) -->
+<!-- ``` -->
 
 
 
-### Link between Confirmed cases and deaths
+<!-- ### Link between Confirmed cases and deaths -->
 
 
 
-```{r confirmed_death, fig.cap='Number of Confirmed cases  as a function of deaths'}
-dta %>% 
-   pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( deaths >= 10,Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date)  %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% 
-   ggplot() +
-   geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE)  + 
-   geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  +
-   scale_color_manual(values = couleurs) -> p 
-ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
-```
+<!-- ```{r confirmed_death, fig.cap='Number of Confirmed cases  as a function of deaths'} -->
+<!-- dta %>%  -->
+<!--    pivot_wider(names_from = type, values_from = Cases) %>%  -->
+<!--    filter( deaths >= 10,Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date)  %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date)) %>%  -->
+<!--    ggplot() + -->
+<!--    geom_smooth(aes( y = confirmed, x = deaths, linetype=country_id, col = country_id), se = FALSE)  +  -->
+<!--    geom_point(aes(y  = confirmed, x = deaths, col = country_id), alpha = 0.3)  + -->
+<!--    scale_color_manual(values = couleurs) -> p  -->
+<!-- ggplotly(p ,  tooltip = c('country_id', 'x', 'y') ) -->
+<!-- ``` -->
 
 
-I would like to have a better idea of the actual number of confirmed cases in every countries.  The best indicator of the pandemy beeing the number of deaths I would like to predict the number of actual cases given the number of deaths. As illustrated on the graphs, there is a linear relationship between these two quantities. The slope  of this regression line depends on the letality within a given country and more importantly of the testing strategy. The difference in the strategy for testing people have been invocated to explain the difference in the apparent very high letality in most countries opposed to a very low lethality in Germany. As Germany has experienced a larger testing strategy, we could predict, given the number of observed deaths, what  would could be a more realistic number of cases in every country using the relationship between deaths and confirmed cases observed in Germany.
+<!-- I would like to have a better idea of the actual number of confirmed cases in every countries.  The best indicator of the pandemy beeing the number of deaths I would like to predict the number of actual cases given the number of deaths. As illustrated on the graphs, there is a linear relationship between these two quantities. The slope  of this regression line depends on the letality within a given country and more importantly of the testing strategy. The difference in the strategy for testing people have been invocated to explain the difference in the apparent very high letality in most countries opposed to a very low lethality in Germany. As Germany has experienced a larger testing strategy, we could predict, given the number of observed deaths, what  would could be a more realistic number of cases in every country using the relationship between deaths and confirmed cases observed in Germany. -->
 
-```{r}
-dta %>% 
-   pivot_wider(names_from = type, values_from = Cases) %>% 
-   filter( deaths >= 10,Severity == 'Very High')  -> dta_lm
+<!-- ```{r} -->
+<!-- dta %>%  -->
+<!--    pivot_wider(names_from = type, values_from = Cases) %>%  -->
+<!--    filter( deaths >= 10,Severity == 'Very High')  -> dta_lm -->
 
-lm1 <- lm( confirmed ~ deaths  + country_id + deaths:country_id, data =dta_lm)
+<!-- lm1 <- lm( confirmed ~ deaths  + country_id + deaths:country_id, data =dta_lm) -->
 
 
-prediction <- predict(lm1, newdata = data.frame(deaths= dta_lm$deaths, country_id = 'germany'), interval = 'prediction') 
+<!-- prediction <- predict(lm1, newdata = data.frame(deaths= dta_lm$deaths, country_id = 'germany'), interval = 'prediction')  -->
 
-dta_lm %>%
-   mutate(confirmed_pred = prediction[,1],
-          lower = prediction[,2],
-          upper = prediction[,3]) -> dta_lm
+<!-- dta_lm %>% -->
+<!--    mutate(confirmed_pred = prediction[,1], -->
+<!--           lower = prediction[,2], -->
+<!--           upper = prediction[,3]) -> dta_lm -->
 
-dta_lm %>%
-   filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>% 
-   ggplot() + geom_point(aes(y  = confirmed_pred, x = confirmed, col = country_id))   + geom_abline(slope = 1, intercept = 0) +
-   scale_color_manual(values = couleurs)  ->p 
- ggplotly(p ,  tooltip = c('country_id', 'x', 'y') )
-```
+<!-- dta_lm %>% -->
+<!--    filter( Severity == 'Very High') %>%   filter(Date == max(Date)) %>%  -->
+<!--    ggplot() + geom_point(aes(y  = confirmed_pred, x = confirmed, col = country_id))   + geom_abline(slope = 1, intercept = 0) + -->
+<!--    scale_color_manual(values = couleurs)  ->p  -->
+<!--  ggplotly(p ,  tooltip = c('country_id', 'x', 'y') ) -->
+<!-- ``` -->
 
-Assuming that the predicted number of cases is more realistic than the reported number of cases, we could look at the evolution of the pandemy, using predicted number of cases instead of reported confirmed cases. The illustations below represent the reported confirmed cases and the predicted confirmed cases, assuming that every country would use the german testing strategy.
+<!-- Assuming that the predicted number of cases is more realistic than the reported number of cases, we could look at the evolution of the pandemy, using predicted number of cases instead of reported confirmed cases. The illustations below represent the reported confirmed cases and the predicted confirmed cases, assuming that every country would use the german testing strategy. -->
 
 
 
-```{r onfirmed_pred, fig.cap='The plain line  is the reported number of cases, the large dashed lines is the expected number of cases if the German testing strategy was used, and the thin dashed lines provide the prediction interval around this expected value.'}
-dta_lm %>% 
-   filter( confirmed_pred >=  200 , Severity == 'Very High') %>% 
-   group_by(country_id) %>% 
-   arrange(Date)  %>% 
-   mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred', 'lower', 'upper'), names_to = 'type', values_to = 'Cases') -> dta_plot 
+<!-- ```{r onfirmed_pred, fig.cap='The plain line  is the reported number of cases, the large dashed lines is the expected number of cases if the German testing strategy was used, and the thin dashed lines provide the prediction interval around this expected value.'} -->
+<!-- dta_lm %>%  -->
+<!--    filter( confirmed_pred >=  200 , Severity == 'Very High') %>%  -->
+<!--    group_by(country_id) %>%  -->
+<!--    arrange(Date)  %>%  -->
+<!--    mutate(Date = Date - dplyr::first(Date)) %>% pivot_longer(cols = c('confirmed', 'confirmed_pred', 'lower', 'upper'), names_to = 'type', values_to = 'Cases') -> dta_plot  -->
 
-dta_plot %>%    filter( type %in% c('confirmed', 'confirmed_pred') ) %>%   ggplot() + facet_wrap(~country_id) +
-   geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type) , se = FALSE, size = 0.8) +
-   geom_point(aes(y  = Cases, x = Date, col = country_id), size = 0.2, alpha = 0.3) +
-   scale_color_manual(values = couleurs) -> p
+<!-- dta_plot %>%    filter( type %in% c('confirmed', 'confirmed_pred') ) %>%   ggplot() + facet_wrap(~country_id) + -->
+<!--    geom_smooth(aes( y  = Cases, x = Date, col = country_id, linetype = type) , se = FALSE, size = 0.8) + -->
+<!--    geom_point(aes(y  = Cases, x = Date, col = country_id), size = 0.2, alpha = 0.3) + -->
+<!--    scale_color_manual(values = couleurs) -> p -->
 
-dta_plot %>%    filter( ! type %in% c('confirmed', 'confirmed_pred') ) -> interval_dta 
-p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE)  -> p_fin
- ggplotly(p_fin ,  tooltip = c('country_id', 'x', 'y') )
-```
+<!-- dta_plot %>%    filter( ! type %in% c('confirmed', 'confirmed_pred') ) -> interval_dta  -->
+<!-- p +    geom_smooth(data = interval_dta , aes( y  = Cases, x = Date, col = country_id, linetype = type), size = 0.3 , se = FALSE)  -> p_fin -->
+<!--  ggplotly(p_fin ,  tooltip = c('country_id', 'x', 'y') ) -->
+<!-- ``` -->
 
 
