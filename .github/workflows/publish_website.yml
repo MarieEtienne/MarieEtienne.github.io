@@ -23,7 +23,7 @@ jobs:
 
      - name: Install packages
         run: |
-          R -e 'install.packages(c( "distill", "rmarkdown", "stringr""))'
+          R -e 'install.packages(c( "distill", "rmarkdown", "stringr"))'
 
       - name: Creat list of used packages
         run: |
