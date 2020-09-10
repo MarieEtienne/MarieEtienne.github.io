@@ -25,7 +25,7 @@ jobs:
         run: |
           R -e 'install.packages(c( "distill", "rmarkdown", "stringr"))'
 
-      - name: Creat list of used packages
+      - name: Create list of used packages
         run: |
           grep -R 'library' * >  used_package.txt
 
