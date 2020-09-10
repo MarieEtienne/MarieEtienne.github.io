@@ -35,9 +35,6 @@ navbar:
           href: h_import_data.html
         - text: "Student's questions"
           href: stu_questions.html       
-
-
-        
   right:
   - text: "Github"
     icon: fa-github
