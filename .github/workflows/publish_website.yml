@@ -21,7 +21,7 @@ jobs:
           brew install pandoc
           brew install pandoc-citeproc
 
-     - name: Install packages
+      - name: Install packages
         run: |
           R -e 'install.packages(c( "distill", "rmarkdown", "stringr"))'
 
