@@ -23,7 +23,7 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages(c( "distill", "rmarkdown"))'
+          R -e 'install.packages(c( "distill", "rmarkdown", 'plotly'))'
 
       - name: Build site
         run: |
