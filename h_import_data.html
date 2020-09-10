@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Importation de données dans RStudio</title>
+
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h2 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h3 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h4 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h5 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h6 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Marie-Pierre Etienne</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="bio.html">
+    <span class="fa fa-child"></span>
+     
+    Bio 
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
+     
+    Research 
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="research.html">Research interests</a>
+    </li>
+    <li>
+      <a href="publications.html">
+        <span class="fa fa-file-text-o"></span>
+         
+        Publications
+      </a>
+    </li>
+    <li>
+      <a href="talks.html">
+        <span class="fa fa-comment-o"></span>
+         
+        Talks
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
+     
+    Teaching
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="misc_teaching.html">Miscellaneous</a>
+    </li>
+    <li>
+      <a href="teaching_agrocampus.html">Agrocampus Ouest</a>
+    </li>
+    <li>
+      <a href="astredhor.html">Continuing education</a>
+    </li>
+    <li>
+      <a href="data.html">Available dataset</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="h_import_data.html">Import Data</a>
+        </li>
+        <li>
+          <a href="stu_questions.html">Student's questions</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/MarieEtienne">
+    <span class="fa fa-github"></span>
+     
+    Github
+  </a>
+</li>
+<li>
+  <a href="news.html">
+    <span class="fa fa-commenting"></span>
+     
+    News
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Importation de données dans RStudio</h1>
+
+</div>
+
+
+<div id="but" class="section level2">
+<h2>But</h2>
+<p>Ce document est un aide-mémoire pour réussir l’importation des données dans R. En suivant les différentes étapes, tout devrait bien se passer.</p>
+<p>L’objectif sera donc ici d’importer le jeu de données stockés dans le fichier Excel <a href="datasets/samares_small.xlsx">samares</a> disponible sur la page des <a href="data.html">données</a></p>
+</div>
+<div id="etape-1.-créer-un-projet" class="section level2">
+<h2>Etape 1. Créer un projet</h2>
+<p>Rstudio proposer d’organiser son travail en projet. Le projet permet de faciliter l’accès aux différents fichiers d’un même projet. Pour créer un projet il suffit d’aller en haut à droite, dans Project comme dans la capture d’écran ci-dessous.</p>
+<p><img src="img/h_creer_nouveau_projet.png" style="width:80.0%" />  </p>
+<p>On choisit de créer le projet depuis un nouveau répertoire</p>
+<p><img src="img/h_nouveau_repertoire.png" style="width:80.0%" /></p>
+<p>et de faire un projet standard</p>
+<p><img src="img/h_nouveau_projet.png" style="width:80.0%" />  </p>
+<p>qui s’appelera Td_Stat_1 et sera placé dans le répertoire désigné</p>
+<p><img src="img/h_nom_projet.png" style="width:80.0%" />  </p>
+</div>
+<div id="etape-2.-créer-un-script" class="section level2">
+<h2>Etape 2. Créer un script</h2>
+<p>Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l’analyse que vous mettrez en oeuvre.</p>
+<p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt; Rscript</strong>. En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">## le 19 septembre 2019 </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></span></code></pre></div>
+<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
+</div>
+<div id="etape-3.-télécharger-le-fichier" class="section level2">
+<h2>Etape 3. Télécharger le fichier</h2>
+<p>Le fichier est disponible sur la page des <a href="data.html">jeux de données</a></p>
+<p>On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu’on vient de créer précédemment.</p>
+</div>
+<div id="etape-4.-dun-format-propriétaire-à-un-format-texte" class="section level2">
+<h2>Etape 4. D’un format propriétaire à un format texte</h2>
+<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv</code>. On a donc un fichier <code>samares_small.csv</code> dans le répertoire du projet.</p>
+</div>
+<div id="etape-5.-comprendre-le-format-du-fichier-de-données" class="section level2">
+<h2>Etape 5. Comprendre le format du fichier de données</h2>
+<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>Données partielles,,,,,,,,,,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>Site,NomSite,Distance,Arbre,Poids,Surface,Largeur,Longueur,CircArbre,dispersion,log_disp</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">16.8</span>,<span class="fl">0.83907</span>,<span class="fl">0.45758</span>,<span class="fl">2.46212</span>,<span class="dv">57</span>,<span class="fl">0.049944642857143</span>,<span class="op">-</span><span class="fl">2.99684002974653</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">25.4</span>,<span class="fl">0.80864</span>,<span class="fl">0.43251</span>,<span class="fl">2.47986</span>,<span class="dv">57</span>,<span class="fl">0.031836220472441</span>,<span class="op">-</span><span class="fl">3.4471506288068</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.7</span>,<span class="fl">0.77436</span>,<span class="fl">0.44081</span>,<span class="fl">2.35872</span>,<span class="dv">57</span>,<span class="fl">0.035684792626728</span>,<span class="op">-</span><span class="fl">3.3330306577928</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">14.9</span>,<span class="fl">0.86005</span>,<span class="fl">0.45292</span>,<span class="fl">2.63522</span>,<span class="dv">57</span>,<span class="fl">0.057721476510067</span>,<span class="op">-</span><span class="fl">2.85212596484115</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">21</span>,<span class="fl">0.81353</span>,<span class="fl">0.46885</span>,<span class="fl">2.41978</span>,<span class="dv">57</span>,<span class="fl">0.038739523809524</span>,<span class="op">-</span><span class="fl">3.25089491303743</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">20.1</span>,<span class="fl">0.82752</span>,<span class="fl">0.46522</span>,<span class="fl">2.40977</span>,<span class="dv">57</span>,<span class="fl">0.041170149253731</span>,<span class="op">-</span><span class="fl">3.19004181790373</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">26.8</span>,<span class="fl">0.98631</span>,<span class="fl">0.48447</span>,<span class="fl">2.68182</span>,<span class="dv">57</span>,<span class="fl">0.036802611940299</span>,<span class="op">-</span><span class="fl">3.30218645968743</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.4</span>,<span class="fl">0.87054</span>,<span class="fl">0.45428</span>,<span class="fl">2.71523</span>,<span class="dv">57</span>,<span class="fl">0.040679439252337</span>,<span class="op">-</span><span class="fl">3.20203249225429</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">18.9</span>,<span class="fl">0.83487</span>,<span class="fl">0.42868</span>,<span class="fl">2.7107</span>,<span class="dv">57</span>,<span class="fl">0.044173015873016</span>,<span class="op">-</span><span class="fl">3.11964117694036</span></span></code></pre></div>
+<p>Le fichier est construit de la manière suivante</p>
+<ul>
+<li>3 lignes de commentaires,</li>
+<li>une ligne qui indique le nom des colonnes, puis les données elles-mêmes</li>
+<li>le changement de colonnes est matérialisé par une virgule.</li>
+</ul>
+<p>Nous allons donc expliquer ceci à R.</p>
+</div>
+<div id="etape-6-importation-dans-r" class="section level2">
+<h2>Etape 6 : Importation dans R</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaite lire</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>                  ) </span></code></pre></div>
+<p>Normalement R n’indique aucune erreur.</p>
+<p><strong>On n’oublie pas de sauver régulièrement le script.</strong></p>
+</div>
+<div id="etape-7.-vérifier-limportation" class="section level2">
+<h2>Etape 7. Vérifier l’importation</h2>
+<p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
+<p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">head</span>(dta)</span></code></pre></div>
+<pre><code>##   Site  NomSite Distance Arbre Poids Surface Largeur Longueur CircArbre
+## 1    1 Grenou_1        0     1  16.8 0.83907 0.45758  2.46212        57
+## 2    1 Grenou_1        0     1  25.4 0.80864 0.43251  2.47986        57
+## 3    1 Grenou_1        0     1  21.7 0.77436 0.44081  2.35872        57
+## 4    1 Grenou_1        0     1  14.9 0.86005 0.45292  2.63522        57
+## 5    1 Grenou_1        0     1  21.0 0.81353 0.46885  2.41978        57
+## 6    1 Grenou_1        0     1  20.1 0.82752 0.46522  2.40977        57
+##   dispersion  log_disp
+## 1 0.04994464 -2.996840
+## 2 0.03183622 -3.447151
+## 3 0.03568479 -3.333031
+## 4 0.05772148 -2.852126
+## 5 0.03873952 -3.250895
+## 6 0.04117015 -3.190042</code></pre>
+<p>ou les dernières</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">tail</span>(dta)</span></code></pre></div>
+<pre><code>##     Site  NomSite Distance Arbre Poids Surface Largeur Longueur CircArbre
+## 115    2 Grenou_2      0.2     3  29.4 0.80117 0.43407  2.59293        22
+## 116    2 Grenou_2      0.2     3  21.9 0.72918 0.39925  2.43788        22
+## 117    2 Grenou_2      0.2     3  29.5 1.02212 0.46271  2.99618        22
+## 118    2 Grenou_2      0.2     3  29.0 0.68639 0.39900  2.39071        22
+## 119    2 Grenou_2      0.2     3  27.8 0.77729 0.43905  2.57643        22
+## 120    2 Grenou_2      0.2     3  27.5 0.83004 0.45817  2.62109        22
+##     dispersion  log_disp
+## 115 0.02725068 -3.602677
+## 116 0.03329589 -3.402321
+## 117 0.03464814 -3.362511
+## 118 0.02366862 -3.743605
+## 119 0.02796007 -3.576978
+## 120 0.03018327 -3.500467</code></pre>
+<p>On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">summary</span>(dta)</span></code></pre></div>
+<pre><code>##       Site       NomSite             Distance       Arbre       Poids      
+##  Min.   :1.0   Length:120         Min.   :0.0   Min.   :1   Min.   :13.80  
+##  1st Qu.:1.0   Class :character   1st Qu.:0.0   1st Qu.:1   1st Qu.:21.18  
+##  Median :1.5   Mode  :character   Median :0.1   Median :2   Median :24.55  
+##  Mean   :1.5                      Mean   :0.1   Mean   :2   Mean   :25.44  
+##  3rd Qu.:2.0                      3rd Qu.:0.2   3rd Qu.:3   3rd Qu.:29.00  
+##  Max.   :2.0                      Max.   :0.2   Max.   :3   Max.   :54.70  
+##     Surface          Largeur          Longueur       CircArbre    
+##  Min.   :0.6289   Min.   :0.3613   Min.   :1.782   Min.   :22.00  
+##  1st Qu.:0.8071   1st Qu.:0.4259   1st Qu.:2.418   1st Qu.:28.00  
+##  Median :0.8709   Median :0.4588   Median :2.596   Median :32.00  
+##  Mean   :0.9078   Mean   :0.4809   Mean   :2.575   Mean   :39.75  
+##  3rd Qu.:0.9884   3rd Qu.:0.5379   3rd Qu.:2.711   3rd Qu.:57.00  
+##  Max.   :1.4495   Max.   :0.7027   Max.   :3.123   Max.   :67.50  
+##    dispersion         log_disp     
+##  Min.   :0.02262   Min.   :-3.789  
+##  1st Qu.:0.03016   1st Qu.:-3.501  
+##  Median :0.03475   Median :-3.360  
+##  Mean   :0.03761   Mean   :-3.317  
+##  3rd Qu.:0.04118   3rd Qu.:-3.190  
+##  Max.   :0.08671   Max.   :-2.445</code></pre>
+<p>Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurences de chaque niveau du facteur.</p>
+<p>Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.</p>
+</div>
+<div id="etape-8.-quand-ça-va-mal" class="section level2">
+<h2>Etape 8. Quand ça va mal</h2>
+<div id="sil-ny-a-pas-de-noms-de-colonnes-dans-le-fichier" class="section level3">
+<h3>S’il n’y a pas de noms de colonnes dans le fichier</h3>
+<p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
+</div>
+<div id="les-différents-types-de-séparateurs" class="section level3">
+<h3>Les différents types de séparateurs</h3>
+<p>Si le séparateur de colonnes n’est pas la <code>,</code>, alors il faut modifier l’argument <code>sep</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Séparateur dans le fichier</th>
+<th align="center">argument à passer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">,</td>
+<td align="center"><code>sep = ','</code></td>
+</tr>
+<tr class="even">
+<td align="center">;</td>
+<td align="center"><code>sep = ';'</code></td>
+</tr>
+<tr class="odd">
+<td align="center">espace</td>
+<td align="center"><code>sep = ' '</code></td>
+</tr>
+<tr class="even">
+<td align="center">tab</td>
+<td align="center"><code>sep = '\t'</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="problème-possible-avec-les-variables-numériques" class="section level3">
+<h3>Problème possible avec les variables numériques</h3>
+<p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention internationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>                  <span class="dt">dec =</span> <span class="st">&#39;,&#39;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                  ) </span></code></pre></div>
+<p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">summary</span>(dta_wrong)</span></code></pre></div>
+<pre><code>##       Site       NomSite            Distance             Arbre  
+##  Min.   :1.0   Length:120         Length:120         Min.   :1  
+##  1st Qu.:1.0   Class :character   Class :character   1st Qu.:1  
+##  Median :1.5   Mode  :character   Mode  :character   Median :2  
+##  Mean   :1.5                                         Mean   :2  
+##  3rd Qu.:2.0                                         3rd Qu.:3  
+##  Max.   :2.0                                         Max.   :3  
+##     Poids             Surface            Largeur            Longueur        
+##  Length:120         Length:120         Length:120         Length:120        
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+##                                                                             
+##   CircArbre          dispersion          log_disp        
+##  Length:120         Length:120         Length:120        
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+## </code></pre>
+</div>
+<div id="une-colonne-pour-indiquer-les-noms-des-lignes" class="section level3">
+<h3>Une colonne pour indiquer les noms des lignes</h3>
+<p>Si un identifiant est présent pour chaque ligne, on ajoute dans la commande <code>read.table</code> l’argument <code>row.names=1</code> pour indiquer que la première colonne sert à nommer les lignes.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

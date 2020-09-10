@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Marie-Pierre Etienne" />
+
+
+<title>Tidy aMnipulation tips</title>
+
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 54px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h2 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h3 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h4 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h5 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.section h6 {
+  padding-top: 59px;
+  margin-top: -59px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Marie-Pierre Etienne</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="bio.html">
+    <span class="fa fa-child"></span>
+     
+    Bio 
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
+     
+    Research 
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="research.html">Research interests</a>
+    </li>
+    <li>
+      <a href="publications.html">
+        <span class="fa fa-file-text-o"></span>
+         
+        Publications
+      </a>
+    </li>
+    <li>
+      <a href="talks.html">
+        <span class="fa fa-comment-o"></span>
+         
+        Talks
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
+     
+    Teaching
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="misc_teaching.html">Miscellaneous</a>
+    </li>
+    <li>
+      <a href="teaching_agrocampus.html">Agrocampus Ouest</a>
+    </li>
+    <li>
+      <a href="astredhor.html">Continuing education</a>
+    </li>
+    <li>
+      <a href="data.html">Available dataset</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="h_import_data.html">Import Data</a>
+        </li>
+        <li>
+          <a href="stu_questions.html">Student's questions</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/MarieEtienne">
+    <span class="fa fa-github"></span>
+     
+    Github
+  </a>
+</li>
+<li>
+  <a href="news.html">
+    <span class="fa fa-commenting"></span>
+     
+    News
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Tidy aMnipulation tips</h1>
+<h4 class="author">Marie-Pierre Etienne</h4>
+<h4 class="date">5/8/2020</h4>
+
+</div>
+
+
+<div id="split-text-columns-into-2-columns" class="section level2">
+<h2>Split text columns into 2 columns</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>dta &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">text =</span> <span class="kw">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>dta</span></code></pre></div>
+<pre><code>## [90m# A tibble: 4 x 1[39m
+##   text   
+##   [3m[90m&lt;chr&gt;[39m[23m  
+## [90m1[39m HHM_AR 
+## [90m2[39m HMM_ID 
+## [90m3[39m HSMM_AR
+## [90m4[39m HSMM_ID</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>dta <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">separate</span>(<span class="dt">col =</span> text, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
+<pre><code>## [90m# A tibble: 4 x 2[39m
+##   Hidden Obs  
+##   [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;chr&gt;[39m[23m
+## [90m1[39m HHM    AR   
+## [90m2[39m HMM    ID   
+## [90m3[39m HSMM   AR   
+## [90m4[39m HSMM   ID</code></pre>
+<!-- ## Fig18 autrement -->
+<!-- ```{r Fig18 ggplot2, echo=FALSE} -->
+<!-- library(wesanderson) -->
+<!-- library(ggplot2) -->
+<!-- library(tidyverse) -->
+<!-- library(tidyr) -->
+<!-- load(file = "~/Steph/filtred" ) -->
+<!-- load(file = "~/Steph/statespace" ) -->
+<!-- data1 <- statespace %>%  dplyr::mutate(Model = paste(Method,Ar,sep="-")) %>%   dplyr::mutate(Accuracy=round(Accuracy,2)) %>%  select(Vessel,Degrad,Model,Accuracy) -->
+<!-- data2 <- filtred %>% gather(key=Model,value=Accuracy,Filtred.4.5,Filtred.6)%>% dplyr::mutate(Accuracy=round(Accuracy,2))  -->
+<!-- my.data <- bind_rows(data1,data2) -->
+<!-- my.data$Vessel <- as.character(my.data$Vessel) -->
+<!-- my.data$Vessel[my.data$Vessel=="007"] <- "Vessel2" -->
+<!-- my.data$Vessel[my.data$Vessel=="924675"] <- "Vessel1" -->
+<!-- my.data$Model <- as.character(my.data$Model) -->
+<!-- my.data$Model[my.data$Model=="Filtred.4.5"] <- "M_Filtred4.5" -->
+<!-- my.data$Model[my.data$Model=="Filtred.6"] <- "M_Filtred6" -->
+<!-- my.pal <- wes_palette("Zissou1") -->
+<!-- mine.heatmap2 <- ggplot(data = my.data, mapping = aes(x = Degrad, -->
+<!--                                                      y = Vessel, -->
+<!--                                                      fill = Accuracy)) + -->
+<!--   geom_tile() + -->
+<!--   facet_grid(~Model,switch = "x", scales = "free", space = "free") + -->
+<!--   scale_fill_gradientn(name = "Accuracy",colours = my.pal) + -->
+<!--   theme_bw() + -->
+<!--   theme(strip.placement = "outside", -->
+<!--       #  panel.grid.major = element_line(colour = "black"), -->
+<!--         axis.title.y = element_blank(), -->
+<!--         axis.title.x = element_blank() #Remove x-axis title -->
+<!--         ) -->
+<!-- mine.heatmap2 -->
+<!-- ``` -->
+<!-- <!-- <!-- ## Fig18 en Tableau -->
+<p>–&gt; –&gt;</p>
+<!-- <!-- ```{r table, echo=FALSE} -->
+<p>–&gt; <!-- <!-- library(kableExtra) --> –&gt; <!-- <!-- library(formattable) --> –&gt;</p>
+<!-- <!-- my.tab <- my.data %>%  tidyr::spread(Vessel,Accuracy) %>% arrange(Model) -->
+<p>–&gt; <!-- <!-- my.tabred <- my.tab %>% select(starts_with("Vessel")) --> –&gt; <!-- <!-- my.df <- as.data.frame(my.tabred) --> –&gt; <!-- <!-- dimnames(my.df)[[1]] <- paste(my.tab$Model,my.tab$Degrad,sep="-") --> –&gt;</p>
+<!-- <!-- my.pal <- wes_palette("Zissou1") -->
+<p>–&gt;</p>
+<!-- <!-- <!-- my.df %>% pivot_longer(mutate(  -->
+<p>–&gt; –&gt; <!-- <!-- <!--   Vessel1 = cell_spec(Vessel1,background=my.pal), --> –&gt; –&gt; <!-- <!-- <!--   Vessel2 = cell_spec(Vessel2,background=my.pal) --> –&gt; –&gt; <!-- <!-- <!--   )  --> –&gt; –&gt;</p>
+<!-- <!-- <!-- %>% select(starts_with("Vessel")) %>% t()%>% -->
+<p>–&gt; –&gt; <!-- <!-- <!--   kable("html", escape = F)  --> –&gt; –&gt; <!-- <!-- <!-- # %>%  kable_styling("hover", full_width = F) --> –&gt; –&gt; <!-- <!-- <!--   # %>% kable_styling(c("striped", "bordered")) %>% --> –&gt; –&gt; <!-- <!-- <!--  # add_header_above(c(" ", "HMM-AR0" = 4, "HMM-AR1"  = 4, "HSMM-AR0" = 4, "HSMM-AR1" =4,"M_Filtred4.5"=4, "M_Filtred6"=4 ))  --> –&gt; –&gt;</p>
+<!-- <!-- ``` -->
+<p>–&gt;</p>
+<!-- <!-- ## test MPE -->
+<p>–&gt;</p>
+<!-- <!-- ```{r} -->
+<p>–&gt; <!-- <!-- library(knitr) --> –&gt; <!-- <!-- library(kableExtra) --> –&gt; <!-- <!-- library(formattable) --> –&gt; <!-- <!-- library(dplyr) --> –&gt; <!-- <!-- library( formattable ) --> –&gt; <!-- <!-- library("htmltools") --> –&gt; <!-- <!-- library("webshot")     --> –&gt;</p>
+<!-- <!-- my.pal <- wes_palette("Zissou1") -->
+<p>–&gt;</p>
+<!-- <!-- export_formattable <- function(f, file, width = "100%", height = NULL,  -->
+<p>–&gt; <!-- <!--                                background = "white", delay = 0.2) --> –&gt; <!-- <!-- { --> –&gt; <!-- <!--   w <- as.htmlwidget(f, width = width, height = height) --> –&gt; <!-- <!--   path <- html_print(w, background = background, viewer = NULL) --> –&gt; <!-- <!--   url <- paste0("file:///", gsub("\\\\", "/", normalizePath(path))) --> –&gt; <!-- <!--   webshot(url, --> –&gt; <!-- <!--           file = file, --> –&gt; <!-- <!--           selector = ".formattable_widget", --> –&gt; <!-- <!--           delay = delay) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<!-- <!-- value_formatter <- formatter("span",  -->
+<p>–&gt; <!-- <!--                              style = x ~ style(color = ifelse(x > 0.9, "green",  --> –&gt; <!-- <!--                                                               ifelse(x < 0, "red", "black")))) --> –&gt; <!-- <!-- sign_formatter(c(-1, 0, 1)) --> –&gt;</p>
+<!-- <!-- custom_color_tile <- function (...)  -->
+<p>–&gt; <!-- <!-- { --> –&gt; <!-- <!--   formatter("span", --> –&gt; <!-- <!--             style = function(x) style(display = "block", padding = "0 4px", `color` = "white", `border-radius` = "4px",     `background-color` = csscolor(gradient(as.numeric(x),  --> –&gt; <!-- <!--                                                                                                                                                                    ...)))) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<!-- <!-- test_dta <- my.data %>% -->
+<p>–&gt; <!-- <!--   separate( Model, c("Hidden_Model", "Obs_Model"), "-" ) %>%  --> –&gt; <!-- <!--   arrange(Vessel, Hidden_Model, Obs_Model, Degrad ) %>% pivot_wider(names_from = c( Degrad, Vessel), values_from = Accuracy) --> –&gt;</p>
+<!-- <!-- table18 <- test_dta %>%  -->
+<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt; <!-- <!--          ` d1` = d1_Vessel2,  --> –&gt; <!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt; <!-- <!--          ` d2` = d2_Vessel2, --> –&gt; <!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt; <!-- <!--          ` d3` = d3_Vessel2, --> –&gt; <!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt; <!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt; <!-- <!--   mutate_if(is.numeric,  color_tile("#d5eeec", "#3b9ab2"))%>%  --> –&gt; <!-- <!--   kable("html", escape = F) %>% --> –&gt; <!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt; <!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> –&gt;</p>
+<!-- <!-- table18  %>% save_kable("table18.png") -->
+<p>–&gt;</p>
+<!-- <!-- format_bold <- function(x){ -->
+<p>–&gt; <!-- <!--   ifelse(x > 0.9,  cell_spec(x, "html",  bold = T),  --> –&gt; <!-- <!--          ifelse( x < 0.5 , cell_spec(x, "html", italic = T), --> –&gt; <!-- <!--                  cell_spec(x, "html")) ) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<!-- <!-- table18_tableau <- test_dta %>%  -->
+<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt; <!-- <!--          ` d1` = d1_Vessel2,  --> –&gt; <!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt; <!-- <!--          ` d2` = d2_Vessel2, --> –&gt; <!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt; <!-- <!--          ` d3` = d3_Vessel2, --> –&gt; <!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt; <!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt; <!-- <!--   mutate_if(is.numeric,  format_bold)%>%  --> –&gt; <!-- <!--   kable("html", escape = F) %>% --> –&gt; <!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt; <!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> –&gt;</p>
+<!-- <!-- table18_tableau  %>% save_kable("table18_tableau.png") -->
+<p>–&gt;</p>
+<!-- <!-- ``` -->
+<p>–&gt;</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

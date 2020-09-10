@@ -1,0 +1,54 @@
+Binary file MesPapiers/2017_Gloaguen+JRSSC.pdf matches
+Binary file MesPapiers/2012_Simon+PlosOne.pdf matches
+Binary file MesPapiers/2015_Sauzet+Geoderma.pdf matches
+Binary file MesPapiers/2013_Lecomte+EcologicalModelling.pdf matches
+Binary file MesPapiers/2018_Joo+MovemenetEcology.pdf matches
+Binary file MesPapiers/2014_Gimenez+BiologyLetters.pdf matches
+Binary file MesPapiers/2018_Gloaguen+EURASIP.pdf matches
+Binary file MesPapiers/2014_Gloaguen+Environmetrics.pdf matches
+R/build_site.R:library(stringr)
+R/build_site.R:  prov  <- str_extract(string = s_, pattern = 'library\\([:graph:]+\\)') 
+R/build_site.R:  prov <- str_remove(string = prov, pattern = "library\\(")
+formation/astredhor_script.R:## ----library_1-----------------------------------------------------------
+formation/astredhor_script.R:library('FactoMineR')
+formation/astredhor_script.R:library(readr)
+formation/astredhor_script.R:## library(RODBC)
+formation/astredhor_script.R:library(tidyverse)
+formation/astredhor_script.R:library(ggplot2)
+formation/astredhor_script.R:library(ggpubr)
+formation/astredhor_script.R:library(ggplot2)
+formation/astredhor_script.R:## library(plotly)
+formation/astredhor_script.R:## library(rAmCharts)
+formation/astredhor_script.R:library(tidyverse)
+formation/astredhor_script.R:library(GGally)
+formation/astredhor_script.R:## library(FactoMineR)
+formation/astredhor_script.R:library(FactoMineR)
+formation/astredhor_script.R:library(ggfortify)
+formation/astredhor_script.R:library(ggplot2)
+formation/astredhor_script.R:library(ggfortify)
+formation/astredhor_script.R:library(ggfortify)
+formation/astredhor_script.R:library('emmeans')
+formation/astredhor_script.R:## library(FactoMineR)
+formation/astredhor_script.R:## library(Factoshiny)
+formation/astredhor_script.R:library(FactoMineR)
+formation/astredhor_script.R:library(FactoMineR)
+formation/astredhor_script.R:library(FactoMineR)
+formation/astredhor_script.R:library(FactoMineR)
+formation/astredhor_script.R:## library(leaflet)
+news.Rmd:- September 2019: The paper for trajectories segmentation is out in Journal of Animal Ecology  [Here](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2656.13105)
+news.Rmd:- August 2019: The paper on Langevin model for habitat selection is published in Methods in Ecology and Evolution [Here](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13275)
+stu_questions.Rmd:library(ggplot2)
+tidymanip.Rmd:library(tidyverse)
+tidymanip.Rmd:<!-- library(wesanderson) -->
+tidymanip.Rmd:<!-- library(ggplot2) -->
+tidymanip.Rmd:<!-- library(tidyverse) -->
+tidymanip.Rmd:<!-- library(tidyr) -->
+tidymanip.Rmd:<!-- <!-- library(kableExtra) --> -->
+tidymanip.Rmd:<!-- <!-- library(formattable) --> -->
+tidymanip.Rmd:<!-- <!-- library(knitr) --> -->
+tidymanip.Rmd:<!-- <!-- library(kableExtra) --> -->
+tidymanip.Rmd:<!-- <!-- library(formattable) --> -->
+tidymanip.Rmd:<!-- <!-- library(dplyr) --> -->
+tidymanip.Rmd:<!-- <!-- library( formattable ) --> -->
+tidymanip.Rmd:<!-- <!-- library("htmltools") --> -->
+tidymanip.Rmd:<!-- <!-- library("webshot")     --> -->
