@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
   
 Assistant Professor in [Agrocampus Ouest](https://www.agrocampus-ouest.fr/) and specialized in the development of statistical methods for ecology, I enjoy working with people from different background: statisticians, ecologists, fisheries scientists, ...
-You will find more details on the reseacrh section.
+You will find more details on the research section.
   
   
 As assistant professor, I spend some time at teaching to students and professionnals at different levels and I love that! Please visit the teaching section to find teaching materials as well as useful links. I also teach R and statistics during continuing education sessions. Please visit the [continuing education website](https://dsr-rennes.github.io/) of  my lab and don't hesitate to contact me for special request.
