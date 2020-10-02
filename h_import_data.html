@@ -13,7 +13,6 @@
 
 <title>Importation de données dans RStudio</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -24,24 +23,26 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -61,7 +62,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {  background-color: #f8f8f8; }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -476,6 +477,9 @@ div.tocify {
       <a href="teaching_agrocampus.html">Agrocampus Ouest</a>
     </li>
     <li>
+      <a href="linearmodel.html">Linear model</a>
+    </li>
+    <li>
       <a href="astredhor.html">Continuing education</a>
     </li>
     <li>
@@ -544,8 +548,8 @@ div.tocify {
 <h2>Etape 2. Créer un script</h2>
 <p>Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l’analyse que vous mettrez en oeuvre.</p>
 <p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt; Rscript</strong>. En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">## le 19 septembre 2019 </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">## le 19 septembre 2019 </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">## Tutoriel pour apprendre à importer un fichier de données dans R</span></span></code></pre></div>
 <p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
 </div>
 <div id="etape-3.-télécharger-le-fichier" class="section level2">
@@ -560,19 +564,19 @@ div.tocify {
 <div id="etape-5.-comprendre-le-format-du-fichier-de-données" class="section level2">
 <h2>Etape 5. Comprendre le format du fichier de données</h2>
 <p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>Données partielles,,,,,,,,,,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>Site,NomSite,Distance,Arbre,Poids,Surface,Largeur,Longueur,CircArbre,dispersion,log_disp</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">16.8</span>,<span class="fl">0.83907</span>,<span class="fl">0.45758</span>,<span class="fl">2.46212</span>,<span class="dv">57</span>,<span class="fl">0.049944642857143</span>,<span class="op">-</span><span class="fl">2.99684002974653</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">25.4</span>,<span class="fl">0.80864</span>,<span class="fl">0.43251</span>,<span class="fl">2.47986</span>,<span class="dv">57</span>,<span class="fl">0.031836220472441</span>,<span class="op">-</span><span class="fl">3.4471506288068</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.7</span>,<span class="fl">0.77436</span>,<span class="fl">0.44081</span>,<span class="fl">2.35872</span>,<span class="dv">57</span>,<span class="fl">0.035684792626728</span>,<span class="op">-</span><span class="fl">3.3330306577928</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">14.9</span>,<span class="fl">0.86005</span>,<span class="fl">0.45292</span>,<span class="fl">2.63522</span>,<span class="dv">57</span>,<span class="fl">0.057721476510067</span>,<span class="op">-</span><span class="fl">2.85212596484115</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">21</span>,<span class="fl">0.81353</span>,<span class="fl">0.46885</span>,<span class="fl">2.41978</span>,<span class="dv">57</span>,<span class="fl">0.038739523809524</span>,<span class="op">-</span><span class="fl">3.25089491303743</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">20.1</span>,<span class="fl">0.82752</span>,<span class="fl">0.46522</span>,<span class="fl">2.40977</span>,<span class="dv">57</span>,<span class="fl">0.041170149253731</span>,<span class="op">-</span><span class="fl">3.19004181790373</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">26.8</span>,<span class="fl">0.98631</span>,<span class="fl">0.48447</span>,<span class="fl">2.68182</span>,<span class="dv">57</span>,<span class="fl">0.036802611940299</span>,<span class="op">-</span><span class="fl">3.30218645968743</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.4</span>,<span class="fl">0.87054</span>,<span class="fl">0.45428</span>,<span class="fl">2.71523</span>,<span class="dv">57</span>,<span class="fl">0.040679439252337</span>,<span class="op">-</span><span class="fl">3.20203249225429</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">18.9</span>,<span class="fl">0.83487</span>,<span class="fl">0.42868</span>,<span class="fl">2.7107</span>,<span class="dv">57</span>,<span class="fl">0.044173015873016</span>,<span class="op">-</span><span class="fl">3.11964117694036</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</span>
+<span id="cb2-2"><a href="#cb2-2"></a>Données partielles,,,,,,,,,,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>Source <span class="op">:</span><span class="st"> </span>perdue ,,,,,,,,,,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>Site,NomSite,Distance,Arbre,Poids,Surface,Largeur,Longueur,CircArbre,dispersion,log_disp</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">16.8</span>,<span class="fl">0.83907</span>,<span class="fl">0.45758</span>,<span class="fl">2.46212</span>,<span class="dv">57</span>,<span class="fl">0.049944642857143</span>,<span class="op">-</span><span class="fl">2.99684002974653</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">25.4</span>,<span class="fl">0.80864</span>,<span class="fl">0.43251</span>,<span class="fl">2.47986</span>,<span class="dv">57</span>,<span class="fl">0.031836220472441</span>,<span class="op">-</span><span class="fl">3.4471506288068</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.7</span>,<span class="fl">0.77436</span>,<span class="fl">0.44081</span>,<span class="fl">2.35872</span>,<span class="dv">57</span>,<span class="fl">0.035684792626728</span>,<span class="op">-</span><span class="fl">3.3330306577928</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">14.9</span>,<span class="fl">0.86005</span>,<span class="fl">0.45292</span>,<span class="fl">2.63522</span>,<span class="dv">57</span>,<span class="fl">0.057721476510067</span>,<span class="op">-</span><span class="fl">2.85212596484115</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">21</span>,<span class="fl">0.81353</span>,<span class="fl">0.46885</span>,<span class="fl">2.41978</span>,<span class="dv">57</span>,<span class="fl">0.038739523809524</span>,<span class="op">-</span><span class="fl">3.25089491303743</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">20.1</span>,<span class="fl">0.82752</span>,<span class="fl">0.46522</span>,<span class="fl">2.40977</span>,<span class="dv">57</span>,<span class="fl">0.041170149253731</span>,<span class="op">-</span><span class="fl">3.19004181790373</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">26.8</span>,<span class="fl">0.98631</span>,<span class="fl">0.48447</span>,<span class="fl">2.68182</span>,<span class="dv">57</span>,<span class="fl">0.036802611940299</span>,<span class="op">-</span><span class="fl">3.30218645968743</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">21.4</span>,<span class="fl">0.87054</span>,<span class="fl">0.45428</span>,<span class="fl">2.71523</span>,<span class="dv">57</span>,<span class="fl">0.040679439252337</span>,<span class="op">-</span><span class="fl">3.20203249225429</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="dv">1</span>,Grenou_<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">18.9</span>,<span class="fl">0.83487</span>,<span class="fl">0.42868</span>,<span class="fl">2.7107</span>,<span class="dv">57</span>,<span class="fl">0.044173015873016</span>,<span class="op">-</span><span class="fl">3.11964117694036</span></span></code></pre></div>
 <p>Le fichier est construit de la manière suivante</p>
 <ul>
 <li>3 lignes de commentaires,</li>
@@ -583,11 +587,11 @@ div.tocify {
 </div>
 <div id="etape-6-importation-dans-r" class="section level2">
 <h2>Etape 6 : Importation dans R</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaite lire</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>                  ) </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaite lire</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span> <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>                  ) </span></code></pre></div>
 <p>Normalement R n’indique aucune erreur.</p>
 <p><strong>On n’oublie pas de sauver régulièrement le script.</strong></p>
 </div>
@@ -595,7 +599,7 @@ div.tocify {
 <h2>Etape 7. Vérifier l’importation</h2>
 <p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
 <p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">head</span>(dta)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">head</span>(dta)</span></code></pre></div>
 <pre><code>##   Site  NomSite Distance Arbre Poids Surface Largeur Longueur CircArbre
 ## 1    1 Grenou_1        0     1  16.8 0.83907 0.45758  2.46212        57
 ## 2    1 Grenou_1        0     1  25.4 0.80864 0.43251  2.47986        57
@@ -611,7 +615,7 @@ div.tocify {
 ## 5 0.03873952 -3.250895
 ## 6 0.04117015 -3.190042</code></pre>
 <p>ou les dernières</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">tail</span>(dta)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tail</span>(dta)</span></code></pre></div>
 <pre><code>##     Site  NomSite Distance Arbre Poids Surface Largeur Longueur CircArbre
 ## 115    2 Grenou_2      0.2     3  29.4 0.80117 0.43407  2.59293        22
 ## 116    2 Grenou_2      0.2     3  21.9 0.72918 0.39925  2.43788        22
@@ -627,7 +631,7 @@ div.tocify {
 ## 119 0.02796007 -3.576978
 ## 120 0.03018327 -3.500467</code></pre>
 <p>On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">summary</span>(dta)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">summary</span>(dta)</span></code></pre></div>
 <pre><code>##       Site       NomSite             Distance       Arbre       Poids      
 ##  Min.   :1.0   Length:120         Min.   :0.0   Min.   :1   Min.   :13.80  
 ##  1st Qu.:1.0   Class :character   1st Qu.:0.0   1st Qu.:1   1st Qu.:21.18  
@@ -691,14 +695,14 @@ div.tocify {
 <div id="problème-possible-avec-les-variables-numériques" class="section level3">
 <h3>Problème possible avec les variables numériques</h3>
 <p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention internationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>                  <span class="dt">dec =</span> <span class="st">&#39;,&#39;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                  ) </span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dta_wrong &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="co">## le nom du fichier qu&#39;on souhaiote lire</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>                  <span class="dt">skip =</span> <span class="dv">3</span>,  <span class="co">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>                  <span class="dt">header =</span> <span class="ot">TRUE</span>,  <span class="co">## pour indiquer que les colonnes ont un nom </span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>                  <span class="dt">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="co">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>                  <span class="dt">dec =</span> <span class="st">&#39;,&#39;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>                  ) </span></code></pre></div>
 <p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">summary</span>(dta_wrong)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">summary</span>(dta_wrong)</span></code></pre></div>
 <pre><code>##       Site       NomSite            Distance             Arbre  
 ##  Min.   :1.0   Length:120         Length:120         Min.   :1  
 ##  1st Qu.:1.0   Class :character   Class :character   1st Qu.:1  

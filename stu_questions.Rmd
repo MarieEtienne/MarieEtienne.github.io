@@ -21,7 +21,7 @@ Lors d'un TD, avec les étudiants du cursus apprentissage nous avons été amen�
 
 On a travaillé sur le jeu de données abricots.
 ```{r}
-abricots <- read.table(file = 'http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/113759_abricotsSG.txt',
+abricots <- read.table(file = 'http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/115096_abricotsSG.txt',
                        sep = ' ', header = TRUE)
 ```
 

@@ -25,6 +25,8 @@ navbar:
         href: misc_teaching.html
       - text: "Agrocampus Ouest"
         href: teaching_agrocampus.html
+      - text: "Linear model"
+        href: linearmodel.html
       - text: "Continuing education"
         href: astredhor.html
       - text: "Available dataset"

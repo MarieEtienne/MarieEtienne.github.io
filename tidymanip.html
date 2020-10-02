@@ -14,7 +14,6 @@
 
 <title>Tidy aMnipulation tips</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -22,24 +21,26 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -59,7 +60,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -396,6 +397,9 @@ $(document).ready(function () {
       <a href="teaching_agrocampus.html">Agrocampus Ouest</a>
     </li>
     <li>
+      <a href="linearmodel.html">Linear model</a>
+    </li>
+    <li>
       <a href="astredhor.html">Continuing education</a>
     </li>
     <li>
@@ -448,25 +452,25 @@ $(document).ready(function () {
 
 <div id="split-text-columns-into-2-columns" class="section level2">
 <h2>Split text columns into 2 columns</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>dta &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">text =</span> <span class="kw">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>dta</span></code></pre></div>
-<pre><code>## [90m# A tibble: 4 x 1[39m
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dta &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">text =</span> <span class="kw">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>dta</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 1
 ##   text   
-##   [3m[90m&lt;chr&gt;[39m[23m  
-## [90m1[39m HHM_AR 
-## [90m2[39m HMM_ID 
-## [90m3[39m HSMM_AR
-## [90m4[39m HSMM_ID</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>dta <span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">separate</span>(<span class="dt">col =</span> text, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
-<pre><code>## [90m# A tibble: 4 x 2[39m
+##   &lt;chr&gt;  
+## 1 HHM_AR 
+## 2 HMM_ID 
+## 3 HSMM_AR
+## 4 HSMM_ID</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dta <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">separate</span>(<span class="dt">col =</span> text, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
 ##   Hidden Obs  
-##   [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;chr&gt;[39m[23m
-## [90m1[39m HHM    AR   
-## [90m2[39m HMM    ID   
-## [90m3[39m HSMM   AR   
-## [90m4[39m HSMM   ID</code></pre>
+##   &lt;chr&gt;  &lt;chr&gt;
+## 1 HHM    AR   
+## 2 HMM    ID   
+## 3 HSMM   AR   
+## 4 HSMM   ID</code></pre>
 <!-- ## Fig18 autrement -->
 <!-- ```{r Fig18 ggplot2, echo=FALSE} -->
 <!-- library(wesanderson) -->
