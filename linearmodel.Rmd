@@ -33,5 +33,22 @@ Les supports de cours sont mis à disposition ici.
 ## Vidéos
 
 Ces slides sont utilisés comme support pour mes cours en ligne
-- Vidéo1 (Anova, présentation du modèle)
-- Vidéo
+
+- Modèle d'analyse de la variance à 1 facteur
+    - [Présentation du modèle](https://youtu.be/8wz6dan_S0c) 
+    - [Estimation des paramètres](https://youtu.be/YqYblRLH-aM)
+    - [Test de comparaison de modèles]
+    - [Test sur les paramètres]
+    - [Validation des hypothèses de modélisation]
+- Modèle d'analyse de la variance à 2 facteur
+    - [Présentation du modèle]
+    - [Test de comparaison de modèles]
+- Modèle de régression simple et multiple
+    - [Présentation du modèle]
+    - [Test des effets des variables]
+    - [Sélection de variables]
+- Modèle d'analyse de covariance
+    - [Présentation du modèle]
+    - [Test des effets des variables]
+    
+    
