@@ -37,10 +37,9 @@ Ces slides sont utilisés comme support pour mes cours en ligne
 - Modèle d'analyse de la variance à 1 facteur
     - [Présentation du modèle](https://youtu.be/8wz6dan_S0c) 
     - [Estimation des paramètres](https://youtu.be/YqYblRLH-aM)
-    - [Test de comparaison de modèles]
-    - [Test sur les paramètres]
-    - [Validation des hypothèses de modélisation]
-- Modèle d'analyse de la variance à 2 facteur
+    - [Test de comparaison de modèles](https://youtu.be/7qktWq7WfMg)
+    - [Test sur les paramètres et Validation des hypothèses de modélisation](https://youtu.be/Vhx4y8rhWcI)
+- Modèle d'analyse de la variance à 2 facteurs
     - [Présentation du modèle]
     - [Test de comparaison de modèles]
 - Modèle de régression simple et multiple
