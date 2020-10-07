@@ -27,6 +27,7 @@ Les supports de cours sont mis à disposition ici.
 
 - Une [Introduction](https://marieetienne.github.io/courses/linearmodel/intro.html) pour expliquer le déroulement du cours.
 - Le cours d'[Analyse de la variance](https://marieetienne.github.io/courses/linearmodel/anova.html) qui permet également de construire tous les outils nécessaires pour l'ensemble du modèle linéaire. C'est le cours le plus long, il nous occupera plusieurs séances.
+- Le cours d'[Analyse de la variance à 2 facteurs](https://marieetienne.github.io/courses/linearmodel/anova2.html)
 - Le cours de régression.
 - Le cours de modèle linéaire généralisé.
 

@@ -632,13 +632,13 @@ div.tocify {
 ## 120 0.03018327 -3.500467</code></pre>
 <p>On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">summary</span>(dta)</span></code></pre></div>
-<pre><code>##       Site       NomSite             Distance       Arbre       Poids      
-##  Min.   :1.0   Length:120         Min.   :0.0   Min.   :1   Min.   :13.80  
-##  1st Qu.:1.0   Class :character   1st Qu.:0.0   1st Qu.:1   1st Qu.:21.18  
-##  Median :1.5   Mode  :character   Median :0.1   Median :2   Median :24.55  
-##  Mean   :1.5                      Mean   :0.1   Mean   :2   Mean   :25.44  
-##  3rd Qu.:2.0                      3rd Qu.:0.2   3rd Qu.:3   3rd Qu.:29.00  
-##  Max.   :2.0                      Max.   :0.2   Max.   :3   Max.   :54.70  
+<pre><code>##       Site         NomSite      Distance       Arbre       Poids      
+##  Min.   :1.0   Grenou_1:60   Min.   :0.0   Min.   :1   Min.   :13.80  
+##  1st Qu.:1.0   Grenou_2:60   1st Qu.:0.0   1st Qu.:1   1st Qu.:21.18  
+##  Median :1.5                 Median :0.1   Median :2   Median :24.55  
+##  Mean   :1.5                 Mean   :0.1   Mean   :2   Mean   :25.44  
+##  3rd Qu.:2.0                 3rd Qu.:0.2   3rd Qu.:3   3rd Qu.:29.00  
+##  Max.   :2.0                 Max.   :0.2   Max.   :3   Max.   :54.70  
 ##     Surface          Largeur          Longueur       CircArbre    
 ##  Min.   :0.6289   Min.   :0.3613   Min.   :1.782   Min.   :22.00  
 ##  1st Qu.:0.8071   1st Qu.:0.4259   1st Qu.:2.418   1st Qu.:28.00  
@@ -703,27 +703,30 @@ div.tocify {
 <span id="cb10-6"><a href="#cb10-6"></a>                  ) </span></code></pre></div>
 <p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">summary</span>(dta_wrong)</span></code></pre></div>
-<pre><code>##       Site       NomSite            Distance             Arbre  
-##  Min.   :1.0   Length:120         Length:120         Min.   :1  
-##  1st Qu.:1.0   Class :character   Class :character   1st Qu.:1  
-##  Median :1.5   Mode  :character   Mode  :character   Median :2  
-##  Mean   :1.5                                         Mean   :2  
-##  3rd Qu.:2.0                                         3rd Qu.:3  
-##  Max.   :2.0                                         Max.   :3  
-##     Poids             Surface            Largeur            Longueur        
-##  Length:120         Length:120         Length:120         Length:120        
-##  Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                             
-##                                                                             
-##                                                                             
-##   CircArbre          dispersion          log_disp        
-##  Length:120         Length:120         Length:120        
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-## </code></pre>
+<pre><code>##       Site         NomSite   Distance     Arbre       Poids        Surface   
+##  Min.   :1.0   Grenou_1:60   0  :60   Min.   :1   20.3   :  4   0.77503:  2  
+##  1st Qu.:1.0   Grenou_2:60   0.2:60   1st Qu.:1   21.4   :  3   0.82752:  2  
+##  Median :1.5                          Median :2   21.9   :  3   1.06874:  2  
+##  Mean   :1.5                          Mean   :2   25.4   :  3   0.62886:  1  
+##  3rd Qu.:2.0                          3rd Qu.:3   27.8   :  3   0.63189:  1  
+##  Max.   :2.0                          Max.   :3   28.7   :  3   0.65605:  1  
+##                                                   (Other):101   (Other):111  
+##     Largeur       Longueur   CircArbre             dispersion 
+##  0.36126:  1   1.78232:  1   22  :20   0.022622413793104:  1  
+##  0.36797:  1   2.12661:  1   28  :20   0.023668620689655:  1  
+##  0.37814:  1   2.14403:  1   29  :20   0.024178978978979:  1  
+##  0.37902:  1   2.17079:  1   35  :20   0.024696892655367:  1  
+##  0.3829 :  1   2.17674:  1   57  :20   0.025726086956522:  1  
+##  0.38613:  1   2.21576:  1   67.5:20   0.026115835777126:  1  
+##  (Other):114   (Other):114             (Other)          :114  
+##               log_disp  
+##  -2.44520323809512:  1  
+##  -2.5565240804316 :  1  
+##  -2.67401115887879:  1  
+##  -2.73734711645685:  1  
+##  -2.75360560276171:  1  
+##  -2.80141851754419:  1  
+##  (Other)          :114</code></pre>
 </div>
 <div id="une-colonne-pour-indiquer-les-noms-des-lignes" class="section level3">
 <h3>Une colonne pour indiquer les noms des lignes</h3>
