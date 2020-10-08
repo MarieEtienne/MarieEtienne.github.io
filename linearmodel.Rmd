@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
-Suite à la crise sanitaire, je n'ai pas pu me rendre à kourou pour mon cours de modèle linéaire dans le master d'écologie tropicale.  Tout est donc passé en cours à  distance. 
+Suite à la crise sanitaire, je n'ai pas pu me rendre à Kourou pour mon cours de modèle linéaire dans le master d'écologie tropicale.  Tout est donc passé en cours à  distance. 
 
 
 ## Supports
@@ -28,7 +28,7 @@ Les supports de cours sont mis à disposition ici.
 - Une [Introduction](https://marieetienne.github.io/courses/linearmodel/intro.html) pour expliquer le déroulement du cours.
 - Le cours d'[Analyse de la variance](https://marieetienne.github.io/courses/linearmodel/anova.html) qui permet également de construire tous les outils nécessaires pour l'ensemble du modèle linéaire. C'est le cours le plus long, il nous occupera plusieurs séances.
 - Le cours d'[Analyse de la variance à 2 facteurs](https://marieetienne.github.io/courses/linearmodel/anova2.html)
-- Le cours de régression.
+- [Le cours de régression](https://marieetienne.github.io/courses/linearmodel/regression.html).
 - Le cours de modèle linéaire généralisé.
 
 ## Vidéos
@@ -43,13 +43,13 @@ Ces slides sont utilisés comme support pour mes cours en ligne
 - Modèle d'analyse de la variance à 2 facteurs
     - [Présentation du modèle](https://youtu.be/OjNam5tYTOI)
     - [Estimation des paramètres](https://youtu.be/ByN4gqCDgCo)
-    - [Test du modèle complet]
-    - [Test de comparaison de modèles]
+    - [Test du modèle complet,Test de comparaison de modèles](https://youtu.be/jXHHqlkpdcU)
+    - [Les moyennes ajustées](https://youtu.be/ARS-eWbeTJE)
 - Modèle de régression simple et multiple
     - [Présentation du modèle]
     - [Test des effets des variables]
     - [Sélection de variables]
-- Modèle d'analyse de covariance
+- Modèle linéaire généralisé
     - [Présentation du modèle]
     - [Test des effets des variables]
     
