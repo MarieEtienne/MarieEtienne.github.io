@@ -10,19 +10,42 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
 
-You can find the extensive list of my publications on my [Google Scholar Profil](https://scholar.google.fr/citations?user=oGxlGTwAAAAJ&hl=en). The pdf of most of them are available below.
+
+
+## 2021 
+
+* F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
+
+*
+
+
+## 2020
+
+- J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
+Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. Physiologia Plantarum 170 (2), 280-298
+
+- R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world.
+ [arXiv](https://arxiv.org/abs/2009.02601)
+
+- N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
+SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and ecotype distributions: The role of selective processes on early life‐history traits in sympatric, ecologically divergent Symphonia populations. Ecology and evolution 10 (19), 10735-10753
+		
+- MP Etienne, P Gloaguen, S Le Corff, J Olsson. Backward importance sampling for partially observed diffusion processes
+[arXiv](https://arxiv.org/abs/2002.05438)
+
+
 
 ## 2019  
 
--  Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection  to appear in  *Methods in Ecology and Evolution*. [arXiV](https://arxiv.org/abs/1810.10213)
+- Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection. Methods in Ecology and Evolution 10 (11), 1894-1907. [arXiV](https://arxiv.org/abs/1810.10213)
 
 
-- Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
+- Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
 
 
 ## 2018  
@@ -41,13 +64,13 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 
 - Thomas Denis, Cécile Richard-Hansen, Olivier Brunaux, Marie-Pierre Etienne, , Stéphane Guitet, Bruno Herault [Biological traits, rather than environment, shape detection curves of large vertebrates in neotropical rainforests]()*Ecological Applications*
 
-## 2016
 
-- Mia Wege, Marie-Pierre Etienne,  W. Chris Oosthuizen, Ryan R. Reisinger, Marthán N. Bester, P. J. Nico De Bruyn [Trend changes in sympatric Subantarctic and Antarctic fur seal pup populations at Marion Island, Southern Ocean](MesPapiers/2016_Wege+MarineMammalScience.pdf).*Marine Mammal science*
+## Before 2016
 
-- Nicolas C. Friggens, Christine Duvaux-Ponter, Marie-Pierre Etienne, Tristan Mary-Huard, Philippe Schmidely.  [Characterizing individual differences in animal responses to a nutritional challenge: Toward improved robustness measures](MesPapiers/2016_Friggens+JDS.pdf). *Journal of Diary Science*
+- 2016. Mia Wege, Marie-Pierre Etienne,  W. Chris Oosthuizen, Ryan R. Reisinger, Marthán N. Bester, P. J. Nico De Bruyn [Trend changes in sympatric Subantarctic and Antarctic fur seal pup populations at Marion Island, Southern Ocean](MesPapiers/2016_Wege+MarineMammalScience.pdf).*Marine Mammal science*
 
-## Before 2015
+- 2016. Nicolas C. Friggens, Christine Duvaux-Ponter, Marie-Pierre Etienne, Tristan Mary-Huard, Philippe Schmidely.  [Characterizing individual differences in animal responses to a nutritional challenge: Toward improved robustness measures](MesPapiers/2016_Friggens+JDS.pdf). *Journal of Diary Science*
+
 
 - 2015. Ophélie Sauzet, Cécilia Cammas, Pierre Barbillon, Marie-Pierre Étienne, David Montagne. [Illuviation intensity and land use change: Quantification via micromorphological analysis](MesPapiers/2015_Sauzet+Geoderma.pdf). *Geoderma*.
 
