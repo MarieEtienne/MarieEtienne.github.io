@@ -27,6 +27,15 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
 
 
 
@@ -56,6 +65,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -336,14 +346,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fa fa-child"></span>
+    <span class="fas fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-chart-area"></span>
+    <span class="fas fa-chart-area"></span>
      
     Research 
      
@@ -355,14 +365,14 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fa fa-file-text-o"></span>
+        <span class="fas fa-file-text-o"></span>
          
         Publications
       </a>
     </li>
     <li>
       <a href="talks.html">
-        <span class="fa fa-comment-o"></span>
+        <span class="fas fa-comment-o"></span>
          
         Talks
       </a>
@@ -371,7 +381,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-laptop"></span>
+    <span class="fas fa-laptop"></span>
      
     Teaching
      
@@ -410,14 +420,14 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/MarieEtienne">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
     Github
   </a>
 </li>
 <li>
   <a href="news.html">
-    <span class="fa fa-commenting"></span>
+    <span class="fas fa-commenting"></span>
      
     News
   </a>
@@ -444,8 +454,8 @@ div.tocify {
 <li>Une <a href="https://marieetienne.github.io/courses/linearmodel/intro.html">Introduction</a> pour expliquer le déroulement du cours.</li>
 <li>Le cours d’<a href="https://marieetienne.github.io/courses/linearmodel/anova.html">Analyse de la variance</a> qui permet également de construire tous les outils nécessaires pour l’ensemble du modèle linéaire. C’est le cours le plus long, il nous occupera plusieurs séances.</li>
 <li>Le cours d’<a href="https://marieetienne.github.io/courses/linearmodel/anova2.html">Analyse de la variance à 2 facteurs</a></li>
-<li><a href="https://marieetienne.github.io/courses/linearmodel/regression.html">Le cours de régression</a>.</li>
-<li>Le cours de modèle linéaire généralisé.</li>
+<li><a href="https://marieetienne.github.io/courses/linearmodel/regression.html#1">Le cours de régression.</a></li>
+<li><a href="https://marieetienne.github.io/courses/linearmodel/glm.html">Le cours de modèle linéaire généralisé.</a></li>
 </ul>
 </div>
 <div id="vidéos" class="section level2">
@@ -466,16 +476,16 @@ div.tocify {
 <li><a href="https://youtu.be/jXHHqlkpdcU">Test du modèle complet,Test de comparaison de modèles</a></li>
 <li><a href="https://youtu.be/ARS-eWbeTJE">Les moyennes ajustées</a></li>
 </ul></li>
-<li>Modèle de régression simple et multiple
+<li><a href="https://youtu.be/1qoN5zCjnfs">Modèle de régression simple et multiple</a>
 <ul>
-<li>[Présentation du modèle]</li>
-<li>[Test des effets des variables]</li>
-<li>[Sélection de variables]</li>
+<li>Présentation du modèle</li>
+<li>Test des effets des variables</li>
+<li>Sélection de variables</li>
 </ul></li>
-<li>Modèle linéaire généralisé
+<li><a href="https://youtu.be/xY56EipQWRc">Modèle linéaire généralisé</a>
 <ul>
-<li>[Présentation du modèle]</li>
-<li>[Test des effets des variables]</li>
+<li>Présentation du modèle</li>
+<li>Test des effets des variables</li>
 </ul></li>
 </ul>
 </div>
@@ -491,7 +501,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
