@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Impact de la structure du réseau sur la persistence de variétés cultivées</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marie-Pierre Etienne" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link rel="stylesheet" href="mpe_pres_large.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Impact de la structure du réseau sur la persistence de variétés cultivées
+### Marie-Pierre Etienne
+### March, 2020
+
+---
+
+
+
+
+
+
+# Présentation
+
+
+## Objectif du TP 
+Reproduire (partiellement) les résultats  de Barbillon, Thomas, Goldringer, et al. [Bar+15] sur maintien de la diversité d'espèces cultivées.
+
+Cadre du réseau  semences paysannes.
+.footnote[http://www.semencespaysannes.org/index.php]. 
+
+
+##  Pourquoi une modélisation par réseau ?
+
+Les échanges de graines se font au travers des liens sociaux entretenus par les différents acteurs.
+
+## Etudier l'impact du réseau sur le maintien de la bidiversité 
+
+avec une approche monospécifique 
+
+---
+# Formalisation d'un réseau
+
+Pour modéliser les liens de connaissance liant les acteurs du réseau. 
+
+Modèle de graphe `\(G\)` 
+- un  ensemble de sommets (les acteurs)
+- et des arrêtes (les liens les unissant).
+
+On peut résumer ce réseau sous la forme d'une matrice d'adjacence `\(A\)`. La matrice `\(A\)` contient `\(1\)` sur la ligne `\(i\)` et la colonne `\(j\)` si l'individu `\(i\)` est connecté à l'individu `\(j\)`, un `\(0\)` sinon.
+
+Le graphe est dit orienté si le fait que `\(i\)` est lié à `\(j\)` n'implique pas forcément que `\(j\)` est lié à `\(i\)`, sinon il est non orienté et la matrice `\(A\)` est symétrique.
+
+Q1.  Dessiner (sur papier) le graphe associé à la matrice 
+`$$\begin{pmatrix}
+0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix}$$`
+
+
+
+---
+
+# Représentation d'un réseau
+
+Package `igraph`  très utile pour l'utilisation des graphes avec `R`. 
+
+Q2.  Définir la matrice `\(A\)` dans R.
+
+
+
+Q3.  Définir avec `R` le réseau correspondant (`graph_from_adjacency_matrix`).
+
+
+
+
+```r
+rownames(A) &lt;- colnames(A) &lt;-as.character(1:nrow(A))
+
+g1 &lt;- graph_from_adjacency_matrix(adjmatrix = A, mode = "undirected")
+plot(g1)
+```
+
+![](TP_files/figure-html/plot_G1-1.png)&lt;!-- --&gt;
+
+---
+# Différents types de réseau
+
+Q4.  Charger le fichier  [`AdjancyMatrix.RData`](https://marieetienne.github.io/datasets/graph/AdjancyMatrix.RData)  qui contient les matrices d'adjacence `A1, A2, A3` représenter les réseaux associés et discuter de leurs particularités.
+
+---
+# Différents réseaux
+ 
+## Type 1
+
+
+```r
+load('../data/graph/AdjancyMatrix.RData')
+g1 &lt;- graph_from_adjacency_matrix(adjmatrix = A1, mode = "undirected")
+plot(g1)
+```
+
+![](TP_files/figure-html/G1-1.png)&lt;!-- --&gt;
+
+---
+# Différents réseaux
+ 
+## Type 2
+
+
+```r
+g2 &lt;- graph_from_adjacency_matrix(adjmatrix = A2, mode = "undirected")
+plot(g2)
+```
+
+![](TP_files/figure-html/G2-1.png)&lt;!-- --&gt;
+
+
+---
+# Différents réseaux
+ 
+## Type 3
+
+
+```r
+g3 &lt;- graph_from_adjacency_matrix(adjmatrix = A3, mode = "undirected")
+plot(g3)
+```
+
+![](TP_files/figure-html/G3-1.png)&lt;!-- --&gt;
+
+
+---
+# Un modèle d'échange de graines
+
+A une génération (année) donnée 
+
+- un acteur peut perdre sa variété avec proba `\(e\)`
+- un acteur possédant la graine peut la transmettre à ses connaissances  avec probabilité `\(p\)`.  
+
+
+## Chaîne de Markov
+
+L'état du réseau à la génération `\(i+1\)` ne dépend que de l'état du réseau à la génération `\(i\)`. 
+
+## Initialisation 
+1. On stocke l'état du réseau dans un vecteur `culture` de taille `\(n\)` le nombres de sommets du réseau. La composante `\(i\)` du vecteur `culture` vaut `\(1\)` si l'acteur `\(i\)` possède la variété et `\(0\)` sinon. 
+
+Q6. Ecrire le code permettant de tirer pour chaque individu une variable aléatoire de Bernoulli de probabilité `\(0.5\)` pour nous indiquer si il possède ou non la variété. 
+
+
+---
+# Le code correspondant
+
+
+```r
+n       &lt;- nrow( A1 )
+culture &lt;- rbinom( n = n, size = 1, p = 0.5)
+g1      &lt;- graph_from_adjacency_matrix(adjmatrix = A1, mode = "undirected")
+couleur &lt;- c("tomato", "springgreen3")
+plot(g1, vertex.color = couleur[culture+1])
+```
+
+![](TP_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+
+---
+
+# Le code correspondant joli
+
+
+```r
+g1.network &lt;- network::network(x= A1, vertex.attrnames	= 1:n, directed = FALSE)
+## pour definir un placement fixe une fois pour toute 
+x = gplot.layout.fruchtermanreingold(g1.network, NULL) 
+g1.network %v% "x" = x[, 1]
+g1.network %v% "y" = x[, 2]
+
+t1 = ggnet2(g1.network, mode = c("x", "y"), size = 3, color = "black", node.color = couleur[culture+1])
+t1
+```
+
+![](TP_files/figure-html/g1_visu_network-1.png)&lt;!-- --&gt;
+
+---
+# Itération
+
+## Extinction
+
+Q7. simuler tout d'abord l'extinction chez un acteur avec probabilité `\(e\)`. 
+
+On peut prendre `\(e=0.2\)`. 
+
+
+Q8. Ecrire une fonction  `extinction` prenant en paramètre le vecteur `etat` contenant l'état de la variete chez chaque acteur et la valeur `\(e\)`, qui simule l'extinction et renvoie le vecteur culture mis à jour.
+
+
+---
+# Le code correspondant 
+
+
+```r
+extinction &lt;- function(etat, e){
+  presence &lt;- which(etat==1)
+  if(length(presence)&gt;0){
+  etat[presence] &lt;- rbinom(length(presence), size = 1, prob = 1-e)
+  }
+  return(etat)
+}
+```
+
+
+
+---
+# Itération
+
+## Propagation 
+
+
+Q9. Simuler la propagation de la variété à une génération. 
+
+Un acteur ayant la variété peut la transmettre à chaque acteur de sa connaissance avec probabilité `\(p\)`. 
+
+Q10. Ecrire une fonction prenant en parametre le vecteur `etat`, la matrice d'adjacence et le parametre `\(p\)` et qui simule la propagation de la variété. 
+
+---
+
+# Le code qui va bien 
+
+
+```r
+propagation &lt;- function(etat, A, p){
+  absence &lt;- which( etat == 0 )
+  if(length(absence)&gt;0){
+  nouvelEtat &lt;- sapply(absence, function(a_){
+    voisins &lt;- which( (A[a_,]&gt;0) &amp; (etat==1))
+    1*(runif(1)&lt;1 - (1-p)^{length(voisins)})
+  })
+  etat[absence] &lt;- nouvelEtat
+  }
+  return(etat)
+}
+```
+
+---
+# Iteration complète 
+
+Q11. Ecrire une boucle qui enchaîne les deux étapes et stocker le résultat dans une matrice `culture` pour laquelle une colonne est une génération.
+
+
+Q12.  Ecrire une fonction qui simule l'évolution au sein du réseau à partir d'un état initial.
+
+
+---
+# Code possible
+
+
+```r
+dynamique &lt;- function(etat0, A, p, e, nStep){
+  n &lt;- nrow(A)
+  etat &lt;- matrix(NA, nrow=n, ncol=nStep)
+  etat[,1] &lt;- etat0
+  for(i in 1:(nStep-1)){
+    extin &lt;- extinction(etat = etat[,i], e = e)
+    etat[,i+1] &lt;- propagation(etat = extin, A = A, p = p)
+  }
+  return(etat)
+}
+```
+
+---
+# Visualisation du réseau dynamique obtenu 
+
+
+```r
+nStep &lt;- 30
+e &lt;- 0.6
+p &lt;- 0.6
+culture0 &lt;- rbinom( n = n, size = 1, prob =  0.5)
+culture &lt;- dynamique(culture0, A1, p = p , e = e , nStep)
+i &lt;- 0
+  g1 &lt;- ggnet2(g1.network, mode = c("x", "y"), size = 6, color = "black",
+               node.color =  couleur[culture[,i+1]+1], label = 1:n,
+               node.size = 8, node.alpha = 0.6, label.size = 3)
+for(i in 1:(nStep-1)){
+  g1 &lt;- ggnet2(g1.network, mode = c("x", "y"), size = 6, color = "black",
+               node.color =  couleur[culture[,i+1]+1], label = 1:n, node.size = 8,
+               node.alpha = 0.6, label.size = 3)
+suppressMessages(ggsave(filename = paste0('generation',i+1,'.pdf'),g1))
+}
+```
+
+---
+# Visualisation du réseau dynamique obtenu en vidéo
+
+
+```r
+ saveVideo({
+  g1 &lt;- ggnet2(g1.network, mode = c("x", "y"), size = 6, color = "black",
+               node.color =  couleur[culture[,i+1]+1], label = 1:n,
+               node.size = 8, node.alpha = 0.6, label.size = 3)
+  print(g1)
+for(i in 1:(nStep-1)){
+  g1 &lt;- ggnet2(g1.network, mode = c("x", "y"), size = 6, color = "black",
+               node.color =  couleur[culture[,i+1]+1], label = 1:n,
+               node.size = 8, node.alpha = 0.6, label.size = 3)
+  print(g1)
+}
+},video.name = "animation.mp4", img.name = "Rplot",
+ffmpeg = ani.options("ffmpeg"))
+```
+
+---
+# Impact de la structure du réseau sur la probabilité d'extinction
+
+## Calcul de la probabilité d'extinction
+
+On fixe `\(p=0.6\)` et `\(e=0.5\)`.
+
+Q13.  Simuler une réalisation du modèle sur 30 générations et vérifier si il y a eu extinction.
+Q14. Simuler 300 réalisations du modèle et compter la proportion d'extinction. C'est une estimation par méthode de Monte Carlo de la probabilité d'extinction de la variété.
+
+
+```r
+n      &lt;- nrow(A1)
+e &lt;- 0.6
+p &lt;- 0.6
+nStep &lt;- 30
+culture0 &lt;- rbinom( n = n, size = 1, p = 0.5)
+culture &lt;- dynamique(culture0, A1, p = p,  e = e ,nStep)
+sum(culture[,nStep])==0
+```
+
+```
+## [1] FALSE
+```
+
+---
+# Sur 600 générations 
+
+
+```r
+nSim &lt;- 600
+res &lt;- sapply(1:nSim, function(l_){
+       culture0 &lt;- rbinom( n = n, size = 1, p = 0.5)
+      culture &lt;- dynamique(culture0, A1, p= p, e = e , nStep)
+      return(sum(culture[,nStep])==0)
+})
+sum(res)/length(res)      
+```
+
+```
+## [1] 0.18
+```
+
+
+---
+# Impact de la structure du réseau sur la probabilité d'extinction
+
+Q15.  Estimer la probabilité d'extinction pour les mêmes paramètres avec les différentes réseaux `A2, A3`.
+
+
+```r
+n &lt;- nrow(A2)
+res &lt;- sapply(1:nSim, function(l_){
+       culture0 &lt;- rbinom( n = n, size = 1, p = 0.5)
+      culture &lt;- dynamique(culture0, A2, p= p, e = e , nStep)
+      return(sum(culture[,nStep])==0)
+})
+sum(res)/length(res)      
+```
+
+```
+## [1] 0.17
+```
+
+```r
+res &lt;- sapply(1:nSim, function(l_){
+       culture0 &lt;- rbinom( n = n, size = 1, p = 0.5)
+      culture &lt;- dynamique(culture0, A3, p=p, e = e , nStep)
+      return(sum(culture[,nStep])==0)
+})
+sum(res)/length(res)   
+```
+
+```
+## [1] 0.8083333
+```
+
+
+```r
+res &lt;- sapply(1:nSim, function(l_){
+       culture0 &lt;- rbinom( n = n, size = 1, p = 0.5)
+      culture &lt;- dynamique(culture0, A3, p=p, e = e , nStep)
+      return(sum(culture[,nStep])==0)
+})
+sum(res)/length(res)   
+```
+
+```
+## [1] 0.795
+```
+
+---
+# References
+
+Barbillon, P, M. Thomas, I. Goldringer, et al. (2015).
+"Network impact on persistence in a finite population dynamic
+diffusion model: application to an emergent seed exchange
+network". In: _Journal of theoretical biology_ 365, pp.
+365-376.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../resources/collapseoutput.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+.logo {
+  background-image: url(img/sticker_sotr.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: 66px;
+  height: 78px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
