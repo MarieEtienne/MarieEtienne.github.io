@@ -1,0 +1,37 @@
+---
+title: "Teaching materials"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+
+
+## Resources
+
+Teaching statistics involves teachings statistical software. What is the best statistical software to my opinion (and the opinion of thousands of other), of course <img src="img/R.jpeg" hspace = "3"  alt="R" width="30px" align="left"> </img> .
+
+## Formations
+
+* Astredohr Avril 2019
+  * [Astredohr Part1](formation/astredohr_part1.pdf)
+* Formation [R : Des premiers pas au modèle linéaire ](https://marieetienne.github.io/premierspas/)
+
+## Datasets
+
+* [Intima Media](datasets/Intima_Media.txt)
+* [Biomass diversity](datsets/Biomass_diversity.csv)
+* [SamaresEq](datasets/SamaresEq.txt)
+* [SamaresEq_disp](datasets/SamaresEq_disp.csv)
+* [Pollen](ss700.csv)

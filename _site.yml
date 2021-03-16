@@ -28,7 +28,7 @@ navbar:
       - text: "Linear model"
         href: linearmodel.html
       - text: "Continuing education"
-        href: astredhor.html
+        href: teaching_fc.html
       - text: "Available dataset"
         href: data.html
       - text: "Some R-eminders"
