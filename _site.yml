@@ -39,7 +39,7 @@ navbar:
           href: stu_questions.html       
   right:
   - text: "Github"
-    icon: fa-github
+    icon: fab fa-github
     href: https://github.com/MarieEtienne
   - text: "News"
     href: news.html

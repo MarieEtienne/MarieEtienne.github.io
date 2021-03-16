@@ -26,7 +26,7 @@ Teaching statistics involves teachings statistical software. What is the best st
 
 * Astredohr Avril 2019
   * [Astredohr Part1](formation/astredohr_part1.pdf)
-
+* Formation [R : Des premiers pas au modèle linéaire ](https://marieetienne.github.io/premierspas/)
 
 ## Datasets
 
