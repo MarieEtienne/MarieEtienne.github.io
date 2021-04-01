@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 * F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
 
-* - R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world (to appear in ICES Journal of Marine Science) [arXiv](https://arxiv.org/abs/2009.02601)
+* R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world (to appear in ICES Journal of Marine Science) [arXiv](https://arxiv.org/abs/2009.02601)
 
 
 ## 2020
