@@ -57,14 +57,14 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 
 - Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURASIP.pdf).*EURASIP Journal on Advances in Signal Processing*
 
-## 2017
-
-- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Stochastic differential equation based on a multimodal potential to model movement data in ecology](MesPapiers/2017_Gloaguen+JRSSC.pdf). *JRSSC*
-
-- Thomas Denis, Cécile Richard-Hansen, Olivier Brunaux, Marie-Pierre Etienne, , Stéphane Guitet, Bruno Herault [Biological traits, rather than environment, shape detection curves of large vertebrates in neotropical rainforests]()*Ecological Applications*
 
 
-## Before 2016
+## Before 2017
+
+
+- 2017. Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Stochastic differential equation based on a multimodal potential to model movement data in ecology](MesPapiers/2017_Gloaguen+JRSSC.pdf). *JRSSC* 
+
+- 2017. Thomas Denis, Cécile Richard-Hansen, Olivier Brunaux, Marie-Pierre Etienne, , Stéphane Guitet, Bruno Herault [Biological traits, rather than environment, shape detection curves of large vertebrates in neotropical rainforests]()*Ecological Applications*
 
 - 2016. Mia Wege, Marie-Pierre Etienne,  W. Chris Oosthuizen, Ryan R. Reisinger, Marthán N. Bester, P. J. Nico De Bruyn [Trend changes in sympatric Subantarctic and Antarctic fur seal pup populations at Marion Island, Southern Ocean](MesPapiers/2016_Wege+MarineMammalScience.pdf).*Marine Mammal science*
 
