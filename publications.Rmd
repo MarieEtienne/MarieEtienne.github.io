@@ -19,18 +19,17 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 ## 2021 
 
+* M Jeanjean, S Goix, M. Periot,  K. Douib, J. Dron, MP  Etienne,  P. Marchand, R. Persoons, A Austruy, G Revenko, P.  Chamaret. The use of the environment in the vicinity of a major industrial harbour (Fos-sur-Mer, France) identified as an important pathway to organochlorine pollutants (PCBs and PCDD/Fs) accumulation in the serum of the residents. (under review)
+
 * F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
 
-*
+* - R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world (to appear in ICES Journal of Marine Science) [arXiv](https://arxiv.org/abs/2009.02601)
 
 
 ## 2020
 
 - J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
 Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. Physiologia Plantarum 170 (2), 280-298
-
-- R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world.
- [arXiv](https://arxiv.org/abs/2009.02601)
 
 - N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
 SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and ecotype distributions: The role of selective processes on early life‐history traits in sympatric, ecologically divergent Symphonia populations. Ecology and evolution 10 (19), 10735-10753
