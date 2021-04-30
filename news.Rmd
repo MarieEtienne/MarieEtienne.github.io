@@ -15,6 +15,10 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- April 2021: Presentation. Identifying stationnary phases in animal movement during the invited session on Movement ecoology at [CNC21](https://cnc21.sciencesconf.org/resource/page/id/6) 
+
+- June 2020:  Presentation. The Langevin model: a continuous time
+movement model to understand habitat selection [Virtual International Statistical Ecology Conference (vISEC2020)](https://www.isec2020.org/) 
 
 - February 2020: Agrocmapus Ouest will be hosting the [6$^\mbox{th}$ annual GdR ecostats](https://gdrecostat2020.sciencesconf.org/) meeting and the third edition of the [Moving2Gather Workshop](https://gdrecostat2020.sciencesconf.org/). 
 
