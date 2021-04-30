@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - June 2020:  Presentation. The Langevin model: a continuous time
 movement model to understand habitat selection [Virtual International Statistical Ecology Conference (vISEC2020)](https://www.isec2020.org/) 
 
-- February 2020: Agrocmapus Ouest will be hosting the [6$^\mbox{th}$ annual GdR ecostats](https://gdrecostat2020.sciencesconf.org/) meeting and the third edition of the [Moving2Gather Workshop](https://gdrecostat2020.sciencesconf.org/). 
+- February 2020: Agrocampus Ouest will be hosting the [6$^\mbox{th}$ annual GdR ecostats](https://gdrecostat2020.sciencesconf.org/) meeting and the third edition of the [Moving2Gather Workshop](https://gdrecostat2020.sciencesconf.org/). 
 
 - September 2019: The paper for trajectories segmentation is out in Journal of Animal Ecology  [Here](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2656.13105)
 
