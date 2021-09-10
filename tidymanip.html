@@ -14,6 +14,7 @@
 
 <title>Tidy aMnipulation tips</title>
 
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -30,7 +31,6 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -53,19 +53,19 @@
   }
 </style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -324,14 +324,14 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -343,14 +343,14 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
     </li>
     <li>
       <a href="talks.html">
-        <span class="fas fa-comment-o"></span>
+        <span class="fa fa-comment-o"></span>
          
         Talks
       </a>
@@ -359,7 +359,7 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -405,7 +405,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -428,9 +428,9 @@ $(document).ready(function () {
 
 <div id="split-text-columns-into-2-columns" class="section level2">
 <h2>Split text columns into 2 columns</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dta &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">text =</span> <span class="kw">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>dta</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dta <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dta</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 1
 ##   text   
 ##   &lt;chr&gt;  
@@ -438,8 +438,8 @@ $(document).ready(function () {
 ## 2 HMM_ID 
 ## 3 HSMM_AR
 ## 4 HSMM_ID</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dta <span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">separate</span>(<span class="dt">col =</span> text, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dta <span class="sc">%&gt;%</span>  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> text, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="at">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   Hidden Obs  
 ##   &lt;chr&gt;  &lt;chr&gt;
