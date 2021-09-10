@@ -15,6 +15,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- July 2021: [Les rencontres R à AgroParisTech](https://paris2021.rencontresr.fr/)
+
 - April 2021: Presentation. Identifying stationnary phases in animal movement during the invited session on Movement ecoology at [CNC21](https://cnc21.sciencesconf.org/resource/page/id/6) 
 
 - June 2020:  Presentation. The Langevin model: a continuous time
