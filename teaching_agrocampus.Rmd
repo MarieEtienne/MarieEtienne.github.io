@@ -48,7 +48,7 @@ Cours de statistique pour les étudiants de la spécialisation halieutique d'Agr
 Le matériel de cours est disponible sur le site [Stat4halieutes](https://marieetienne.github.io/CoursHalieut/)
         
         
-## Ouils pour la science reproductible
+## Outils pour la science reproductible
 
-[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version git dans un objectif de produire de la science reproductible.
+[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version [git](https://git-scm.com/) dans un objectif de produire de la science reproductible.
 
