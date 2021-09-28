@@ -21,8 +21,8 @@ Lors d'un TD, avec les étudiants du cursus apprentissage nous avons été amen�
 
 On a travaillé sur le jeu de données abricots.
 ```{r}
-abricots <- read.table(file = 'http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/115096_abricotsSG.txt',
-                       sep = ' ', header = TRUE)
+abricots <- read.table(file = 'https://agrocampusds.github.io/demarche_statistique/abricotsSG.csv',
+                       sep = ';', header = TRUE)
 ```
 
 La variable `Maturite` désigne un stade de maturité et doit donc être traitée comme un facteur (une variable qualitative).

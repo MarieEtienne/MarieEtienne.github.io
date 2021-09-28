@@ -15,8 +15,17 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- October 2021: I will defend my Habilitation to mentor research on October 15th at Agrocampus Ouest.
+
+ 
+ - August 2021: The fifth FinistR bootcamp will take place in August 2021 in Roscoff : [finistR2021](https://stateofther.github.io/finistR2021/)
+ 
 - April 2021: Presentation. Identifying stationnary phases in animal movement during the invited session on Movement ecoology at [CNC21](https://cnc21.sciencesconf.org/resource/page/id/6) 
 
+
+ - August 2020: The fourth FinistR bootcamp will take place in August 2020 in Roscoff : [finistR2020](https://stateofther.github.io/finistR2020/)
+ 
+ 
 - June 2020:  Presentation. The Langevin model: a continuous time
 movement model to understand habitat selection [Virtual International Statistical Ecology Conference (vISEC2020)](https://www.isec2020.org/) 
 
