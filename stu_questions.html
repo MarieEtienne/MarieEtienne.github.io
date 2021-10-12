@@ -508,8 +508,8 @@ div.tocify {
 <h2>Changer le symbole par défaut dans les graphiques</h2>
 <p>Lors d’un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de <code>R</code>.</p>
 <p>On a travaillé sur le jeu de données abricots.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>abricots <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&#39;http://math.agrocampus-ouest.fr/infoglueDeliverLive/digitalAssets/115096_abricotsSG.txt&#39;</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sep =</span> <span class="st">&#39; &#39;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>abricots <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&#39;https://agrocampusds.github.io/demarche_statistique/abricotsSG.csv&#39;</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sep =</span> <span class="st">&#39;;&#39;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>La variable <code>Maturite</code> désigne un stade de maturité et doit donc être traitée comme un facteur (une variable qualitative).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>abricots<span class="sc">$</span>Mat_Fact <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(abricots<span class="sc">$</span>Maturite)</span></code></pre></div>
 <p>On peut représenter l’indice colorimétrique <code>a</code> en fonction du stade de maturité.</p>

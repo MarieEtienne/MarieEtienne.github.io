@@ -32,6 +32,12 @@ Le script du coursJ2 [ici](slides/Metropolis_algo.pdf)
 
 Script du TD comptage [ici](slides/TD_Pup2.pdf) 
 
+
+## Outils pour la science reproductible
+
+[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version [git](https://git-scm.com/) dans un objectif de produire de la science reproductible.
+
+
 ## Modelisation statistique 
 
 Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation est destinée à des étudiants en thèse dans le domaine des sciences du vivant et qui souhaiterait recevoir une formation complémentaire en modélisation statistique. La formation est organisée en 2 séquences d'une semaine chacune et il est important de s'engager à participer à l'intégralité de ces deux semaines. 
@@ -48,7 +54,4 @@ Cours de statistique pour les étudiants de la spécialisation halieutique d'Agr
 Le matériel de cours est disponible sur le site [Stat4halieutes](https://marieetienne.github.io/CoursHalieut/)
         
         
-## Outils pour la science reproductible
-
-[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version [git](https://git-scm.com/) dans un objectif de produire de la science reproductible.
 
