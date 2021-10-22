@@ -15,9 +15,6 @@ navbar:
       - text: "Publications"
         href: publications.html
         icon: fa-file-text-o
-      - text: "Talks"
-        href: talks.html
-        icon: fa-comment-o 
   - text: "Teaching"
     icon: fa-laptop
     menu:
