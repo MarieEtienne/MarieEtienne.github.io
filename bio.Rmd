@@ -25,6 +25,7 @@ Since 2017 :  Assistant Professor in
 
 
 ## Education
+- 2021: Habilitation to supervise research. [*The Hidden Part of Markovian Stochastic Processes for Biology and Ecology*](MesPapiers/2021_hdr_etienne.pdf), and the [presentation](https://marieetienne.github.io/HDR/_presentation)
 
 - 2002: PhD at Université de Nancy Lorraine. [*Le score local un outil pour l'analyse de séquence biologique* ](MesPapiers/2002_Etienne.these.pdf)
 
@@ -35,14 +36,17 @@ Previous Positions
 
 ## Scientific animation
  
-- I am a founding member of the Moving2Gather group. The purpose of this group is to gather the French community involved in the development and the use of statistical methods for movement ecology. Its main activity is a biennial meeting and the next one will take place in [Agrocampus](http://www.agrocampus-ouest.fr) in March 2020. The programs of the previous editions are available.  
+- I am a founding member of the Moving2Gather group. The purpose of this group is to gather the French community involved in the development and the use of statistical methods for movement ecology. Its main activity is an (almost)  biennial meeting. The programs of the previous editions are available.  
 
+    - [2020](https://m2g-2020.sciencesconf.org/)
     - [2017](https://m2g-2017.sciencesconf.org/)
     - [2015](https://moving2gather.sciencesconf.org/)
  
  
 - I am also deeply involved in the [StateofTheR](https://stateofther.github.io/) group. This nice group is a place to receive and provide, in fact to exchange  advices on how we should use R.  As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every year, a one week _R bootcamp_ :
 
+    - [FinistR 2021](https://stateofther.github.io/finistR2021/) 
+    - [FinistR 2020](https://stateofther.github.io/finistR2020/) 
     - [FinistR 2019](https://stateofther.github.io/finistR2019/) 
     - [FinistR 2018](https://stateofther.github.io/finistR2018/)  
     - [FinistR 2017](https://stateofther.github.io/finistR2017/)
