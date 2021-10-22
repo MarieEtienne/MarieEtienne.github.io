@@ -19,6 +19,8 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 ## 2021 
 
+* Maie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
+
 * M Jeanjean, S Goix, M. Periot,  K. Douib, J. Dron, MP  Etienne,  P. Marchand, R. Persoons, A Austruy, G Revenko, P.  Chamaret. The use of the environment in the vicinity of a major industrial harbour (Fos-sur-Mer, France) identified as an important pathway to organochlorine pollutants (PCBs and PCDD/Fs) accumulation in the serum of the residents. To appear in Exposure and Health
 
 * F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
