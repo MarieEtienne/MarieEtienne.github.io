@@ -21,11 +21,11 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 * Maie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
 
-* M Jeanjean, S Goix, M. Periot,  K. Douib, J. Dron, MP  Etienne,  P. Marchand, R. Persoons, A Austruy, G Revenko, P.  Chamaret. The use of the environment in the vicinity of a major industrial harbour (Fos-sur-Mer, France) identified as an important pathway to organochlorine pollutants (PCBs and PCDD/Fs) accumulation in the serum of the residents. To appear in Exposure and Health
+* Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. Exposure and Health, 1-18.
 
 * F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
 
-* R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea on contrasting fisheries around the world (to appear in ICES Journal of Marine Science) [arXiv](https://arxiv.org/abs/2009.02601)
+* R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea from joint movement metrics of pelagic pair trawlers. [ICES Journal of Marine Science. Volume 78, Issue 5 (2021)](https://academic.oup.com/icesjms/article-abstract/78/5/1758/6276504)
 
 
 ## 2020
