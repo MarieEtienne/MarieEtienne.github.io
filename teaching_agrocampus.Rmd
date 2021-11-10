@@ -17,26 +17,28 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
-
-
-## Modélisation bayésienne pour l'écologie
-
-
-Cours de statistique pour les étudiants de la spécialisation Science des données et MODE.
-
-Les slides sont disponibles [ici](slides/CoursJ2.pdf)
-
-Rappel sur quelques lois de probabilités classiques et utiles dans les approches bayésiennes [ici](slides/LoiProbas.pdf)
-
-Le script du coursJ2 [ici](slides/Metropolis_algo.pdf)
-
-Script du TD comptage [ici](slides/TD_Pup2.pdf) 
+# M2 Datascience
 
 
 ## Outils pour la science reproductible
 
-[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version [git](https://git-scm.com/) dans un objectif de produire de la science reproductible.
+[Ce cours](https://marieetienne.github.io/reproductibilite/) propose une introduction à l'utilisation du système de version 
+[git](https://git-scm.com/) dans un objectif de produire de la science reproductible.
 
+
+## Modélisation bayésienne pour l'écologie
+
+Cours de statistique pour les étudiants de la spécialisation Science des données et MODE.
+
+Les slides sont disponibles [ici](https://marieetienne.github.io/bayesian_and_ecology/_presentation/#1)
+
+Rappel sur quelques lois de probabilités classiques et utiles dans les approches bayésiennes [ici](slides/LoiProbas.pdf)
+
+Script du TD comptage [ici](slides/TD_Pup2.pdf) 
+
+
+
+# Cours ED EGAAL
 
 ## Modelisation statistique 
 
@@ -48,10 +50,5 @@ Formation dispensée dans le cadre de l'école doctorale EGAAL. Cette formation 
 - [Modèle mixte](slides/mod_stat_jour5.pdf)
 - Des [exemples](https://marieetienne.github.io/ModStat/)
 
-## Statistique pour l'halieutique
-
-Cours de statistique pour les étudiants de la spécialisation halieutique d'Agrocampus Ouest. 
-Le matériel de cours est disponible sur le site [Stat4halieutes](https://marieetienne.github.io/CoursHalieut/)
-        
         
 
