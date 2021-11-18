@@ -20,10 +20,14 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 # Démarche statistisque - partie 2
 
 Ce cours constitue la duexième partie du module de démarche statistique. Les supports des quatre cours sont
-- [Régression multiple](http://marieetienne.github.io/demarche_stat_part2/_presentation/regression.html)
-- [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_part2/_presentation/anova2.html)
-- [Analyse en compostaes principales](http://marieetienne.github.io/demarche_stat_part2/_presentation/acp.html)
-- [Plan d'expérience](http://marieetienne.github.io/demarche_stat_part2/_presentation/plan_exp.html)
+
+- [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html)
+
+- [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html)
+
+- [Analyse en compostaes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
+
+- [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html)
 
 
 Les  TD correspondants sont les TD 11 à 17 de la page des [énonces de TD](https://agrocampusds.github.io/demarche_statistique/) sont disponibles sur la pag
