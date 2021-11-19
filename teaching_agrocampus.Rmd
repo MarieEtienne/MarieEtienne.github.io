@@ -17,9 +17,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
-# Démarche statistisque - partie 2
+# Démarche statistique - partie 2
 
-Ce cours constitue la duexième partie du module de démarche statistique. Les supports des quatre cours sont
+Ce cours constitue la seconde partie du module de démarche statistique. Les supports des quatre cours sont
 
 - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html)
 
@@ -30,7 +30,7 @@ Ce cours constitue la duexième partie du module de démarche statistique. Les s
 - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html)
 
 
-Les  TD correspondants sont les TD 11 à 17 de la page des [énonces de TD](https://agrocampusds.github.io/demarche_statistique/) sont disponibles sur la pag
+Les  TD correspondants sont les TD 11 à 17 disponibles sur la page des [énonces de TD](https://agrocampusds.github.io/demarche_statistique/)
 
 
 # M2 Datascience
