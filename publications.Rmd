@@ -16,10 +16,16 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 
 
+## 2022
 
-## 2021 
+* Baptiste Alglave, Etienne Rivot, Marie-Pierre Etienne, Mathieu Woillez, Youen Vermard.  Combining scientific survey and commercial catch data to map fish distribution. ICES Journal of Marine Science 
 
-* Maie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
+* [Book Chapter] Marie-Pierre Etienne and Pierre Gloaguen. Trajectory Reconstruction and Behavior Identification Using Geolocation Data  in the book *Statistical Approaches for Hidden Variables in Ecology* co edited by Olivier Gimenez and Nathalie Peyrard [ici](https://www.iste.co.uk/book.php?id=1859)
+
+
+## 2021
+
+* Marie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
 
 * Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. Exposure and Health, 1-18.
 
@@ -49,7 +55,10 @@ SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and e
 - Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
 
 
-## 2018  
+
+
+## Before 2017
+
 
 - Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne,  Stéphane Robin, Grégory Genta-Jouve.  [A variable selection approach in the multivariate
 linear model: an application to LC-MS
@@ -58,11 +67,6 @@ metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistic
 - Rocio Joo, Marie-Pierre Etienne, Nicolas Bez,  Stéphanie Mahévas. [Metrics for describing dyadic movement: a review](MesPapiers/2018_Joo+MovemenetEcology.pdf) *Movement Ecology*
 
 - Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURASIP.pdf).*EURASIP Journal on Advances in Signal Processing*
-
-
-
-## Before 2017
-
 
 - 2017. Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Stochastic differential equation based on a multimodal potential to model movement data in ecology](MesPapiers/2017_Gloaguen+JRSSC.pdf). *JRSSC* 
 
