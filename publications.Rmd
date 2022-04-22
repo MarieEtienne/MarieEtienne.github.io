@@ -23,6 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 * [Book Chapter] Marie-Pierre Etienne and Pierre Gloaguen. Trajectory Reconstruction and Behavior Identification Using Geolocation Data  in the book *Statistical Approaches for Hidden Variables in Ecology* co edited by Olivier Gimenez and Nathalie Peyrard [ici](https://www.iste.co.uk/book.php?id=1859)
 
 
+
 ## 2021
 
 * Marie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
