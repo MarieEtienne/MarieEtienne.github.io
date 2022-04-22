@@ -58,16 +58,16 @@ SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and e
 
 
 
-## Before 2017
+## Before 2018
 
 
-- Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne,  Stéphane Robin, Grégory Genta-Jouve.  [A variable selection approach in the multivariate
+- 2018. Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne,  Stéphane Robin, Grégory Genta-Jouve.  [A variable selection approach in the multivariate
 linear model: an application to LC-MS
 metabolomics data](MesPapiers/2018_Perrot+StatAppliInGenetics.pdf) in *Statistical Applications in Genetics and Molecular Biology*.
 
-- Rocio Joo, Marie-Pierre Etienne, Nicolas Bez,  Stéphanie Mahévas. [Metrics for describing dyadic movement: a review](MesPapiers/2018_Joo+MovemenetEcology.pdf) *Movement Ecology*
+- 2018. Rocio Joo, Marie-Pierre Etienne, Nicolas Bez,  Stéphanie Mahévas. [Metrics for describing dyadic movement: a review](MesPapiers/2018_Joo+MovemenetEcology.pdf) *Movement Ecology*
 
-- Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURASIP.pdf).*EURASIP Journal on Advances in Signal Processing*
+- 2018. Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Online sequential Monte Carlo smoother for partially observed diffusion processes](MesPapiers/2018_Gloaguen+EURASIP.pdf).*EURASIP Journal on Advances in Signal Processing*
 
 - 2017. Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff [Stochastic differential equation based on a multimodal potential to model movement data in ecology](MesPapiers/2017_Gloaguen+JRSSC.pdf). *JRSSC* 
 

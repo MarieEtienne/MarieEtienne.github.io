@@ -13,7 +13,7 @@
 
 <title>Publications</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -310,14 +310,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -329,7 +329,7 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -338,7 +338,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -384,7 +384,7 @@ div.tocify {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -434,12 +434,18 @@ div.tocify {
 <li><p>Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 <a href="https://www.biorxiv.org/content/10.1101/444794v1">bioRXiv</a></p></li>
 </ul>
 </div>
-<div id="before-2017" class="section level2">
-<h2>Before 2017</h2>
+<div id="before-2018" class="section level2">
+<h2>Before 2018</h2>
 <ul>
-<li><p>Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne, Stéphane Robin, Grégory Genta-Jouve. <a href="MesPapiers/2018_Perrot+StatAppliInGenetics.pdf">A variable selection approach in the multivariate linear model: an application to LC-MS metabolomics data</a> in <em>Statistical Applications in Genetics and Molecular Biology</em>.</p></li>
-<li><p>Rocio Joo, Marie-Pierre Etienne, Nicolas Bez, Stéphanie Mahévas. <a href="MesPapiers/2018_Joo+MovemenetEcology.pdf">Metrics for describing dyadic movement: a review</a> <em>Movement Ecology</em></p></li>
-<li><p>Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff <a href="MesPapiers/2018_Gloaguen+EURASIP.pdf">Online sequential Monte Carlo smoother for partially observed diffusion processes</a>.<em>EURASIP Journal on Advances in Signal Processing</em></p></li>
+<li><ol start="2018" style="list-style-type: decimal">
+<li>Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne, Stéphane Robin, Grégory Genta-Jouve. <a href="MesPapiers/2018_Perrot+StatAppliInGenetics.pdf">A variable selection approach in the multivariate linear model: an application to LC-MS metabolomics data</a> in <em>Statistical Applications in Genetics and Molecular Biology</em>.</li>
+</ol></li>
+<li><ol start="2018" style="list-style-type: decimal">
+<li>Rocio Joo, Marie-Pierre Etienne, Nicolas Bez, Stéphanie Mahévas. <a href="MesPapiers/2018_Joo+MovemenetEcology.pdf">Metrics for describing dyadic movement: a review</a> <em>Movement Ecology</em></li>
+</ol></li>
+<li><ol start="2018" style="list-style-type: decimal">
+<li>Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff <a href="MesPapiers/2018_Gloaguen+EURASIP.pdf">Online sequential Monte Carlo smoother for partially observed diffusion processes</a>.<em>EURASIP Journal on Advances in Signal Processing</em></li>
+</ol></li>
 <li><ol start="2017" style="list-style-type: decimal">
 <li>Pierre Gloaguen, Marie-Pierre Étienne, Sylvain Le Corff <a href="MesPapiers/2017_Gloaguen+JRSSC.pdf">Stochastic differential equation based on a multimodal potential to model movement data in ecology</a>. <em>JRSSC</em></li>
 </ol></li>
@@ -526,6 +532,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
