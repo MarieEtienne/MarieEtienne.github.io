@@ -13,8 +13,8 @@
 
 <title>Cours de Modèle linéaire</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -50,6 +50,7 @@
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -74,6 +75,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -299,7 +303,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -310,14 +314,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -329,7 +333,7 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -337,8 +341,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -361,7 +365,7 @@ div.tocify {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -384,7 +388,7 @@ div.tocify {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -403,16 +407,29 @@ div.tocify {
 </div>
 
 
-<p>Suite à la crise sanitaire, je n’ai pas pu me rendre à Kourou pour mon cours de modèle linéaire dans le master d’écologie tropicale. Tout est donc passé en cours à distance.</p>
+<p>Suite à la crise sanitaire, je n’ai pas pu me rendre à Kourou pour
+mon cours de modèle linéaire dans le master d’écologie tropicale. Tout
+est donc passé en cours à distance.</p>
 <div id="supports" class="section level2">
 <h2>Supports</h2>
 <p>Les supports de cours sont mis à disposition ici.</p>
 <ul>
-<li>Une <a href="https://marieetienne.github.io/linear_model/intro.html">Introduction</a> pour expliquer le déroulement du cours.</li>
-<li>Le cours d’<a href="https://marieetienne.github.io/linear_model/anova.html">Analyse de la variance</a> qui permet également de construire tous les outils nécessaires pour l’ensemble du modèle linéaire. C’est le cours le plus long, il nous occupera plusieurs séances.</li>
-<li>Le cours d’<a href="https://marieetienne.github.io/linear_model/anova2.html">Analyse de la variance à 2 facteurs</a></li>
-<li><a href="https://marieetienne.github.io/linear_model/regression.html#1">Le cours de régression.</a></li>
-<li><a href="https://marieetienne.github.io/linear_model/glm.html">Le cours de modèle linéaire généralisé.</a></li>
+<li>Une <a
+href="https://marieetienne.github.io/linear_model/intro.html">Introduction</a>
+pour expliquer le déroulement du cours.</li>
+<li>Le cours d’<a
+href="https://marieetienne.github.io/linear_model/anova.html">Analyse de
+la variance</a> qui permet également de construire tous les outils
+nécessaires pour l’ensemble du modèle linéaire. C’est le cours le plus
+long, il nous occupera plusieurs séances.</li>
+<li>Le cours d’<a
+href="https://marieetienne.github.io/linear_model/anova2.html">Analyse
+de la variance à 2 facteurs</a></li>
+<li><a
+href="https://marieetienne.github.io/linear_model/regression.html#1">Le
+cours de régression.</a></li>
+<li><a href="https://marieetienne.github.io/linear_model/glm.html">Le
+cours de modèle linéaire généralisé.</a></li>
 </ul>
 </div>
 <div id="vidéos" class="section level2">
@@ -421,25 +438,35 @@ div.tocify {
 <ul>
 <li>Modèle d’analyse de la variance à 1 facteur
 <ul>
-<li><a href="https://youtu.be/8wz6dan_S0c">Présentation du modèle</a></li>
-<li><a href="https://youtu.be/YqYblRLH-aM">Estimation des paramètres</a></li>
-<li><a href="https://youtu.be/7qktWq7WfMg">Test de comparaison de modèles</a></li>
-<li><a href="https://youtu.be/Vhx4y8rhWcI">Test sur les paramètres et Validation des hypothèses de modélisation</a></li>
+<li><a href="https://youtu.be/8wz6dan_S0c">Présentation du
+modèle</a></li>
+<li><a href="https://youtu.be/YqYblRLH-aM">Estimation des
+paramètres</a></li>
+<li><a href="https://youtu.be/7qktWq7WfMg">Test de comparaison de
+modèles</a></li>
+<li><a href="https://youtu.be/Vhx4y8rhWcI">Test sur les paramètres et
+Validation des hypothèses de modélisation</a></li>
 </ul></li>
 <li>Modèle d’analyse de la variance à 2 facteurs
 <ul>
-<li><a href="https://youtu.be/OjNam5tYTOI">Présentation du modèle</a></li>
-<li><a href="https://youtu.be/ByN4gqCDgCo">Estimation des paramètres</a></li>
-<li><a href="https://youtu.be/jXHHqlkpdcU">Test du modèle complet,Test de comparaison de modèles</a></li>
-<li><a href="https://youtu.be/ARS-eWbeTJE">Les moyennes ajustées</a></li>
+<li><a href="https://youtu.be/OjNam5tYTOI">Présentation du
+modèle</a></li>
+<li><a href="https://youtu.be/ByN4gqCDgCo">Estimation des
+paramètres</a></li>
+<li><a href="https://youtu.be/jXHHqlkpdcU">Test du modèle complet,Test
+de comparaison de modèles</a></li>
+<li><a href="https://youtu.be/ARS-eWbeTJE">Les moyennes
+ajustées</a></li>
 </ul></li>
-<li><a href="https://youtu.be/1qoN5zCjnfs">Modèle de régression simple et multiple</a>
+<li><a href="https://youtu.be/1qoN5zCjnfs">Modèle de régression simple
+et multiple</a>
 <ul>
 <li>Présentation du modèle</li>
 <li>Test des effets des variables</li>
 <li>Sélection de variables</li>
 </ul></li>
-<li><a href="https://youtu.be/xY56EipQWRc">Modèle linéaire généralisé</a>
+<li><a href="https://youtu.be/xY56EipQWRc">Modèle linéaire
+généralisé</a>
 <ul>
 <li>Présentation du modèle</li>
 <li>Test des effets des variables</li>
@@ -485,6 +512,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

@@ -13,8 +13,8 @@
 
 <title>News</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -47,6 +47,7 @@
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -71,6 +72,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -223,7 +227,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -234,14 +238,14 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -253,7 +257,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -261,8 +265,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -285,7 +289,7 @@ $(document).ready(function () {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -308,7 +312,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -328,19 +332,54 @@ $(document).ready(function () {
 
 
 <ul>
-<li><p>Youhou,!! I have received my Habilitation. please find my <a href="https://marieetienne.github.io/HDR/_presentation/">presentation</a> and my <a href="MesPapiers/2021_hdr_etienne.pdf">manuscript</a></p></li>
-<li><p>October 2021: I will defend my Habilitation to mentor research on October 15th at Agrocampus Ouest.</p></li>
-<li><p>August 2021: The fifth FinistR bootcamp will take place in August 2021 in Roscoff : <a href="https://stateofther.github.io/finistR2021/">finistR2021</a></p></li>
-<li><p>July 2021: <a href="https://paris2021.rencontresr.fr/">Les rencontres R à AgroParisTech</a></p></li>
-<li><p>April 2021: Presentation. Identifying stationnary phases in animal movement during the invited session on Movement ecoology at <a href="https://cnc21.sciencesconf.org/resource/page/id/6">CNC21</a></p></li>
-<li><p>August 2020: The fourth FinistR bootcamp will take place in August 2020 in Roscoff : <a href="https://stateofther.github.io/finistR2020/">finistR2020</a></p></li>
-<li><p>June 2020: Presentation. The Langevin model: a continuous time movement model to understand habitat selection <a href="https://www.isec2020.org/">Virtual International Statistical Ecology Conference (vISEC2020)</a></p></li>
-<li><p>February 2020: Agrocampus Ouest will be hosting the <a href="https://gdrecostat2020.sciencesconf.org/">6<span class="math inline">\(^\mbox{th}\)</span> annual GdR ecostats</a> meeting and the third edition of the <a href="https://gdrecostat2020.sciencesconf.org/">Moving2Gather Workshop</a>.</p></li>
-<li><p>September 2019: The paper for trajectories segmentation is out in Journal of Animal Ecology <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2656.13105">Here</a></p></li>
-<li><p>September 2019. I will give a course on Statistical Modelling for biological Data. The course will take place in Agrocampus Ouest from November 25th to November 29th. Deadline for regisration is November, 1st. Please contact me if you need more information.</p></li>
-<li><p>August 2019: The paper on Langevin model for habitat selection is published in Methods in Ecology and Evolution <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13275">Here</a></p></li>
-<li><p>July 2019: The next edition will take place in <a href="http://www.agrocampus-ouest.fr">Agrocampus Ouest</a> in March, 11th, 13th 2020. This will be a follow up of the annual meeting of the <a href="https://sites.google.com/site/gdrecostat/">GdR Ecostat</a> at the same place.</p></li>
-<li><p>April 2019: The third FinistR bootcamp will take place in August 2019 in Roscoff : <a href="https://stateofther.github.io/finistR2019/">finistR2019</a></p></li>
+<li><p>a new paper as part of Baptiste Alglave PhD. Identifying fish
+spawning grounds by combining catch declarations and scientific survey
+data <a
+href="https://hal.archives-ouvertes.fr/hal-03674691/document">pdf</a></p></li>
+<li><p>Youhou,!! I have received my Habilitation. please find my <a
+href="https://marieetienne.github.io/HDR/_presentation/">presentation</a>
+and my <a href="MesPapiers/2021_hdr_etienne.pdf">manuscript</a></p></li>
+<li><p>October 2021: I will defend my Habilitation to mentor research on
+October 15th at Agrocampus Ouest.</p></li>
+<li><p>August 2021: The fifth FinistR bootcamp will take place in August
+2021 in Roscoff : <a
+href="https://stateofther.github.io/finistR2021/">finistR2021</a></p></li>
+<li><p>July 2021: <a href="https://paris2021.rencontresr.fr/">Les
+rencontres R à AgroParisTech</a></p></li>
+<li><p>April 2021: Presentation. Identifying stationnary phases in
+animal movement during the invited session on Movement ecoology at <a
+href="https://cnc21.sciencesconf.org/resource/page/id/6">CNC21</a></p></li>
+<li><p>August 2020: The fourth FinistR bootcamp will take place in
+August 2020 in Roscoff : <a
+href="https://stateofther.github.io/finistR2020/">finistR2020</a></p></li>
+<li><p>June 2020: Presentation. The Langevin model: a continuous time
+movement model to understand habitat selection <a
+href="https://www.isec2020.org/">Virtual International Statistical
+Ecology Conference (vISEC2020)</a></p></li>
+<li><p>February 2020: Agrocampus Ouest will be hosting the <a
+href="https://gdrecostat2020.sciencesconf.org/">6<span
+class="math inline">\(^\mbox{th}\)</span> annual GdR ecostats</a>
+meeting and the third edition of the <a
+href="https://gdrecostat2020.sciencesconf.org/">Moving2Gather
+Workshop</a>.</p></li>
+<li><p>September 2019: The paper for trajectories segmentation is out in
+Journal of Animal Ecology <a
+href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2656.13105">Here</a></p></li>
+<li><p>September 2019. I will give a course on Statistical Modelling for
+biological Data. The course will take place in Agrocampus Ouest from
+November 25th to November 29th. Deadline for regisration is November,
+1st. Please contact me if you need more information.</p></li>
+<li><p>August 2019: The paper on Langevin model for habitat selection is
+published in Methods in Ecology and Evolution <a
+href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13275">Here</a></p></li>
+<li><p>July 2019: The next edition will take place in <a
+href="http://www.agrocampus-ouest.fr">Agrocampus Ouest</a> in March,
+11th, 13th 2020. This will be a follow up of the annual meeting of the
+<a href="https://sites.google.com/site/gdrecostat/">GdR Ecostat</a> at
+the same place.</p></li>
+<li><p>April 2019: The third FinistR bootcamp will take place in August
+2019 in Roscoff : <a
+href="https://stateofther.github.io/finistR2019/">finistR2019</a></p></li>
 </ul>
 
 <div class="logos"><img src="LogoAgrocampusOuest.jpg" width="180px" align="right"></div>

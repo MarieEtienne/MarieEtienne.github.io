@@ -14,8 +14,8 @@
 
 <title>Tidy aMnipulation tips</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -42,6 +42,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -161,6 +162,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -313,7 +317,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -324,14 +328,14 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -343,7 +347,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -351,8 +355,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -375,7 +379,7 @@ $(document).ready(function () {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -398,7 +402,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -424,7 +428,7 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dta <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dta</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 1
+<pre><code>## # A tibble: 4 × 1
 ##   text   
 ##   &lt;chr&gt;  
 ## 1 HHM_AR 
@@ -433,7 +437,7 @@ $(document).ready(function () {
 ## 4 HSMM_ID</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dta <span class="sc">%&gt;%</span>  </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> text, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="at">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 2
+<pre><code>## # A tibble: 4 × 2
 ##   Hidden Obs  
 ##   &lt;chr&gt;  &lt;chr&gt;
 ## 1 HHM    AR   
@@ -475,39 +479,110 @@ $(document).ready(function () {
 <!-- <!-- <!-- ## Fig18 en Tableau -->
 <p>–&gt; –&gt;</p>
 <!-- <!-- ```{r table, echo=FALSE} -->
-<p>–&gt; <!-- <!-- library(kableExtra) --> –&gt; <!-- <!-- library(formattable) --> –&gt;</p>
+<p>–&gt; <!-- <!-- library(kableExtra) --> –&gt;
+<!-- <!-- library(formattable) --> –&gt;</p>
 <!-- <!-- my.tab <- my.data %>%  tidyr::spread(Vessel,Accuracy) %>% arrange(Model) -->
-<p>–&gt; <!-- <!-- my.tabred <- my.tab %>% select(starts_with("Vessel")) --> –&gt; <!-- <!-- my.df <- as.data.frame(my.tabred) --> –&gt; <!-- <!-- dimnames(my.df)[[1]] <- paste(my.tab$Model,my.tab$Degrad,sep="-") --> –&gt;</p>
+<p>–&gt;
+<!-- <!-- my.tabred <- my.tab %>% select(starts_with("Vessel")) -->
+–&gt; <!-- <!-- my.df <- as.data.frame(my.tabred) --> –&gt;
+<!-- <!-- dimnames(my.df)[[1]] <- paste(my.tab$Model,my.tab$Degrad,sep="-") -->
+–&gt;</p>
 <!-- <!-- my.pal <- wes_palette("Zissou1") -->
 <p>–&gt;</p>
 <!-- <!-- <!-- my.df %>% pivot_longer(mutate(  -->
-<p>–&gt; –&gt; <!-- <!-- <!--   Vessel1 = cell_spec(Vessel1,background=my.pal), --> –&gt; –&gt; <!-- <!-- <!--   Vessel2 = cell_spec(Vessel2,background=my.pal) --> –&gt; –&gt; <!-- <!-- <!--   )  --> –&gt; –&gt;</p>
+<p>–&gt; –&gt;
+<!-- <!-- <!--   Vessel1 = cell_spec(Vessel1,background=my.pal), -->
+–&gt; –&gt;
+<!-- <!-- <!--   Vessel2 = cell_spec(Vessel2,background=my.pal) -->
+–&gt; –&gt; <!-- <!-- <!--   )  --> –&gt; –&gt;</p>
 <!-- <!-- <!-- %>% select(starts_with("Vessel")) %>% t()%>% -->
-<p>–&gt; –&gt; <!-- <!-- <!--   kable("html", escape = F)  --> –&gt; –&gt; <!-- <!-- <!-- # %>%  kable_styling("hover", full_width = F) --> –&gt; –&gt; <!-- <!-- <!--   # %>% kable_styling(c("striped", "bordered")) %>% --> –&gt; –&gt; <!-- <!-- <!--  # add_header_above(c(" ", "HMM-AR0" = 4, "HMM-AR1"  = 4, "HSMM-AR0" = 4, "HSMM-AR1" =4,"M_Filtred4.5"=4, "M_Filtred6"=4 ))  --> –&gt; –&gt;</p>
+<p>–&gt; –&gt; <!-- <!-- <!--   kable("html", escape = F)  --> –&gt;
+–&gt; <!-- <!-- <!-- # %>%  kable_styling("hover", full_width = F) -->
+–&gt; –&gt;
+<!-- <!-- <!--   # %>% kable_styling(c("striped", "bordered")) %>% -->
+–&gt; –&gt;
+<!-- <!-- <!--  # add_header_above(c(" ", "HMM-AR0" = 4, "HMM-AR1"  = 4, "HSMM-AR0" = 4, "HSMM-AR1" =4,"M_Filtred4.5"=4, "M_Filtred6"=4 ))  -->
+–&gt; –&gt;</p>
 <!-- <!-- ``` -->
 <p>–&gt;</p>
 <!-- <!-- ## test MPE -->
 <p>–&gt;</p>
 <!-- <!-- ```{r} -->
-<p>–&gt; <!-- <!-- library(knitr) --> –&gt; <!-- <!-- library(kableExtra) --> –&gt; <!-- <!-- library(formattable) --> –&gt; <!-- <!-- library(dplyr) --> –&gt; <!-- <!-- library( formattable ) --> –&gt; <!-- <!-- library("htmltools") --> –&gt; <!-- <!-- library("webshot")     --> –&gt;</p>
+<p>–&gt; <!-- <!-- library(knitr) --> –&gt;
+<!-- <!-- library(kableExtra) --> –&gt;
+<!-- <!-- library(formattable) --> –&gt; <!-- <!-- library(dplyr) -->
+–&gt; <!-- <!-- library( formattable ) --> –&gt;
+<!-- <!-- library("htmltools") --> –&gt;
+<!-- <!-- library("webshot")     --> –&gt;</p>
 <!-- <!-- my.pal <- wes_palette("Zissou1") -->
 <p>–&gt;</p>
 <!-- <!-- export_formattable <- function(f, file, width = "100%", height = NULL,  -->
-<p>–&gt; <!-- <!--                                background = "white", delay = 0.2) --> –&gt; <!-- <!-- { --> –&gt; <!-- <!--   w <- as.htmlwidget(f, width = width, height = height) --> –&gt; <!-- <!--   path <- html_print(w, background = background, viewer = NULL) --> –&gt; <!-- <!--   url <- paste0("file:///", gsub("\\\\", "/", normalizePath(path))) --> –&gt; <!-- <!--   webshot(url, --> –&gt; <!-- <!--           file = file, --> –&gt; <!-- <!--           selector = ".formattable_widget", --> –&gt; <!-- <!--           delay = delay) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<p>–&gt;
+<!-- <!--                                background = "white", delay = 0.2) -->
+–&gt; <!-- <!-- { --> –&gt;
+<!-- <!--   w <- as.htmlwidget(f, width = width, height = height) -->
+–&gt;
+<!-- <!--   path <- html_print(w, background = background, viewer = NULL) -->
+–&gt;
+<!-- <!--   url <- paste0("file:///", gsub("\\\\", "/", normalizePath(path))) -->
+–&gt; <!-- <!--   webshot(url, --> –&gt;
+<!-- <!--           file = file, --> –&gt;
+<!-- <!--           selector = ".formattable_widget", --> –&gt;
+<!-- <!--           delay = delay) --> –&gt; <!-- <!-- } --> –&gt;</p>
 <!-- <!-- value_formatter <- formatter("span",  -->
-<p>–&gt; <!-- <!--                              style = x ~ style(color = ifelse(x > 0.9, "green",  --> –&gt; <!-- <!--                                                               ifelse(x < 0, "red", "black")))) --> –&gt; <!-- <!-- sign_formatter(c(-1, 0, 1)) --> –&gt;</p>
+<p>–&gt;
+<!-- <!--                              style = x ~ style(color = ifelse(x > 0.9, "green",  -->
+–&gt;
+<!-- <!--                                                               ifelse(x < 0, "red", "black")))) -->
+–&gt; <!-- <!-- sign_formatter(c(-1, 0, 1)) --> –&gt;</p>
 <!-- <!-- custom_color_tile <- function (...)  -->
-<p>–&gt; <!-- <!-- { --> –&gt; <!-- <!--   formatter("span", --> –&gt; <!-- <!--             style = function(x) style(display = "block", padding = "0 4px", `color` = "white", `border-radius` = "4px",     `background-color` = csscolor(gradient(as.numeric(x),  --> –&gt; <!-- <!--                                                                                                                                                                    ...)))) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<p>–&gt; <!-- <!-- { --> –&gt; <!-- <!--   formatter("span", --> –&gt;
+<!-- <!--             style = function(x) style(display = "block", padding = "0 4px", `color` = "white", `border-radius` = "4px",     `background-color` = csscolor(gradient(as.numeric(x),  -->
+–&gt;
+<!-- <!--                                                                                                                                                                    ...)))) -->
+–&gt; <!-- <!-- } --> –&gt;</p>
 <!-- <!-- test_dta <- my.data %>% -->
-<p>–&gt; <!-- <!--   separate( Model, c("Hidden_Model", "Obs_Model"), "-" ) %>%  --> –&gt; <!-- <!--   arrange(Vessel, Hidden_Model, Obs_Model, Degrad ) %>% pivot_wider(names_from = c( Degrad, Vessel), values_from = Accuracy) --> –&gt;</p>
+<p>–&gt;
+<!-- <!--   separate( Model, c("Hidden_Model", "Obs_Model"), "-" ) %>%  -->
+–&gt;
+<!-- <!--   arrange(Vessel, Hidden_Model, Obs_Model, Degrad ) %>% pivot_wider(names_from = c( Degrad, Vessel), values_from = Accuracy) -->
+–&gt;</p>
 <!-- <!-- table18 <- test_dta %>%  -->
-<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt; <!-- <!--          ` d1` = d1_Vessel2,  --> –&gt; <!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt; <!-- <!--          ` d2` = d2_Vessel2, --> –&gt; <!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt; <!-- <!--          ` d3` = d3_Vessel2, --> –&gt; <!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt; <!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt; <!-- <!--   mutate_if(is.numeric,  color_tile("#d5eeec", "#3b9ab2"))%>%  --> –&gt; <!-- <!--   kable("html", escape = F) %>% --> –&gt; <!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt; <!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> –&gt;</p>
+<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt;
+<!-- <!--          ` d1` = d1_Vessel2,  --> –&gt;
+<!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt;
+<!-- <!--          ` d2` = d2_Vessel2, --> –&gt;
+<!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt;
+<!-- <!--          ` d3` = d3_Vessel2, --> –&gt;
+<!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt;
+<!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt;
+<!-- <!--   mutate_if(is.numeric,  color_tile("#d5eeec", "#3b9ab2"))%>%  -->
+–&gt; <!-- <!--   kable("html", escape = F) %>% --> –&gt;
+<!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt;
+<!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) -->
+–&gt;</p>
 <!-- <!-- table18  %>% save_kable("table18.png") -->
 <p>–&gt;</p>
 <!-- <!-- format_bold <- function(x){ -->
-<p>–&gt; <!-- <!--   ifelse(x > 0.9,  cell_spec(x, "html",  bold = T),  --> –&gt; <!-- <!--          ifelse( x < 0.5 , cell_spec(x, "html", italic = T), --> –&gt; <!-- <!--                  cell_spec(x, "html")) ) --> –&gt; <!-- <!-- } --> –&gt;</p>
+<p>–&gt;
+<!-- <!--   ifelse(x > 0.9,  cell_spec(x, "html",  bold = T),  --> –&gt;
+<!-- <!--          ifelse( x < 0.5 , cell_spec(x, "html", italic = T), -->
+–&gt; <!-- <!--                  cell_spec(x, "html")) ) --> –&gt;
+<!-- <!-- } --> –&gt;</p>
 <!-- <!-- table18_tableau <- test_dta %>%  -->
-<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt; <!-- <!--          ` d1` = d1_Vessel2,  --> –&gt; <!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt; <!-- <!--          ` d2` = d2_Vessel2, --> –&gt; <!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt; <!-- <!--          ` d3` = d3_Vessel2, --> –&gt; <!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt; <!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt; <!-- <!--   mutate_if(is.numeric,  format_bold)%>%  --> –&gt; <!-- <!--   kable("html", escape = F) %>% --> –&gt; <!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt; <!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) --> –&gt;</p>
+<p>–&gt; <!-- <!--   rename(` d1 ` = d1_Vessel1, --> –&gt;
+<!-- <!--          ` d1` = d1_Vessel2,  --> –&gt;
+<!-- <!--          ` d2 ` = d2_Vessel1, --> –&gt;
+<!-- <!--          ` d2` = d2_Vessel2, --> –&gt;
+<!-- <!--          ` d3 ` = d3_Vessel1, --> –&gt;
+<!-- <!--          ` d3` = d3_Vessel2, --> –&gt;
+<!-- <!--          ` d4 ` = d4_Vessel1, --> –&gt;
+<!-- <!--          ` d4` = d4_Vessel2) %>%  --> –&gt;
+<!-- <!--   mutate_if(is.numeric,  format_bold)%>%  --> –&gt;
+<!-- <!--   kable("html", escape = F) %>% --> –&gt;
+<!-- <!--   kable_styling("hover", full_width = T) %>% --> –&gt;
+<!-- <!--   add_header_above(c( " ", " ","Vessel 1" = 4, "Vessel 2" = 4)) -->
+–&gt;</p>
 <!-- <!-- table18_tableau  %>% save_kable("table18_tableau.png") -->
 <p>–&gt;</p>
 <!-- <!-- ``` -->

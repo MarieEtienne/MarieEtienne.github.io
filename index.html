@@ -13,8 +13,8 @@
 
 <title>Marie-Pierre Etienne</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -47,6 +47,7 @@
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -71,6 +72,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -223,7 +227,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -234,14 +238,14 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -253,7 +257,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -261,8 +265,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -285,7 +289,7 @@ $(document).ready(function () {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -308,7 +312,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -327,15 +331,32 @@ $(document).ready(function () {
 </div>
 
 
-<p><img src="img/mpe.gif" alt="mpe" width = "280px" align="right"> </img></p>
-<p>Assistant Professor in <a href="https://www.agrocampus-ouest.fr/">Agrocampus Ouest</a> and specialized in the development of statistical methods for ecology, I enjoy working with people from different background: statisticians, ecologists, fisheries scientists, … You will find more details on the research section.</p>
-<p>As assistant professor, I spend some time at teaching to students and professionnals at different levels and I love that! Please visit the teaching section to find teaching materials as well as useful links. I also teach R and statistics during continuing education sessions. Please visit the <a href="https://dsr-rennes.github.io/formationcontinue/">continuing education website</a> of my lab and don’t hesitate to contact me for special request.</p>
+<p><img src="img/mpe.gif" alt="mpe" width = "280px" align="right">
+</img></p>
+<p>Assistant Professor in <a
+href="https://www.agrocampus-ouest.fr/">Agrocampus Ouest</a> and
+specialized in the development of statistical methods for ecology, I
+enjoy working with people from different background: statisticians,
+ecologists, fisheries scientists, … You will find more details on the
+research section.</p>
+<p>As assistant professor, I spend some time at teaching to students and
+professionnals at different levels and I love that! Please visit the
+teaching section to find teaching materials as well as useful links. I
+also teach R and statistics during continuing education sessions. Please
+visit the <a
+href="https://dsr-rennes.github.io/formationcontinue/">continuing
+education website</a> of my lab and don’t hesitate to contact me for
+special request.</p>
 <div id="contact-information" class="section level2">
 <h2>Contact information</h2>
 <ul>
-<li><p><i class="fas fa-map-marker"></i> UP Mathématiques Appliquées - UMR IRMAR </br> Agrocampus Ouest, </br> 65 rue de Saint-Brieuc, CS 84215,</br> 35 042 Rennes Cedex, France</br></p></li>
-<li><p><i class="fa fa-phone"></i> +33 (0)2 23 48 58 74 -</p></li>
-<li><p><i class="fa fa-at"></i> <a href="mailto:marie-pierre.etienne@agrocampus-ouest.fr">marie-pierre [dot] etienne [at] agrocampus-ouest [dot] fr</a></p></li>
+<li><p><i class="fas fa-map-marker"></i> UP Mathématiques Appliquées -
+UMR IRMAR </br> Agrocampus Ouest, </br> 65 rue de Saint-Brieuc, CS
+84215,</br> 35 042 Rennes Cedex, France</br></p></li>
+<li><p><i class="fa fa-phone"></i> +33 (0)2 23 48 58 74</p></li>
+<li><p><i class="fa fa-at"></i>
+<a href="mailto:marie-pierre.etienne@agrocampus-ouest.fr">marie-pierre
+[dot] etienne [at] agrocampus-ouest [dot] fr</a></p></li>
 </ul>
 </div>
 

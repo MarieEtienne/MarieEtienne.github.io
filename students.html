@@ -13,8 +13,8 @@
 
 <title>Some help for who may need it</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -50,6 +50,7 @@
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -74,6 +75,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -299,7 +303,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -310,14 +314,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -329,7 +333,7 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -337,8 +341,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -361,7 +365,7 @@ div.tocify {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -384,7 +388,7 @@ div.tocify {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -405,29 +409,46 @@ div.tocify {
 
 <div id="resources" class="section level1">
 <h1>Resources</h1>
-<p>Teaching statistics involves teaching statistical software. What is the best statistical software to my opinion (and the opinion of thousands of other), of course <a href='https://cran.r-project.org/'> <img src="img/R.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>.</p>
-<p>A nice IDE is always useful, please consider using <a href='https://www.rstudio.com/'> <img src="img/Rstudio.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a></p>
+<p>Teaching statistics involves teaching statistical software. What is
+the best statistical software to my opinion (and the opinion of
+thousands of other), of course <a href='https://cran.r-project.org/'>
+<img src="img/R.jpeg" hspace = "3"  alt="R" width="25px"> </img>
+</a>.</p>
+<p>A nice IDE is always useful, please consider using
+<a href='https://www.rstudio.com/'>
+<img src="img/Rstudio.jpeg" hspace = "3"  alt="R" width="25px"> </img>
+</a></p>
 <p>Why is R so great ?</p>
 <ul>
 <li>Because it’s reasonnably easy</li>
 <li>Because most new statistical methods are available on R</li>
-<li>Because of active R communnity: many open-source online help and many examples</li>
+<li>Because of active R communnity: many open-source online help and
+many examples</li>
 </ul>
 <p>Here are some of my last discories or my favorite ones</p>
 <div id="about-r-and-rstudio" class="section level2">
 <h2>About R and RStudio:</h2>
 <ul>
-<li><a href="https://bookdown.org/ndphillips/YaRrr/">YaRrr! The Pirate’s Guide to R</a></li>
-<li><a href="https://www.middleprofessor.com/files/lab/getting_started_with_r">Getting started with R</a></li>
+<li><a href="https://bookdown.org/ndphillips/YaRrr/">YaRrr! The Pirate’s
+Guide to R</a></li>
+<li><a
+href="https://www.middleprofessor.com/files/lab/getting_started_with_r">Getting
+started with R</a></li>
 </ul>
-<p>Some are even in French - <a href="http://beginr.u-bordeaux.fr/part1-prise_en_main_R.html">Prise en main de R et RStudio</a></p>
+<p>Some are even in French - <a
+href="http://beginr.u-bordeaux.fr/part1-prise_en_main_R.html">Prise en
+main de R et RStudio</a></p>
 </div>
 <div id="about-rmarkdown" class="section level2">
 <h2>About RMarkdown</h2>
 <ul>
-<li><a href="https://m-clark.github.io/Introduction-to-Rmarkdown/">Introduction to R Markdown</a></li>
-<li><a href="https://rmd4sci.njtierney.com/">RMarkdown for Scientists</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
+<li><a
+href="https://m-clark.github.io/Introduction-to-Rmarkdown/">Introduction
+to R Markdown</a></li>
+<li><a href="https://rmd4sci.njtierney.com/">RMarkdown for
+Scientists</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The
+Definitive Guide</a></li>
 </ul>
 </div>
 <div id="r-and-data-science" class="section level2">
@@ -439,7 +460,9 @@ div.tocify {
 <div id="some-inspiring-plots" class="section level2">
 <h2>Some inspiring plots</h2>
 <ul>
-<li><a href="https://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot graph gallery</a></li>
+<li><a
+href="https://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot
+graph gallery</a></li>
 </ul>
 </div>
 </div>
@@ -482,6 +505,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

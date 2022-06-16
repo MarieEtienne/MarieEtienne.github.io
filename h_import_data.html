@@ -13,8 +13,8 @@
 
 <title>Importation de données dans RStudio</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -44,6 +44,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -168,6 +169,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -393,7 +397,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -404,14 +408,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -423,7 +427,7 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -431,8 +435,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -455,7 +459,7 @@ div.tocify {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -478,7 +482,7 @@ div.tocify {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -499,13 +503,21 @@ div.tocify {
 
 <div id="but" class="section level2">
 <h2>But</h2>
-<p>Ce document est un aide-mémoire pour réussir l’importation des données dans R. En suivant les différentes étapes, tout devrait bien se passer.</p>
-<p>L’objectif sera donc ici d’importer le jeu de données stockés dans le fichier Excel <a href="datasets/samares_small.xlsx">samares</a> disponible sur la page des <a href="data.html">données</a></p>
+<p>Ce document est un aide-mémoire pour réussir l’importation des
+données dans R. En suivant les différentes étapes, tout devrait bien se
+passer.</p>
+<p>L’objectif sera donc ici d’importer le jeu de données stockés dans le
+fichier Excel <a href="datasets/samares_small.xlsx">samares</a>
+disponible sur la page des <a href="data.html">données</a></p>
 </div>
 <div id="etape-1.-créer-un-projet" class="section level2">
 <h2>Etape 1. Créer un projet</h2>
-<p>Rstudio proposer d’organiser son travail en projet. Le projet permet de faciliter l’accès aux différents fichiers d’un même projet. Pour créer un projet il suffit d’aller en haut à droite, dans Project comme dans la capture d’écran ci-dessous.</p>
-<p><img src="img/h_creer_nouveau_projet.png" style="width:80.0%" />  </p>
+<p>Rstudio proposer d’organiser son travail en projet. Le projet permet
+de faciliter l’accès aux différents fichiers d’un même projet. Pour
+créer un projet il suffit d’aller en haut à droite, dans Project comme
+dans la capture d’écran ci-dessous.</p>
+<p><img src="img/h_creer_nouveau_projet.png"
+style="width:80.0%" />  </p>
 <p>On choisit de créer le projet depuis un nouveau répertoire</p>
 <p><img src="img/h_nouveau_repertoire.png" style="width:80.0%" /></p>
 <p>et de faire un projet standard</p>
@@ -515,24 +527,46 @@ div.tocify {
 </div>
 <div id="etape-2.-créer-un-script" class="section level2">
 <h2>Etape 2. Créer un script</h2>
-<p>Les instructions dans R sont écrites dans un fichier de script. Ce fichier permet de garder trace de toute l’analyse que vous mettrez en oeuvre.</p>
-<p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt; Rscript</strong>. En haut du script, on indique la date, et le but de l’analyse en faisant précéder les débuts de lignes par des <code>#</code>.</p>
+<p>Les instructions dans R sont écrites dans un fichier de script. Ce
+fichier permet de garder trace de toute l’analyse que vous mettrez en
+oeuvre.</p>
+<p>On ouvre donc un nouveau script <strong>File -&gt; New File -&gt;
+Rscript</strong>. En haut du script, on indique la date, et le but de
+l’analyse en faisant précéder les débuts de lignes par des
+<code>#</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## le 19 septembre 2019 </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Tutoriel pour apprendre à importer un fichier de données dans R</span></span></code></pre></div>
-<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées par R, elles permettent de faire des commentaires.</p>
+<p>Les lignes qui commencent par <code>#</code> ne sont pas interprétées
+par R, elles permettent de faire des commentaires.</p>
 </div>
 <div id="etape-3.-télécharger-le-fichier" class="section level2">
 <h2>Etape 3. Télécharger le fichier</h2>
-<p>Le fichier est disponible sur la page des <a href="data.html">jeux de données</a></p>
-<p>On peut le sauvegarder sur le disque en faisant un clic droit et en choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout autre formulation similaire). On choisit de le sauver dans le répertoire du projet qu’on vient de créer précédemment.</p>
+<p>Le fichier est disponible sur la page des <a href="data.html">jeux de
+données</a></p>
+<p>On peut le sauvegarder sur le disque en faisant un clic droit et en
+choisissant ‘Save as’ ( ou ‘Sauvegarder la cible du lien sous’ ou tout
+autre formulation similaire). On choisit de le sauver dans le répertoire
+du projet qu’on vient de créer précédemment.</p>
 </div>
-<div id="etape-4.-dun-format-propriétaire-à-un-format-texte" class="section level2">
+<div id="etape-4.-dun-format-propriétaire-à-un-format-texte"
+class="section level2">
 <h2>Etape 4. D’un format propriétaire à un format texte</h2>
-<p>Le format Excel est complexe et varie d’une plateforme à l’autre, d’une langue à l’autre …. Pour éviter les surprises, il est préférable d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit d’aller dans le menu File puis Save as et de choisir l’extension csv dans le menu déroulant des types de fichier puis de le sauver dans le répertoire du projet sous le nom <code>samares_small.csv</code>. On a donc un fichier <code>samares_small.csv</code> dans le répertoire du projet.</p>
+<p>Le format Excel est complexe et varie d’une plateforme à l’autre,
+d’une langue à l’autre …. Pour éviter les surprises, il est préférable
+d’exporter son fichier au format <code>csv</code>. Dans Excel, il suffit
+d’aller dans le menu File puis Save as et de choisir l’extension csv
+dans le menu déroulant des types de fichier puis de le sauver dans le
+répertoire du projet sous le nom <code>samares_small.csv</code>. On a
+donc un fichier <code>samares_small.csv</code> dans le répertoire du
+projet.</p>
 </div>
-<div id="etape-5.-comprendre-le-format-du-fichier-de-données" class="section level2">
+<div id="etape-5.-comprendre-le-format-du-fichier-de-données"
+class="section level2">
 <h2>Etape 5. Comprendre le format du fichier de données</h2>
-<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte (Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par exemple), on peut voir le fichier brut et le début doit ressembler à :</p>
+<p>En ouvrant le fichier `samares_small.csv’ avec un éditeur de texte
+(Notepad++ sous Windows, gedit sous Linux, TextWrangler sous Mac OS par
+exemple), on peut voir le fichier brut et le début doit ressembler à
+:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Etude d’une potentielle sélection génétique sur les capacités de dispersion du frêne,,,,,,,,,,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Données partielles,,,,,,,,,,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Source <span class="sc">:</span> perdue ,,,,,,,,,,</span>
@@ -549,7 +583,8 @@ div.tocify {
 <p>Le fichier est construit de la manière suivante</p>
 <ul>
 <li>3 lignes de commentaires,</li>
-<li>une ligne qui indique le nom des colonnes, puis les données elles-mêmes</li>
+<li>une ligne qui indique le nom des colonnes, puis les données
+elles-mêmes</li>
 <li>le changement de colonnes est matérialisé par une virgule.</li>
 </ul>
 <p>Nous allons donc expliquer ceci à R.</p>
@@ -562,12 +597,17 @@ div.tocify {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">&#39;,&#39;</span> <span class="do">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  ) </span></code></pre></div>
 <p>Normalement R n’indique aucune erreur.</p>
-<p><strong>On n’oublie pas de sauver régulièrement le script.</strong></p>
+<p><strong>On n’oublie pas de sauver régulièrement le
+script.</strong></p>
 </div>
 <div id="etape-7.-vérifier-limportation" class="section level2">
 <h2>Etape 7. Vérifier l’importation</h2>
-<p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de données <code>dta</code>. Il est indiqué qu’il a 120 observations (i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes dans le jeu de données).</p>
-<p>On peut faire afficher les premières lignes pour vérifier qu’elles sont correctes</p>
+<p>On doit voir apparaître dans l’onglet environnement un nouveau jeu de
+données <code>dta</code>. Il est indiqué qu’il a 120 observations
+(i.e. 120 lignes dans le jeu de données) et 11 variables (11 colonnes
+dans le jeu de données).</p>
+<p>On peut faire afficher les premières lignes pour vérifier qu’elles
+sont correctes</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dta)</span></code></pre></div>
 <pre><code>##   Site  NomSite Distance Arbre Poids Surface Largeur Longueur CircArbre
 ## 1    1 Grenou_1        0     1  16.8 0.83907 0.45758  2.46212        57
@@ -599,7 +639,8 @@ div.tocify {
 ## 118 0.02366862 -3.743605
 ## 119 0.02796007 -3.576978
 ## 120 0.03018327 -3.500467</code></pre>
-<p>On peut aussi demander un résumé du jeu de données qui va nous aider à vérifier que l’importation s’est bien déroulée.</p>
+<p>On peut aussi demander un résumé du jeu de données qui va nous aider
+à vérifier que l’importation s’est bien déroulée.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dta)</span></code></pre></div>
 <pre><code>##       Site       NomSite             Distance       Arbre       Poids      
 ##  Min.   :1.0   Length:120         Min.   :0.0   Min.   :1   Min.   :13.80  
@@ -622,18 +663,26 @@ div.tocify {
 ##  Mean   :0.03761   Mean   :-3.317  
 ##  3rd Qu.:0.04118   3rd Qu.:-3.190  
 ##  Max.   :0.08671   Max.   :-2.445</code></pre>
-<p>Normalement Les variables quantitatives sont résumées quantitativement par le minimum, le premier quartile, la médiane, etc …. Tandis que les variables qualitatives sont interprétées comme des facteurs et sont résumées par le nombre d’occurences de chaque niveau du facteur.</p>
-<p>Si toutes les vérifications sont correctes, votre jeu de données est prêt à être analysé.</p>
+<p>Normalement Les variables quantitatives sont résumées
+quantitativement par le minimum, le premier quartile, la médiane, etc ….
+Tandis que les variables qualitatives sont interprétées comme des
+facteurs et sont résumées par le nombre d’occurences de chaque niveau du
+facteur.</p>
+<p>Si toutes les vérifications sont correctes, votre jeu de données est
+prêt à être analysé.</p>
 </div>
 <div id="etape-8.-quand-ça-va-mal" class="section level2">
 <h2>Etape 8. Quand ça va mal</h2>
-<div id="sil-ny-a-pas-de-noms-de-colonnes-dans-le-fichier" class="section level3">
+<div id="sil-ny-a-pas-de-noms-de-colonnes-dans-le-fichier"
+class="section level3">
 <h3>S’il n’y a pas de noms de colonnes dans le fichier</h3>
-<p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
+<p>Il suffit d’indiquer <code>header = FALSE</code>, dans ce cas les
+colonnes seront nommées <code>V1</code>, <code>V2</code>, etc</p>
 </div>
 <div id="les-différents-types-de-séparateurs" class="section level3">
 <h3>Les différents types de séparateurs</h3>
-<p>Si le séparateur de colonnes n’est pas la <code>,</code>, alors il faut modifier l’argument <code>sep</code></p>
+<p>Si le séparateur de colonnes n’est pas la <code>,</code>, alors il
+faut modifier l’argument <code>sep</code></p>
 <table>
 <thead>
 <tr class="header">
@@ -661,16 +710,26 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="problème-possible-avec-les-variables-numériques" class="section level3">
+<div id="problème-possible-avec-les-variables-numériques"
+class="section level3">
 <h3>Problème possible avec les variables numériques</h3>
-<p>Il est possible avec une version française d’Excel, que le symbole qui code pour la décimale ne soit pas le <code>.</code> qui est la convention internationale mais le <code>,</code> qui est l’habitude Française. Si on ne l’indique pas à R, il ne va pas comprendre que la variable concernée est quantitative. Ceci sera visible dans le résumé de la variable. Si tel est le cas, il suffit de rajouter l’argument <code>dec = ','</code> dans la fonction <code>read.table</code> (à n’importe quel endroit ).</p>
+<p>Il est possible avec une version française d’Excel, que le symbole
+qui code pour la décimale ne soit pas le <code>.</code> qui est la
+convention internationale mais le <code>,</code> qui est l’habitude
+Française. Si on ne l’indique pas à R, il ne va pas comprendre que la
+variable concernée est quantitative. Ceci sera visible dans le résumé de
+la variable. Si tel est le cas, il suffit de rajouter l’argument
+<code>dec = ','</code> dans la fonction <code>read.table</code> (à
+n’importe quel endroit ).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dta_wrong <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&#39;samares_small.csv&#39;</span>, <span class="do">## le nom du fichier qu&#39;on souhaiote lire</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">skip =</span> <span class="dv">3</span>,  <span class="do">## pour dire à R d&#39;ignorer les 3 premières lignes de commentaires</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>,  <span class="do">## pour indiquer que les colonnes ont un nom </span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">&#39;,&#39;</span>, <span class="do">## pour indiquer que le séparateur de colonnes est une virgule</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">dec =</span> <span class="st">&#39;,&#39;</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                  ) </span></code></pre></div>
-<p>Ici, puisque le signe de décimal était un point <code>.</code> mais qu’on lui indique le contraire, on reprère justement un problème lorsqu’on demande un résumé des données.</p>
+<p>Ici, puisque le signe de décimal était un point <code>.</code> mais
+qu’on lui indique le contraire, on reprère justement un problème
+lorsqu’on demande un résumé des données.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dta_wrong)</span></code></pre></div>
 <pre><code>##       Site       NomSite            Distance             Arbre  
 ##  Min.   :1.0   Length:120         Length:120         Min.   :1  
@@ -694,9 +753,12 @@ div.tocify {
 ##                                                          
 ## </code></pre>
 </div>
-<div id="une-colonne-pour-indiquer-les-noms-des-lignes" class="section level3">
+<div id="une-colonne-pour-indiquer-les-noms-des-lignes"
+class="section level3">
 <h3>Une colonne pour indiquer les noms des lignes</h3>
-<p>Si un identifiant est présent pour chaque ligne, on ajoute dans la commande <code>read.table</code> l’argument <code>row.names=1</code> pour indiquer que la première colonne sert à nommer les lignes.</p>
+<p>Si un identifiant est présent pour chaque ligne, on ajoute dans la
+commande <code>read.table</code> l’argument <code>row.names=1</code>
+pour indiquer que la première colonne sert à nommer les lignes.</p>
 </div>
 </div>
 
@@ -738,6 +800,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

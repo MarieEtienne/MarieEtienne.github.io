@@ -13,8 +13,8 @@
 
 <title>Biography</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -47,6 +47,7 @@
 
 
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -71,6 +72,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -223,7 +227,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -234,14 +238,14 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -253,7 +257,7 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -261,8 +265,8 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -285,7 +289,7 @@ $(document).ready(function () {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -308,7 +312,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -327,40 +331,64 @@ $(document).ready(function () {
 </div>
 
 
-<p>Since 2017 : Assistant Professor in <a href="http://www.agrocampus-ouest.fr">Agrocampus Ouest</a></p>
+<p>Since 2017 : Assistant Professor in <a
+href="http://www.agrocampus-ouest.fr">Agrocampus Ouest</a></p>
 <div id="previous-positions" class="section level2">
 <h2>Previous Positions</h2>
 <ul>
-<li><p>2004-2017: Assistant Professor in <a href="http://www.agroparistech.fr">AgroParisTech</a></p></li>
-<li><p>2009-2010: Visiting researcher in <a href="http://oceans.ubc.ca/">UBC, Fisheries Center</a></p></li>
-<li><p>2002-2004: Teaching assistant in Unversité d’Evry Val d’Essonne.</p></li>
+<li><p>2004-2017: Assistant Professor in <a
+href="http://www.agroparistech.fr">AgroParisTech</a></p></li>
+<li><p>2009-2010: Visiting researcher in <a
+href="http://oceans.ubc.ca/">UBC, Fisheries Center</a></p></li>
+<li><p>2002-2004: Teaching assistant in Unversité d’Evry Val
+d’Essonne.</p></li>
 </ul>
 </div>
 <div id="education" class="section level2">
 <h2>Education</h2>
 <ul>
-<li><p>2021: Habilitation to supervise research. <a href="MesPapiers/2021_hdr_etienne.pdf"><em>The Hidden Part of Markovian Stochastic Processes for Biology and Ecology</em></a>, and the <a href="https://marieetienne.github.io/HDR/_presentation">presentation</a></p></li>
-<li><p>2002: PhD at Université de Nancy Lorraine. <a href="MesPapiers/2002_Etienne.these.pdf"><em>Le score local un outil pour l’analyse de séquence biologique</em></a></p></li>
-<li><p>1999: Master Degree in Mathematics at Université de Nancy Lorraine Previous Positions</p></li>
+<li><p>2021: Habilitation to supervise research. <a
+href="MesPapiers/2021_hdr_etienne.pdf"><em>The Hidden Part of Markovian
+Stochastic Processes for Biology and Ecology</em></a>, and the <a
+href="https://marieetienne.github.io/HDR/_presentation">presentation</a></p></li>
+<li><p>2002: PhD at Université de Nancy Lorraine. <a
+href="MesPapiers/2002_Etienne.these.pdf"><em>Le score local un outil
+pour l’analyse de séquence biologique</em></a></p></li>
+<li><p>1999: Master Degree in Mathematics at Université de Nancy
+Lorraine Previous Positions</p></li>
 </ul>
 </div>
 <div id="scientific-animation" class="section level2">
 <h2>Scientific animation</h2>
 <ul>
-<li><p>I am a founding member of the Moving2Gather group. The purpose of this group is to gather the French community involved in the development and the use of statistical methods for movement ecology. Its main activity is an (almost) biennial meeting. The programs of the previous editions are available.</p>
+<li><p>I am a founding member of the Moving2Gather group. The purpose of
+this group is to gather the French community involved in the development
+and the use of statistical methods for movement ecology. Its main
+activity is an (almost) biennial meeting. The programs of the previous
+editions are available.</p>
 <ul>
 <li><a href="https://m2g-2020.sciencesconf.org/">2020</a></li>
 <li><a href="https://m2g-2017.sciencesconf.org/">2017</a></li>
 <li><a href="https://moving2gather.sciencesconf.org/">2015</a></li>
 </ul></li>
-<li><p>I am also deeply involved in the <a href="https://stateofther.github.io/">StateofTheR</a> group. This nice group is a place to receive and provide, in fact to exchange advices on how we should use R. As R is a continuously moving environment, this group is very helpful in staying up to date with the new evolution. We organize every year, a one week <em>R bootcamp</em> :</p>
+<li><p>I am also deeply involved in the <a
+href="https://stateofther.github.io/">StateofTheR</a> group. This nice
+group is a place to receive and provide, in fact to exchange advices on
+how we should use R. As R is a continuously moving environment, this
+group is very helpful in staying up to date with the new evolution. We
+organize every year, a one week <em>R bootcamp</em> :</p>
 <ul>
-<li><a href="https://stateofther.github.io/finistR2021/">FinistR 2021</a></li>
-<li><a href="https://stateofther.github.io/finistR2020/">FinistR 2020</a></li>
-<li><a href="https://stateofther.github.io/finistR2019/">FinistR 2019</a></li>
-<li><a href="https://stateofther.github.io/finistR2018/">FinistR 2018</a><br />
+<li><a href="https://stateofther.github.io/finistR2021/">FinistR
+2021</a></li>
+<li><a href="https://stateofther.github.io/finistR2020/">FinistR
+2020</a></li>
+<li><a href="https://stateofther.github.io/finistR2019/">FinistR
+2019</a></li>
+<li><a href="https://stateofther.github.io/finistR2018/">FinistR
+2018</a><br />
 </li>
-<li><a href="https://stateofther.github.io/finistR2017/">FinistR 2017</a></li>
+<li><a href="https://stateofther.github.io/finistR2017/">FinistR
+2017</a></li>
 </ul></li>
 </ul>
 </div>

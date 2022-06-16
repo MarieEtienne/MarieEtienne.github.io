@@ -14,6 +14,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+-  a new paper as part of Baptiste Alglave PhD. Identifying fish spawning grounds by combining catch declarations and scientific survey data [pdf](https://hal.archives-ouvertes.fr/hal-03674691/document)
 
 - Youhou,!!  I have received my Habilitation. please find my [presentation](https://marieetienne.github.io/HDR/_presentation/) and my [manuscript](MesPapiers/2021_hdr_etienne.pdf) 
 

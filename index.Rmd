@@ -39,7 +39,7 @@ As assistant professor, I spend some time at teaching to students and profession
   65 rue de Saint-Brieuc, CS 84215,</br>
   35 042 Rennes Cedex, France</br>
   
-- <i class="fa fa-phone"></i> +33 (0)2 23 48 58 74 -
+- <i class="fa fa-phone"></i> +33 (0)2 23 48 58 74 
 
 - <i class="fa fa-at"></i> <a href="mailto:marie-pierre.etienne@agrocampus-ouest.fr">marie-pierre [dot] etienne [at] agrocampus-ouest [dot] fr</a>
 

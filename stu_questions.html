@@ -13,8 +13,8 @@
 
 <title>Questions d’étudiants</title>
 
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -44,6 +44,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -168,6 +169,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -393,7 +397,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -404,14 +408,14 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="bio.html">
-    <span class="fas fa-child"></span>
+    <span class="fa fa-child"></span>
      
     Bio 
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-chart-area"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-chart-area"></span>
      
     Research 
      
@@ -423,7 +427,7 @@ div.tocify {
     </li>
     <li>
       <a href="publications.html">
-        <span class="fas fa-file-text-o"></span>
+        <span class="fa fa-file-text-o"></span>
          
         Publications
       </a>
@@ -431,8 +435,8 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-laptop"></span>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
      
     Teaching
      
@@ -455,7 +459,7 @@ div.tocify {
       <a href="data.html">Available dataset</a>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Some R-eminders</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Some R-eminders</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="h_import_data.html">Import Data</a>
@@ -478,7 +482,7 @@ div.tocify {
 </li>
 <li>
   <a href="news.html">
-    <span class="fas fa-commenting"></span>
+    <span class="fa fa-commenting"></span>
      
     News
   </a>
@@ -497,29 +501,41 @@ div.tocify {
 </div>
 
 
-<div id="changer-le-symbole-par-défaut-dans-les-graphiques" class="section level2">
+<div id="changer-le-symbole-par-défaut-dans-les-graphiques"
+class="section level2">
 <h2>Changer le symbole par défaut dans les graphiques</h2>
-<p>Lors d’un TD, avec les étudiants du cursus apprentissage nous avons été amené à manipuler les fonctions graphiques de base de <code>R</code>.</p>
+<p>Lors d’un TD, avec les étudiants du cursus apprentissage nous avons
+été amené à manipuler les fonctions graphiques de base de
+<code>R</code>.</p>
 <p>On a travaillé sur le jeu de données abricots.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>abricots <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&#39;https://agrocampusds.github.io/demarche_statistique/abricotsSG.csv&#39;</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sep =</span> <span class="st">&#39;;&#39;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>La variable <code>Maturite</code> désigne un stade de maturité et doit donc être traitée comme un facteur (une variable qualitative).</p>
+<p>La variable <code>Maturite</code> désigne un stade de maturité et
+doit donc être traitée comme un facteur (une variable qualitative).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>abricots<span class="sc">$</span>Mat_Fact <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(abricots<span class="sc">$</span>Maturite)</span></code></pre></div>
-<p>On peut représenter l’indice colorimétrique <code>a</code> en fonction du stade de maturité.</p>
+<p>On peut représenter l’indice colorimétrique <code>a</code> en
+fonction du stade de maturité.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a <span class="sc">~</span> Mat_Fact, <span class="at">data =</span> abricots)</span></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Puis on a été amené à représenter le taux de glucose (<code>Glucose</code>) en fonction de l’indice colorimétrique.</p>
+<p>Puis on a été amené à représenter le taux de glucose
+(<code>Glucose</code>) en fonction de l’indice colorimétrique.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Glucose  <span class="sc">~</span> a, <span class="at">data =</span> abricots)</span></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>En ajoutant une couleur, on peut ajouter l’information sur le stade de maturité.</p>
+<p>En ajoutant une couleur, on peut ajouter l’information sur le stade
+de maturité.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Glucose  <span class="sc">~</span> a, <span class="at">col =</span> Mat_Fact, <span class="at">data =</span> abricots)</span></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Il est possible de changer le symbole pour rendre les couleurs plusvisibles</p>
+<p>Il est possible de changer le symbole pour rendre les couleurs
+plusvisibles</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Glucose  <span class="sc">~</span> a, <span class="at">col =</span> Mat_Fact, <span class="at">data =</span> abricots, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>Puis j’ai été amenée à discuter de l’argument <code>pch</code> de la fonction plot. On a testé différents symboles classique et la question est arrivée :</p>
+<p>Puis j’ai été amenée à discuter de l’argument <code>pch</code> de la
+fonction plot. On a testé différents symboles classique et la question
+est arrivée :</p>
 <p><strong>Peut on utiliser le coeur comme symbole ?</strong></p>
-<p><strong>La réponse est oui</strong> : voici une solution qui fonctionne sous Linux et j’espère sur tous les systèmes (il existe une solution plus simple qui ne fonctionne que sous Windows)</p>
+<p><strong>La réponse est oui</strong> : voici une solution qui
+fonctionne sous Linux et j’espère sur tous les systèmes (il existe une
+solution plus simple qui ne fonctionne que sous Windows)</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Glucose  <span class="sc">~</span> a, <span class="at">col =</span> Mat_Fact, <span class="at">data =</span> abricots, <span class="at">pch =</span> <span class="sc">-</span><span class="fu">as.hexmode</span>(<span class="dv">9829</span>))</span></code></pre></div>
 <p><img src="stu_questions_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>On peut faire plus joli avec <code>ggplot2</code></p>
@@ -568,6 +584,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

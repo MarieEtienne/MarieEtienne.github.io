@@ -18,6 +18,10 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 ## 2022
 
+* Maxime Jeanjean, Sylvaine Goix, Julien Dron, Marine Periot, Annabelle Austruy, Khaled Douib, Renaud Persoons, Marie-Pierre Etienne, Gautier Revenko, Philippe Chamaret. Influence of Environmental and Dietary Exposures on Metals Accumulation Among the Residents of a Major Industrial Harbour (Fos-sur-Mer, France) accepted in Journal of Trace Elements in Medicine and Biology. 
+
+*  [preprint] Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data [pdf](https://hal.archives-ouvertes.fr/hal-03674691/document)
+
 * Baptiste Alglave, Etienne Rivot, Marie-Pierre Etienne, Mathieu Woillez, Youen Vermard.  Combining scientific survey and commercial catch data to map fish distribution. ICES Journal of Marine Science 
 
 * [Book Chapter] Marie-Pierre Etienne and Pierre Gloaguen. Trajectory Reconstruction and Behavior Identification Using Geolocation Data  in the book *Statistical Approaches for Hidden Variables in Ecology* co edited by Olivier Gimenez and Nathalie Peyrard [ici](https://www.iste.co.uk/book.php?id=1859)
