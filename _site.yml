@@ -20,10 +20,10 @@ navbar:
     menu:
       - text: "Miscellaneous"
         href: misc_teaching.html
-      - text: "Agrocampus Ouest"
-        href: teaching_agrocampus.html
-      - text: "Linear model"
-        href: linearmodel.html
+      - text: "L3"
+        href: l3.html
+      - text: "M2"
+        href: M2.html
       - text: "Continuing education"
         href: teaching_fc.html
       - text: "Available dataset"

@@ -1,0 +1,50 @@
+---
+title: "M2 courses"
+output: 
+  html_document:
+   toc: true
+   toc_float: true
+   logo: LogoAgrocampusOuest.jpg
+   number_sections: false
+   highlight: tango
+   css: style.css
+---
+
+
+
+
+```{r setup_teaching, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+
+# Useful tools for a reproducible science
+
+[This course](https://marieetienne.github.io/reproductibilite/_presentation) is a basic introduction of the control versionning system [git](https://git-scm.com/). We will also make use  of the Github plateform.
+
+## Prerequisites
+
+Attending this course requires 
+
+   - a functionnal installation of git, which can be downloaded and installed [following this link](https://git-scm.com/downloads) (please click on the display on the right portion of the page).
+   - a Github account. Be careful, the Github platform is highly noticeable and will provide you with a professional showcase, it can be visited by potential recruiters (so avoid login names such as bogoss, turlutu, toto or anything of that style).
+
+
+# Data Vizualisation 
+
+
+
+# Bayesian Model for Ecology
+
+This course is open to students from Datascience and MODE.
+
+The slides are available  [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/#1)
+
+some gentle reminders on classical probability distributions frequently used in Bayesian modelling approaches [here](slides/LoiProbas.pdf)
+
+Count data tutorial available  [here](slides/TD_Pup2.pdf) 
+
+# All you want to know on linear modelling
+
+As part of the Tropical Forest Ecology Master in Kourou, French Guyana, I teach a 15hours course on linear modelling. Since 2021, online teaching has becomed a potential option (at least it was in 2021 and 2022). Therefore I have recorded my lectures. The whole course (in French) is available on [this page](linearmodel.html) 
+
