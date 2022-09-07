@@ -13,7 +13,7 @@
 
 <title>Cours niveau L3</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -135,11 +135,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -407,26 +411,53 @@ div.tocify {
 </div>
 
 
-<div id="cours-de-démarche-statistique" class="section level1">
-<h1>Cours de démarche statistique</h1>
-<p>Ce cours constitue la seconde partie du module de démarche
-statistique. Les supports des quatre cours sont</p>
+<div id="contenu-de-démarche-statistique" class="section level1">
+<h1>Contenu de démarche statistique</h1>
+<p>Ce cours est une introduction à l’analyse de données au sens
+large.</p>
+<p>Il porte sur</p>
 <ul>
-<li><p><a
-href="http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html">Régression
-multiple</a></p></li>
-<li><p><a
-href="http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html">Analyse
-de la variance à deux facteurs</a></p></li>
-<li><p><a
-href="http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html">Analyse
-en compostaes principales</a></p></li>
-<li><p><a
-href="http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html">Plan
-d’expérience</a></p></li>
+<li><p>La manipulation et la visualisation de données</p></li>
+<li><p>La mise en place de tests statistiques dans le cadre simple du
+modèle linéaire</p></li>
 </ul>
+</div>
+<div id="objectif" class="section level1">
+<h1>Objectif</h1>
+<ul>
+<li><p>Trier, représenter des données</p></li>
+<li><p>Extraire des propriétés simple des données (résumés numériques,
+lien entre deux variables, lien entre plusieurs variables)</p></li>
+<li><p>Mettre en place une démarche de test statistique pour pouvoir
+valider ou invalider une hypothèse expérimentale telle que par exemple
+“Le consommateur évalue plus favorablement le recette du jus d’orange le
+plus sucré”.de la mise en place de l’expérience jusqu’à la
+conclusion.</p></li>
+<li><p>Etre critique sur les limites de sméthodes mises en
+oeuvre</p></li>
+</ul>
+</div>
+<div id="moyens" class="section level1">
+<h1>Moyens</h1>
+<p>Les analyses sont développés sur le logiciel <a
+href="https://www.r-project.org/">R</a>.</p>
+</div>
+<div id="evaluations" class="section level1">
+<h1>Evaluations</h1>
+<ul>
+<li>Mini quizz au cours de l’année</li>
+<li>Un (ou deux) devoir(s) sur table</li>
+<li>Un projet : soutenance de projet le <em>27 janvier 2023</em> ( 3
+séances de permamence sont prévues). Le projet se fait par binôme sur
+des données que vous avez la charge de trouver.</li>
+</ul>
+<!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
+<!-- - [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html) -->
+<!-- - [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html) -->
+<!-- - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html) -->
 <p>Les TD correspondants sont les TD 11 à 17 disponibles sur la page des
-<a href="https://agrocampusds.github.io/demarche_statistique/">énonces
+<a
+href="https://marieetienne.github.io/demarche_statistique_AAgro/">énonces
 de TD</a></p>
 </div>
 

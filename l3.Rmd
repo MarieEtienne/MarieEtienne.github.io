@@ -17,17 +17,49 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
-# Cours de démarche statistique 
+# Contenu de démarche statistique 
 
-Ce cours constitue la seconde partie du module de démarche statistique. Les supports des quatre cours sont
+Ce cours est une introduction à l'analyse de données au sens large. 
 
-- [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html)
+Il porte sur 
 
-- [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html)
+* La manipulation et la visualisation de données
 
-- [Analyse en compostaes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
-
-- [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html)
+* La mise en place de tests statistiques dans le cadre simple du modèle linéaire
 
 
-Les  TD correspondants sont les TD 11 à 17 disponibles sur la page des [énonces de TD](https://agrocampusds.github.io/demarche_statistique/)
+# Objectif 
+
+* Trier, représenter des données
+
+* Extraire des propriétés simple des données (résumés numériques, lien entre deux variables, lien entre plusieurs variables)
+
+* Mettre en place une démarche de test statistique pour pouvoir valider ou invalider une hypothèse expérimentale telle que par exemple "Le consommateur évalue plus favorablement le recette du jus d'orange le plus sucré".de la mise en place de l'expérience jusqu'à la conclusion.
+
+* Etre critique sur les limites de sméthodes mises en oeuvre
+
+# Moyens 
+
+Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).  
+
+# Evaluations
+
+* Mini quizz au cours de l'année
+* Un (ou deux) devoir(s) sur table 
+* Un projet : soutenance de projet le *27 janvier 2023* ( 3 séances de permamence sont prévues). Le projet se fait par binôme sur des données que vous avez la charge de trouver.
+
+
+
+
+
+
+<!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
+
+<!-- - [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html) -->
+
+<!-- - [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html) -->
+
+<!-- - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html) -->
+
+
+Les  TD correspondants sont les TD 11 à 17 disponibles sur la page des [énonces de TD](https://marieetienne.github.io/demarche_statistique_AAgro/)
