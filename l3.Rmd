@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
-# Contenu de démarche statistique 
+# Démarche statistique 
 
 Ce cours est une introduction à l'analyse de données au sens large. 
 
@@ -28,7 +28,7 @@ Il porte sur
 * La mise en place de tests statistiques dans le cadre simple du modèle linéaire
 
 
-# Objectif 
+## Objectif 
 
 * Trier, représenter des données
 
@@ -38,11 +38,11 @@ Il porte sur
 
 * Etre critique sur les limites de sméthodes mises en oeuvre
 
-# Moyens 
+## Moyens 
 
 Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).  
 
-# Evaluations
+## Evaluations
 
 * Mini quizz au cours de l'année
 * Un (ou deux) devoir(s) sur table 
@@ -50,8 +50,7 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 
 
-# Les ressources
-
+## Les ressources
 
 [Introduction à l'analyse de données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/data.html)
 
@@ -65,4 +64,4 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 <!-- - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html) -->
 
 
-Les  TD correspondants sont les TD 11 à 17 disponibles sur la page des [énonces de TD](https://marieetienne.github.io/demarche_statistique_AAgro/)
+Les  TD  sont disponibles sur la page des [énonces de TD](https://marieetienne.github.io/demarche_statistique_AAgro/)
