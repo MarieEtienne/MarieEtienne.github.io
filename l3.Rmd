@@ -52,7 +52,7 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 ## Les ressources
 
-[Introduction à l'analyse de données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/data.html)
+[Analyse descriptive des données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/a_descriptive.html)
 
 
 <!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
