@@ -54,12 +54,13 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 [Analyse descriptive des données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/a_descriptive.html)
 
+- [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
+
 
 <!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
 
 <!-- - [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html) -->
 
-<!-- - [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html) -->
 
 <!-- - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html) -->
 
