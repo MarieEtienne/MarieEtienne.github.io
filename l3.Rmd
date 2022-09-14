@@ -52,9 +52,9 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 ## Les ressources
 
-[Analyse descriptive des données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/a_descriptive.html)
+* [Analyse descriptive des données](http://marieetienne.github.io/demarche_stat_partie2/_presentation/a_descriptive.html)
 
-- [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
+* [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
 
 
 <!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
