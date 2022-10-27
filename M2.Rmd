@@ -32,7 +32,7 @@ Attending this course requires
 
 # Data Vizualisation 
 
-
+[Introduction to Data Vizaulization](https://marieetienne.github.io/Vizualisation/_presentation/visu_intro.html)
 
 # Bayesian Model for Ecology
 
