@@ -17,6 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * [Activite et frequence Cardiaque](datasets/activite_FC.csv)
 * [Biomass diversity](datasets/Biomass_diversity.csv)
+* [Morphologie des chauve souris](datasets/bats.csv)
 * [Cacao](datasets/cafe_guyana.csv)
 * [Croissance](datasets/growth_data.txt)
 * [Fourmis](datasets/Fourmis.txt)
