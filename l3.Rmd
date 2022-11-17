@@ -56,6 +56,9 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 * [Analyse en composantes principales](http://marieetienne.github.io/demarche_stat_partie2/_presentation/acp.html)
 
+* [Démarche statistique : introduction](http://marieetienne.github.io/demarche_stat_partie2/_presentation/demarche_statistique.html)
+
+* [Analyse de la variance à 1 facteur](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova.html)
 
 <!-- - [Régression multiple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression.html) -->
 
