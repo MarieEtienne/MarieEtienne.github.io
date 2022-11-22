@@ -44,7 +44,7 @@ The slides are available  [here](https://marieetienne.github.io/bayesian_and_eco
 
 A first example using JAGS  [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/IllustrationMCMC.html)
 
-Some gentle reminders on classical probability distributions frequently used in Bayesian modelling approaches [here](slides/LoiProbas.pdf)
+Some gentle reminders on classical probability distributions frequently used in Bayesian modelling approaches [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/LoiProbas.html))
 
 Count data tutorial available  [here](slides/TD_Pup2.pdf) 
 
