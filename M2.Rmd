@@ -46,6 +46,8 @@ A first example using JAGS  [here](https://marieetienne.github.io/bayesian_and_e
 
 Some gentle reminders on classical probability distributions frequently used in Bayesian modelling approaches [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/LoiProbas.html))
 
+
+Presentation count data tutorial available  [here](slides/Presentation_pup.pdf)
 Count data tutorial available  [here](slides/TD_Pup2.pdf) 
 
 # All you want to know on linear modelling
