@@ -62,7 +62,9 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 * [Analyse de la variance à 2 facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html)
 
-- [Régression simple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression_simple.html)
+* [Régression simple](http://marieetienne.github.io/demarche_stat_partie2/_presentation/regression_simple.html)
+
+* [Analyse de la covariance](http://marieetienne.github.io/demarche_stat_partie2/_presentation/ancova.html)
 
 <!-- - [Analyse de la variance à deux facteurs](http://marieetienne.github.io/demarche_stat_partie2/_presentation/anova2.html) -->
 
