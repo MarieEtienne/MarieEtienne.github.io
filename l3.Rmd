@@ -74,7 +74,7 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 ### Introduction aux plans d'expériences
 
-<!-- - [Plan d'expérience](http://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html) -->
+* [Plan d'expériences](https://marieetienne.github.io/demarche_stat_partie2/_presentation/plan_exp.html#1)
 
 
 Les  TD  sont disponibles sur la page des [énonces de TD](https://marieetienne.github.io/demarche_statistique_AAgro/)
