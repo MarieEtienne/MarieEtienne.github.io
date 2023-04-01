@@ -14,9 +14,19 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+- The next [Bayes At Cirm Workshop](https://bayesatcirm.github.io/2023/) is planned on October, 30th  2023.
+
+- Youhou !! On December, 9th Baptiste will defend his PhD, Well done Baptiste! 
+
 -  a new paper as part of Baptiste Alglave PhD. Identifying fish spawning grounds by combining catch declarations and scientific survey data [pdf](https://hal.archives-ouvertes.fr/hal-03674691/document)
 
-- Youhou,!!  I have received my Habilitation. please find my [presentation](https://marieetienne.github.io/HDR/_presentation/) and my [manuscript](MesPapiers/2021_hdr_etienne.pdf) 
+-  a new paper as part of Baptiste Alglave PhD. Combining scientific survey and commercial catch data to map fish distribution ( [here](https://academic.oup.com/icesjms/article/79/4/1133/6543974) ).
+
+- The next International Statistical Ecology Conference is in Cape Town, in July 2022. For those concerned about money or carbon footprint, the GDR ecostat is planning a French Hub in Lyon. See you there.
+
+- Nathalie Peyrard and Olivier Gimenez manage to convince quite a bunch of people to write a book on the use of latent variables models in ecology. [english}(https://www.iste.co.uk/book.php?id=1859) or [French](https://www.istegroup.com/en/produit/approches-statistiques-pour-les-variables-cachees-en-ecologie/) version.
+ 
+- Youhou !!  I have received my Habilitation. please find my [presentation](https://marieetienne.github.io/HDR/_presentation/) and my [manuscript](MesPapiers/2021_hdr_etienne.pdf) 
 
 - October 2021: I will defend my Habilitation to mentor research on October 15th at Agrocampus Ouest. 
  

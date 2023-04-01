@@ -4,7 +4,7 @@ output:
   html_document:
    toc: true
    toc_float: true
-   logo: LogoAgrocampusOuest.jpg
+   logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
    number_sections: false
    highlight: tango
    css: style.css

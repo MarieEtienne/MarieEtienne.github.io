@@ -13,6 +13,12 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
+*  [preprint] Baptiste Alglave, Kasper Kristensen, Etienne Rivot, Mathieu Woillez, Youen Vermard, Marie-Pierre Etienne. Inferring fine scale wild species distribution from spatially aggregated data \href{https://hal.science/hal-03878990/document}{hal}.
+
+* Alice Martin, Marie-Pierre Étienne, Pierre Gloaguen, Sylvain Le Corff, Jimmy Olsson.
+Backward Importance Sampling for Online Estimation of State Space Models \href{https://www.tandfonline.com/doi/abs/10.1080/10618600.2023.2174125}{Journal of Computational and Graphical Statistics}
+
+* Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data, Canadian Journal of Fisheries and Aquatic Sciences
 
 
 
