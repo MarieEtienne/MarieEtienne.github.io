@@ -13,22 +13,25 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
-*  [preprint] Baptiste Alglave, Kasper Kristensen, Etienne Rivot, Mathieu Woillez, Youen Vermard, Marie-Pierre Etienne. Inferring fine scale wild species distribution from spatially aggregated data \href{https://hal.science/hal-03878990/document}{hal}.
+
+## 2023
+
+*  [preprint] Baptiste Alglave, Kasper Kristensen, Etienne Rivot, Mathieu Woillez, Youen Vermard, Marie-Pierre Etienne. Inferring fine scale wild species distribution from spatially aggregated data [hal](https://hal.science/hal-03878990/document).
 
 * Alice Martin, Marie-Pierre Étienne, Pierre Gloaguen, Sylvain Le Corff, Jimmy Olsson.
-Backward Importance Sampling for Online Estimation of State Space Models \href{https://www.tandfonline.com/doi/abs/10.1080/10618600.2023.2174125}{Journal of Computational and Graphical Statistics}
+Backward Importance Sampling for Online Estimation of State Space Models [Journal of Computational and Graphical Statistics](https://www.tandfonline.com/doi/abs/10.1080/10618600.2023.2174125)
 
-* Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data, Canadian Journal of Fisheries and Aquatic Sciences
+* Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data, [Canadian Journal of Fisheries and Aquatic Sciences, janvier 2023](https://cdnsciencepub.com/doi/abs/10.1139/cjfas-2022-0110)
 
 
 
 ## 2022
 
-* Maxime Jeanjean, Sylvaine Goix, Julien Dron, Marine Periot, Annabelle Austruy, Khaled Douib, Renaud Persoons, Marie-Pierre Etienne, Gautier Revenko, Philippe Chamaret. Influence of Environmental and Dietary Exposures on Metals Accumulation Among the Residents of a Major Industrial Harbour (Fos-sur-Mer, France) accepted in Journal of Trace Elements in Medicine and Biology. 
+* Maxime Jeanjean, Sylvaine Goix, Julien Dron, Marine Periot, Annabelle Austruy, Khaled Douib, Renaud Persoons, Marie-Pierre Etienne, Gautier Revenko, Philippe Chamaret. Influence of Environmental and Dietary Exposures on Metals Accumulation Among the Residents of a Major Industrial Harbour (Fos-sur-Mer, France) accepted in [Journal of Trace Elements in Medicine and Biology](https://www.sciencedirect.com/science/article/pii/S0946672X22001018). 
 
-*  [preprint] Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data [pdf](https://hal.archives-ouvertes.fr/hal-03674691/document)
+*  [preprint] Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data [pdf](https://hal.archives-ouvertes.fr/hal-03674691/document).
 
-* Baptiste Alglave, Etienne Rivot, Marie-Pierre Etienne, Mathieu Woillez, Youen Vermard.  Combining scientific survey and commercial catch data to map fish distribution. ICES Journal of Marine Science 
+* Baptiste Alglave, Etienne Rivot, Marie-Pierre Etienne, Mathieu Woillez, Youen Vermard.  Combining scientific survey and commercial catch data to map fish distribution. [ICES Journal of Marine Science, Volume 79, Issue 4, May 2022, Pages 1133–1149](https://academic.oup.com/icesjms/article/79/4/1133/6543974)
 
 * [Book Chapter] Marie-Pierre Etienne and Pierre Gloaguen. Trajectory Reconstruction and Behavior Identification Using Geolocation Data  in the book *Statistical Approaches for Hidden Variables in Ecology* co edited by Olivier Gimenez and Nathalie Peyrard [ici](https://www.iste.co.uk/book.php?id=1859)
 
@@ -38,32 +41,32 @@ Backward Importance Sampling for Online Estimation of State Space Models \href{h
 
 * Marie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
 
-* Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. Exposure and Health, 1-18.
+* Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. [Exposure and Health, 1-18.](https://link.springer.com/article/10.1007/s12403-021-00395-8)
 
-* F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. Ecological Indicators. 123 (2021) 107321.
+* F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. [Ecological Indicators. 123 (2021) 107321](https://www.sciencedirect.com/science/article/pii/S1470160X20312632)
 
 * R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea from joint movement metrics of pelagic pair trawlers. [ICES Journal of Marine Science. Volume 78, Issue 5 (2021)](https://academic.oup.com/icesjms/article-abstract/78/5/1758/6276504)
 
 
 ## 2020
 
-- J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
-Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. Physiologia Plantarum 170 (2), 280-298
+* J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
+Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. [Physiologia Plantarum 170 (2), 280-298](https://onlinelibrary.wiley.com/doi/abs/10.1111/ppl.13162).
 
-- N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
-SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and ecotype distributions: The role of selective processes on early life‐history traits in sympatric, ecologically divergent Symphonia populations. Ecology and evolution 10 (19), 10735-10753
+* N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
+SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and ecotype distributions: The role of selective processes on early life‐history traits in sympatric, ecologically divergent Symphonia populations. [Ecology and evolution 10 (19), 10735-10753](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.6731)
 		
-- MP Etienne, P Gloaguen, S Le Corff, J Olsson. Backward importance sampling for partially observed diffusion processes
+* MP Etienne, P Gloaguen, S Le Corff, J Olsson. Backward importance sampling for partially observed diffusion processes
 [arXiv](https://arxiv.org/abs/2002.05438)
 
 
 
 ## 2019  
 
-- Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection. Methods in Ecology and Evolution 10 (11), 1894-1907. [arXiV](https://arxiv.org/abs/1810.10213)
+* Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection. Methods in Ecology and Evolution 10 (11), 1894-1907. [arXiV](https://arxiv.org/abs/1810.10213)
 
 
-- Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
+* Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
 
 
 
