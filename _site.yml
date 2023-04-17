@@ -18,7 +18,7 @@ navbar:
   - text: "Teaching"
     icon: fa-laptop
     menu:
-      - text: "Miscellaneous"
+      - text: "Software"
         href: misc_teaching.html
       - text: "L3"
         href: l3.html

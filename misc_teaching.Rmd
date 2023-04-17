@@ -1,5 +1,5 @@
 ---
-title: "Some help for who may need it"
+title: "Software Choice"
 output: 
   html_document:
    toc: true
@@ -21,18 +21,20 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 
 
-# Resources
-
-Teaching statistics involves teaching statistical software. What is the best statistical software to my opinion (and the opinion of thousands of other), of course <a href='https://cran.r-project.org/'> <img src="img/R.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>. 
-
-A nice IDE is always useful, please consider using   <a href='https://www.rstudio.com/'> <img src="img/Rstudio.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>
 
 
-Why is R so great ?
+Teaching statistics involves teaching statistical software. There are currently two major option in the free software community: R and/or Python. 
+
+**Don't choose, learn both !!**
+
+# Why is R so great ?
+
+A few years ago, I would have said that  the best statistical software to my opinion (and the opinion of thousands of other) is of course <a href='https://cran.r-project.org/'> <img src="img/R.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a> combined with a nice IDE like <a href='https://www.rstudio.com/'> <img src="img/Rstudio.jpeg" hspace = "3"  alt="R" width="25px"> </img> </a>
+
 
 - Because it's reasonnably easy
 - Because most new statistical methods are available on R
-- Because of active R communnity: many open-source online help and many exmaples
+- Because of active R communnity: many open-source online help and many examples
 
 Here are some of my last discoveries or my favorite ones
 
@@ -52,15 +54,34 @@ Some are even in French
 
 
 ## R and data science
+
 - [R for Data Science](https://r4ds.had.co.nz/)
 
 
 ## Some inspiring plots 
+
 - [ggplot graph gallery](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)
 
 
-## Linear model 
-- [Modèle Linéaire et ses extensions ](MesPapiers/2012_ModeleLineaireEt_Extensions.pdf)
+Because I'm not so stubborn I acknwoledge that Python is a great option for conducting statistical analysis especially in a statistical learning context. 
+
+# Why is Python also great ?
+
+- Because it's reasonnably easy
+- Because most new statistical methods are available on Python
+- Because of Jupyter Notebooks
+
+## Developping with Python 
+
+ - A nice Python editor [PyCharm](https://www.jetbrains.com/pycharm/)
+ - Using notebook [The Jupyter Project](https://jupyter.org/)
+ 
+ 
+## Python and data science
+
+- [Python for Data Science](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- [A gentle Python introduction to Deep Learning](https://kavita-ganesan.com/neural-network-intro/#.ZD1ZSpFBxH4)
+
 
 
 
