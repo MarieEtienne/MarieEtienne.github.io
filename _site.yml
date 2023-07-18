@@ -33,7 +33,10 @@ navbar:
         - text: "Import Data"
           href: h_import_data.html
         - text: "Student's questions"
-          href: stu_questions.html       
+          href: stu_questions.html
+      - text: "Les mouettes savantes"
+        href: https://marieetienne.github.io/lesmouettessavantes/
+
   right:
   - text: "Github"
     icon: fab fa-github

@@ -14,7 +14,7 @@
 
 <title>Tidy aMnipulation tips</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
@@ -31,8 +31,8 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -266,8 +266,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -275,16 +275,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -400,6 +393,9 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
+    <li>
+      <a href="https://marieetienne.github.io/lesmouettessavantes/">Les mouettes savantes</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -436,9 +432,9 @@ $(document).ready(function () {
 
 <div id="split-text-columns-into-2-columns" class="section level2">
 <h2>Split text columns into 2 columns</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dta <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dta</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>dta <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">&#39;HHM_AR&#39;</span>, <span class="st">&#39;HMM_ID&#39;</span>, <span class="st">&#39;HSMM_AR&#39;</span>, <span class="st">&#39;HSMM_ID&#39;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>dta</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 1
 ##   text   
 ##   &lt;chr&gt;  
@@ -446,8 +442,8 @@ $(document).ready(function () {
 ## 2 HMM_ID 
 ## 3 HSMM_AR
 ## 4 HSMM_ID</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dta <span class="sc">%&gt;%</span>  </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> text, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="at">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>dta <span class="sc">%&gt;%</span>  </span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> text, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&#39;Hidden&#39;</span>, <span class="st">&#39;Obs&#39;</span>), <span class="at">sep =</span> <span class="st">&#39;_&#39;</span> )</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   Hidden Obs  
 ##   &lt;chr&gt;  &lt;chr&gt;
