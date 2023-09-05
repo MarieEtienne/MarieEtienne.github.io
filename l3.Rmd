@@ -46,7 +46,7 @@ Les analyses sont développés sur le logiciel [R](https://www.r-project.org/).
 
 * Mini quizz au cours de l'année
 * Un (ou deux) devoir(s) sur table 
-* Un projet : soutenance de projet le *27 janvier 2023* ( 3 séances de permamence sont prévues). Le projet se fait par binôme sur des données que vous avez la charge de trouver.
+* Un projet : soutenance de projet le *2 février 2024* ( 3 séances de permamence sont prévues). Le projet se fait par binôme sur des données que vous avez la charge de trouver.
 
 
 
