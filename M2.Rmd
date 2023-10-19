@@ -56,6 +56,7 @@ Count data tutorial available  [here](slides/TD_Pup2.pdf)
 # ALEA : stochastic model in ecology 
 
 * [TD1 content](https://marieetienne.github.io/MODE/_presentation/TD1.html)
+* [TD2 content](https://marieetienne.github.io/MODE/_presentation/TD2.html)
 
 
 # All you want to know on linear modelling
