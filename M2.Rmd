@@ -45,6 +45,8 @@ This course is open to students from Datascience and MODE.
 
 The slides are available  [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/#1)
 
+Implementing your own Metropolis Hastings algorithm  [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/simpleMCMC.html)
+
 A first example using JAGS  [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/IllustrationMCMC.html)
 
 Some gentle reminders on classical probability distributions frequently used in Bayesian modelling approaches [here](https://marieetienne.github.io/bayesian_and_ecology/_presentation/LoiProbas.html))
@@ -57,6 +59,7 @@ Count data tutorial available  [here](slides/TD_Pup2.pdf)
 
 * [TD1 content](https://marieetienne.github.io/MODE/_presentation/TD1.html)
 * [TD2 content](https://marieetienne.github.io/MODE/_presentation/TD2.html)
+* [Processus POisson Cours TD](https://marieetienne.github.io/MODE/_presentation/coursTD_ppd ...html)
 
 
 # All you want to know on linear modelling
