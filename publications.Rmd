@@ -15,13 +15,16 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 
 ## 2023
+*  [preprint] Marie Du Roy de Chaumaray, Salima El Kolei, Marie-Pierre Etienne, Matthieu Marbac. Estimation of the Order of Non-Parametric Hidden Markov Models using the Singular Values of an Integral Operator. [arXiv](https://arxiv.org/abs/2210.03559)
+
+*  [preprint] Léa Pautrel, Sylvain Moulherat, Olivier Gimenez, Marie-Pierre Etienne. Analysing biodiversity observation data collected in continuous time: Should we use discrete or continuous-time occupancy models? [bioRxiv](https://www.biorxiv.org/content/biorxiv/early/2023/11/17/2023.11.17.567350.full.pdf)
 
 *  [preprint] Baptiste Alglave, Kasper Kristensen, Etienne Rivot, Mathieu Woillez, Youen Vermard, Marie-Pierre Etienne. Inferring fine scale wild species distribution from spatially aggregated data [hal](https://hal.science/hal-03878990/document).
 
 * Alice Martin, Marie-Pierre Étienne, Pierre Gloaguen, Sylvain Le Corff, Jimmy Olsson.
 Backward Importance Sampling for Online Estimation of State Space Models [Journal of Computational and Graphical Statistics](https://www.tandfonline.com/doi/abs/10.1080/10618600.2023.2174125)
 
-* Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data, [Canadian Journal of Fisheries and Aquatic Sciences, janvier 2023](https://cdnsciencepub.com/doi/abs/10.1139/cjfas-2022-0110)
+* Baptiste Alglave, Youen Vermard, Etienne Rivot, Marie-Pierre Etienne, Matthieu Woillez. Identifying fish spawning grounds by combining catch declarations and scientific survey data, [Canadian Journal of Fisheries and Aquatic Sciences, janvier 2023](https://cdnsciencepub.com/doi/abs/10.1139/cjfas-2022-0110)
 
 
 
@@ -48,31 +51,20 @@ Backward Importance Sampling for Online Estimation of State Space Models [Journa
 * R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea from joint movement metrics of pelagic pair trawlers. [ICES Journal of Marine Science. Volume 78, Issue 5 (2021)](https://academic.oup.com/icesjms/article-abstract/78/5/1758/6276504)
 
 
-## 2020
 
-* J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
+## Before 2020
+
+- 2020. J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
 Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. [Physiologia Plantarum 170 (2), 280-298](https://onlinelibrary.wiley.com/doi/abs/10.1111/ppl.13162).
 
-* N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
+- 2020. N Tysklind, MP Etienne, C Scotti‐Saintagne, A Tinaut, M Casalis, Valerie Troispoux
 SO Cazal, L Brousseau, B Ferry, I Scotti. Microgeographic local adaptation and ecotype distributions: The role of selective processes on early life‐history traits in sympatric, ecologically divergent Symphonia populations. [Ecology and evolution 10 (19), 10735-10753](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.6731)
-		
-* MP Etienne, P Gloaguen, S Le Corff, J Olsson. Backward importance sampling for partially observed diffusion processes
-[arXiv](https://arxiv.org/abs/2002.05438)
 
 
-
-## 2019  
-
-* Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection. Methods in Ecology and Evolution 10 (11), 1894-1907. [arXiV](https://arxiv.org/abs/1810.10213)
+- 2019. Théo Michelot, Pierre Gloaguen, Paul G. Blackwell and  Marie-Pierre Étienne. The Langevin diffusion as a continuous-time model of animal movement and habitat selection. Methods in Ecology and Evolution 10 (11), 1894-1907. [arXiV](https://arxiv.org/abs/1810.10213)
 
 
-* Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
-
-
-
-
-## Before 2018
-
+- 2019. Rémi Patin, Marie-Pierre Étienne, Émilie Lebarbier, Simon Chamaillé-Jammes,Simon Benhamou. Identifying stationary phases in multivariate time-series for highlighting behavioural modes and home range settlements. Journal of Animal Ecology 89 (1), 44-56 [bioRXiv](https://www.biorxiv.org/content/10.1101/444794v1)
 
 - 2018. Marie Perrot-Dockès, Céline Lévy-Leduc, Julien Chiquet, Laure Sansonnet, Margaux Brégère, Marie-Pierre Étienne,  Stéphane Robin, Grégory Genta-Jouve.  [A variable selection approach in the multivariate
 linear model: an application to LC-MS
