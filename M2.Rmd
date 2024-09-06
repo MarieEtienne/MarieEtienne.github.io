@@ -18,6 +18,10 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
+# Topics in Statistics
+
+This starting course for Smart Data master student can be found [here](https://marieetienne.github.io/TopicsInStatistics/)
+
 # Useful tools for a reproducible science
 
 [This course](https://marieetienne.github.io/reproductibilite/_presentation) is a basic introduction of the control versionning system [git](https://git-scm.com/). We will also make use  of the Github plateform.
