@@ -8,12 +8,14 @@ output:
    highlight: tango
    css: style.css
    includes:
-     after_body: extLogo.html
+     # after_body: extLogo.html
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+- Septembre 2024, I am now Associate Professor at [ENSAI](www.ensai.fr) in Rennes.
+
 - The next [Bayes At Cirm Workshop](https://bayesatcirm.github.io/2023/) is planned on October, 30th  2023.
 
 - Youhou !! On December, 9th Baptiste will defend his PhD, Well done Baptiste! 

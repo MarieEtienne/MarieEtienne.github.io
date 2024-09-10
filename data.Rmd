@@ -2,7 +2,6 @@
 title: "Miscellanous datasets"
 output: 
   html_document:
-   logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
    number_sections: false
    highlight: tango
    css: style.css

@@ -4,7 +4,6 @@ output:
   html_document:
    toc: true
    toc_float: true
-   logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
    number_sections: false
    highlight: tango
    css: style.css

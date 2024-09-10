@@ -1,7 +1,6 @@
 name: "Marie-Pierre Etienne"
 output_dir: "."
 navbar:
-  logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
   title: 'Marie-Pierre Etienne'
   left:
   - text: "Bio "

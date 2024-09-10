@@ -3,16 +3,16 @@ title: "Biography"
 output: 
   html_document:
    toc: false
-   logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
+   # logo: INSTITUT_AGRO_Rennes-Angers_CMJN_png
    number_sections: false
    highlight: tango
    css: style.css
 ---
 
+Since 2024: Associate Professor at  [ENSAI](https://ensai.fr/) in the CREST lab.
 
-
-Since 2017 :  Assistant Professor in 
-[Agrocampus Ouest](http://www.agrocampus-ouest.fr)
+Since 2017:  Assistant Professor in 
+[Institut Agro rennes Angers](https://www.institut-agro-rennes-angers.fr/)
 
 ## Previous Positions
 
