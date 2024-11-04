@@ -17,6 +17,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
+# Méthodes d'Analyse Factorielles - ENSAI Première année
+
+Ce cours présentye les méthodes factorielles ACP, AFD, ACM en mettant un accent particulier sur la visualisation et la mise en oeuvre des méthodes. 
+
+[L'ensemble du cours est disponible sur ce site](https://marieetienne.github.io/MAF/) 
+
+
+
 # Démarche statistique 
 
 Ce cours est une introduction à l'analyse de données au sens large. 
