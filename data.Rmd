@@ -33,6 +33,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Pins](datasets/Pin.txt)
 * [Pollen](ss700.csv)
 * [Pollution US](datasets/USAIR2.DAT)
+* [Qualité de vie](datasets/QteVie.csv) provient de l'OCDE et concerne des indicateurs de qualité de vie en 2015. 
 * [Samares](datasets/samares_small.xlsx)
 * [SamaresEq](datasets/SamaresEq.txt)
 * [SamaresEq_disp](datasets/SamaresEq_disp.csv)
