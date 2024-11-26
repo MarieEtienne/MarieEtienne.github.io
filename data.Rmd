@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Biomass diversity](datasets/Biomass_diversity.csv)
 * [Analyse géochimique de sols](datasets/donnees_sols.txt)
 * [Morphologie des chauve souris](datasets/bats.csv)
-* [Cacao](datasets/cafe_guyana.csv)
+* [Cacao](datasets/cafe_guyana.csv) Les qualités de différentes variétés de Cacao.
 * [Croissance](datasets/growth_data.txt)
 * [Comptage du nombre d'espèces de plantes](datasets/plant_species.txt)
 * [Fourmis](datasets/Fourmis.txt)
