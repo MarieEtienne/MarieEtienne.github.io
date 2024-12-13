@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * [Grenouilles de Californie](datasets/Grenouille.don)
 * [Intima Media](datasets/Intima_Media.txt)
 * [Jour du dépassement](datasets/overshootday_overview.csv) Etude de l'empreinte écologique à partir des données de [Global Footprint Network](https://www.footprintnetwork.org/)
-* [ParcourSup2023](datasets/parcoursup2023.csv)
+* [ParcourSup2023](datasets/parcoursup2023.csv) Les données par département des offresde formation sur la plateforme Parcoursup en 2023
 * [Manchots](datasets/Manchots.csv)
 * [Palangre](datasets/LonglineExample.csv)
 * [Pins](datasets/Pin.txt)
