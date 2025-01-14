@@ -16,6 +16,10 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
+# Statistique spatiale
+
+Cours pour les étudiants de la filière Biostatistique à l'ENSAI
+[ici](https://marieetienne.github.io/statspat/)
 
 # Master Smart data
 
