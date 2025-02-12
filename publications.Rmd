@@ -15,12 +15,10 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 ## 2025
 
-* Célian Monchy, Marie-Pierre  Etienne, Olivier GimenezUsing informative priors to account for identifiability issues in occupancy models with identification errors. [Peer Community Journal](https://peercommunityjournal.org/articles/10.24072/pcjournal.511/) 
+* Célian Monchy, Marie-Pierre  Etienne, Olivier GimenezUsing informative priors to account for identifiability issues in occupancy models with identification errors [Peer Community Journal](https://peercommunityjournal.org/articles/10.24072/pcjournal.511/)
 
-		
 
 ## 2024
-
 * [preprint] Nicolas Bez, Pierre Gloaguen, Marie-Pierre Etienne, Rocio Joo, Sophie Lanco, Etienne Rivot, Emily Walker, Mathieu Woillez, Stéphanie Mahévas. Proper account of auto-correlations improves decoding performances of state-space (semi) Markov models [HAL](https://cnrs.hal.science/hal-04547315/)
 
 * Baptiste Alglave, Maxime Olmos, Juliette Casemajor, Marie-Pierre Etienne, Etienne Rivot, Mathieu Woillez, Youen Vermard. Investigating fish reproduction phenology and essential habitats by identifying the main spatio-temporal patterns of fish distribution. [ICES Journal of Marine Science](https://academic.oup.com/icesjms/article/81/8/1563/7727978)
@@ -66,13 +64,18 @@ Backward Importance Sampling for Online Estimation of State Space Models [Journa
 
 ## Before 2021
 
-- Marie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
 
-- Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. [Exposure and Health, 1-18.](https://link.springer.com/article/10.1007/s12403-021-00395-8)
+- 2021. Marie-Pierre Etienne. The Hidden part of Markovian Stochastic processes for Biology and Ecology [pdf](MesPapiers/2021_hdr_etienne.pdf)
 
-- F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. [Ecological Indicators. 123 (2021) 107321](https://www.sciencedirect.com/science/article/pii/S1470160X20312632)
 
-- R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea from joint movement metrics of pelagic pair trawlers. [ICES Journal of Marine Science. Volume 78, Issue 5 (2021)](https://academic.oup.com/icesjms/article-abstract/78/5/1758/6276504)
+
+- 2021. Jeanjean, M., Goix, S., Periot, M., Douib, K., Dron, J., Etienne, M. P., ... & Chamaret, P. (2021). Environmental and Dietary Exposures Near a Major Industrial Harbour (Fos-sur-Mer, France) Identified as a Significant Pathway for PCBs and PCDD/Fs Accumulation in Residents’ Blood Serum. [Exposure and Health, 1-18.](https://link.springer.com/article/10.1007/s12403-021-00395-8)
+
+
+- 2021. F. Behivoke, MP Etienne, J Guitton, R M Randriatsara, E Ranaivoson, M Léopold. Estimating fishing effort in small-scale fisheries using GPS tracking data and random forests. [Ecological Indicators. 123 (2021) 107321](https://www.sciencedirect.com/science/article/pii/S1470160X20312632)
+
+
+- 2021. R Joo, N Bez, MP Etienne, P Marin, N Goascoz, J Roux, S Mahévas. Identifying partners at sea from joint movement metrics of pelagic pair trawlers. [ICES Journal of Marine Science. Volume 78, Issue 5 (2021)](https://academic.oup.com/icesjms/article-abstract/78/5/1758/6276504)
 
 - 2020. J Genitoni, D Vassaux, A Delaunay, S Citerne, L Portillo Lemus,  MP. Etienne, D Renault, S. Stoeckel, D. Barloy, S. Maury. 
 Hypomethylation of the aquatic invasive plant, Ludwigia grandiflora subsp. hexapetala mimics the adaptive transition into the terrestrial morphotype. [Physiologia Plantarum 170 (2), 280-298](https://onlinelibrary.wiley.com/doi/abs/10.1111/ppl.13162).
