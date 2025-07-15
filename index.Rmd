@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
-<img src="img/mpe.gif" alt="mpe" width = "280px" align="right"> </img>
+<img src="img/mpe_resize_0.jpg" alt="mpe" width = "280px" align="right"> </img>
   
   
 
@@ -43,9 +43,5 @@ FRANCE
 
 - <i class="fa fa-at"></i> <a href="mailto:marie-pierre.etienne@ensai.fr">marie-pierre [dot] etienne [at] ensai [dot] fr</a>
 
-
- 
-
- 
 
 
