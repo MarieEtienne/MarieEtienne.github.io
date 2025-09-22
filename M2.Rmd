@@ -36,10 +36,9 @@ Seminar are designed to explore different subjet around the backbone of the Smar
 
 # Useful tools for a reproducible science
 
-[This course](https://marieetienne.github.io/reproductibilite/_presentation) is a basic introduction of the control versionning system [git](https://git-scm.com/). We will also make use  of the Github plateform.
+[This course](https://marieetienne.github.io/reproductibilite/) is a basic introduction of the control versionning system [git](https://git-scm.com/). We will also make use  of the Github plateform.
 
-You can find the book written collaboratively by students as a project for the Online Collaborative Resources course [here](https://marieetienne.github.io/MODE_reproduciblescience/) and the material of the git intro is [here](https://marieetienne.github.io/reproductibilite/_presentation/english_version.html)
-
+You can find the book written collaboratively by students as a project for the Online Collaborative Resources course [here](https://marieetienne.github.io/2024_MODE_OCR/) 
 
 ## Prerequisites
 
