@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
   
 
-I am currently Associate Professor at [ENSAI](https://ensai.fr/),  on leave from [Institut Agro Renens Angers](https://www.institut-agro-rennes-angers.fr/)  where I arrived in 2017.
+I am currently Associate Professor at [ENSAI](https://ensai.fr/),  on leave from [Institut Agro Rennes Angers](https://www.institut-agro-rennes-angers.fr/)  where I arrived in 2017.
 
 I'm specialized in the development of statistical methods for ecology and I enjoy working with people from different background: statisticians, ecologists, fisheries scientists, ...
 You will find more details on the research section.
